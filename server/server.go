@@ -7,17 +7,37 @@ import (
 	"log"
 	"models/user"
 	//"net"
+	"github.com/gookit/config/v2"
+	"github.com/gookit/config/v2/json"
 	"net/http"
 )
 import "github.com/facebookgo/grace/gracenet"
 import "github.com/facebookgo/grace/gracehttp"
 
-const (
-	port = ":50051"
-)
-
 func main() {
 	//load config
+	config.WithOptions(config.ParseEnv)
+
+	// add Decoder and Encoder
+	config.AddDriver(json.Driver)
+
+	err := config.LoadFiles("etc/config.json")
+	if err != nil {
+		panic(err)
+	}
+	log.Printf("config data: \n %#v\n", config.Data())
+	listen_rpc := config.String("listen.rpc", "")
+	if listen_rpc == "" {
+		panic("rpc port is empty")
+	}
+	listen_http := config.String("listen.http", "")
+	if listen_http == "" {
+		panic("http port is empty")
+	}
+	proxy_rpc := config.String("proxy.rpc", "")
+	if proxy_rpc== "" {
+		panic("proxy_rpc is empty")
+	}
 
 	//init db
 
@@ -32,13 +52,13 @@ func main() {
 		mux := runtime.NewServeMux()
 		opts := []grpc.DialOption{grpc.WithInsecure()}
 		//register http proxy
-		err := user.RegisterHttp(ctx, mux, "127.0.0.1:50051", opts)
+		err := user.RegisterHttp(ctx, mux, proxy_rpc, opts)
 		if err != nil {
 			log.Printf("error:%v", err)
 		}
 
 		gracehttp.Serve(
-			&http.Server{Addr: ":8082", Handler: mux},
+			&http.Server{Addr: listen_http, Handler: mux},
 		)
 	}()
 
@@ -53,7 +73,7 @@ func main() {
 	//register grpc
 	user.Register(s)
 	net := gracenet.Net{}
-	lis, err := net.Listen("tcp", port)
+	lis, err := net.Listen("tcp", listen_rpc)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}

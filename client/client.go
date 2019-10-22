@@ -9,16 +9,32 @@ import (
 
 	"proto/user/info"
 	"proto/user/profile"
+	"github.com/gookit/config/v2"
+	"github.com/gookit/config/v2/json"
 )
 
 const (
-	address     = "127.0.0.1:50051"
 	defaultName = "world"
 )
 
 func main() {
+	//load config
+	config.WithOptions(config.ParseEnv)
+
+	// add Decoder and Encoder
+	config.AddDriver(json.Driver)
+
+	err := config.LoadFiles("etc/config.json")
+	if err != nil {
+		panic(err)
+	}
+	log.Printf("config data: \n %#v\n", config.Data())
+	proxy_rpc := config.String("proxy.rpc", "")
+	if proxy_rpc== "" {
+		panic("proxy_rpc is empty")
+	}
 	// Set up a connection to the server.
-	conn, err := grpc.Dial(address, grpc.WithInsecure())
+	conn, err := grpc.Dial(proxy_rpc, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
