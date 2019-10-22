@@ -5,10 +5,10 @@ import (
 	"log"
 	"os"
 	"time"
-
 	"google.golang.org/grpc"
-	 //pb "helloworld"
-	"proto/user"
+
+	"proto/user/info"
+	"proto/user/profile"
 )
 
 const (
@@ -23,7 +23,7 @@ func main() {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	c := user.NewInfoClient(conn)
+	c := info.NewInfoClient(conn)
 
 	// Contact the server and print out its response.
 	name := defaultName
@@ -32,9 +32,22 @@ func main() {
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.Login(ctx, &user.LoginRequest{Name: name})
+	r, err := c.Login(ctx, &info.LoginRequest{Name: name})
 	if err != nil {
-		log.Fatalf("could not greet: %v", err)
+		log.Printf("could not greet: %v", err)
 	}
 	log.Printf("Greeting: %s", r.GetMessage())
+
+	d := profile.NewProfileClient(conn)
+	s, err := d.Update(ctx, &profile.UpdateRequest{Name: name})
+	if err != nil {
+		log.Printf("could not greet: %v", err)
+	}
+	log.Printf("Greeting: %s", s.GetMessage())
+
+	t, err := d.Get(ctx, &profile.GetRequest{Name: name})
+	if err != nil {
+		log.Printf("could not greet: %v", err)
+	}
+	log.Printf("Greeting: %s", t.GetMessage())
 }

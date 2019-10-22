@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 
-package user;
+package info;
 import "google/api/annotations.proto";
 
 // The greeter service definition.
@@ -13,6 +13,16 @@ service Info{
 	rpc logout(LogoutRequest) returns (LogoutResponse) {
 		option (google.api.http) = { post: "/v1/user/login" };
 	}
+}
+message Request{
+	string name = 1;
+	string password = 2;
+	string verify_code= 3;
+}
+message Response{
+	string name = 1;
+	string password = 2;
+	string verify_code= 3;
 }
 
 message LoginRequest{

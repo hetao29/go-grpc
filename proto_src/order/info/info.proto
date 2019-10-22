@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+package order;
+import "google/api/annotations.proto";
+
+// The greeter service definition.
+service Info{
+	// Sends a greeting
+	rpc Add(AddRequest) returns (AddResponse) {
+		option (google.api.http) = { post: "/v1/order/add" };
+	}
+	rpc List(ListRequest) returns (ListResponse) {
+		option (google.api.http) = { post: "/v1/order/list" };
+	}
+}
+
+message AddRequest{
+	string name = 1;
+	string password = 2;
+	string verify_code= 3;
+}
+message AddResponse{
+	int32 code = 1;
+	string message = 2;
+	string token = 3;
+}
+
+message ListRequest{
+	string name = 1;
+	string token = 2;
+}
+message ListResponse{
+	int32 code = 1;
+	string message = 2;
+}
