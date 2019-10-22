@@ -11,7 +11,9 @@ class ComposerStaticInit5fbfce604236daa838195f1d2fec18af
         array (
             'Grpc\\' => 5,
             'Google\\Protobuf\\' => 16,
+            'Google\\' => 7,
             'GPBMetadata\\Google\\Protobuf\\' => 28,
+            'GPBMetadata\\Google\\' => 19,
         ),
     );
 
@@ -24,9 +26,17 @@ class ComposerStaticInit5fbfce604236daa838195f1d2fec18af
         array (
             0 => __DIR__ . '/..' . '/google/protobuf/src/Google/Protobuf',
         ),
+        'Google\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/common-protos/src',
+        ),
         'GPBMetadata\\Google\\Protobuf\\' => 
         array (
             0 => __DIR__ . '/..' . '/google/protobuf/src/GPBMetadata/Google/Protobuf',
+        ),
+        'GPBMetadata\\Google\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/common-protos/metadata',
         ),
     );
 

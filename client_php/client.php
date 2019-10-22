@@ -5,28 +5,19 @@ require_once("../proto/php/Info/LoginRequest.php");
 require_once("../proto/php/Info/LoginResponse.php");
 require_once("../proto/php/Info/InfoClient.php");
 try{
-	$client = new Info\InfoClient("127.0.0.1:50001",[
+	$client = new Info\InfoClient("127.0.0.1:50000",[
 			'credentials' => Grpc\ChannelCredentials::createInsecure()
 	]);
 	$request = new Info\LoginRequest();
 	$name="hetal";
 	$request->setName($name);
 	//print_r($request);
-	list($reply, $status) = $client->login($request)->wait();
-	$message = $reply->getMessage();
-	//print_r($reply);
-	print_r($message);
-	//echo strlen($message);
-	//echo "\n";
-	echo "\n\n\nxxx\n";
-	$data = get("http://127.0.0.1:50001/v1/helloworld/xxx");
+	list($status,$r) = $client->login($request)->wait();
+	var_dump($status);
+	print_r($r);
+	$data = get("http://127.0.0.1:50001/v1/user/profile/get");
 	echo $data;
-	echo strlen($data);
-	$response = new Helloworld\HelloResponse($data);
-	$message = $response->getMessage();
-	//print_r($reply);
-	print_r($message);
-	echo "\n\n\nxxx\n";
+	echo "\n";
 
 }catch(Exception $e){
 	print_r($e);

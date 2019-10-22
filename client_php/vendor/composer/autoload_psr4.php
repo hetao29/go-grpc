@@ -8,5 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Grpc\\' => array($vendorDir . '/grpc/grpc/src/lib'),
     'Google\\Protobuf\\' => array($vendorDir . '/google/protobuf/src/Google/Protobuf'),
+    'Google\\' => array($vendorDir . '/google/common-protos/src'),
     'GPBMetadata\\Google\\Protobuf\\' => array($vendorDir . '/google/protobuf/src/GPBMetadata/Google/Protobuf'),
+    'GPBMetadata\\Google\\' => array($vendorDir . '/google/common-protos/metadata'),
 );

@@ -1,5 +1,46 @@
 [
     {
+        "name": "google/common-protos",
+        "version": "1.1",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/googleapis/common-protos-php.git",
+            "reference": "89dd797f0620b3399121b027794b18de91e1269f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/googleapis/common-protos-php/zipball/89dd797f0620b3399121b027794b18de91e1269f",
+            "reference": "89dd797f0620b3399121b027794b18de91e1269f",
+            "shasum": ""
+        },
+        "require": {
+            "google/protobuf": "^3.6.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.36",
+            "sami/sami": "*"
+        },
+        "time": "2019-07-24T01:25:25+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\": "src",
+                "GPBMetadata\\Google\\": "metadata"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Google API Common Protos for PHP",
+        "homepage": "https://github.com/googleapis/common-protos-php",
+        "keywords": [
+            "google"
+        ]
+    },
+    {
         "name": "google/protobuf",
         "version": "v3.10.0",
         "version_normalized": "3.10.0.0",
