@@ -4,11 +4,11 @@ go 1.12
 
 replace models/user => ./models/user
 
-replace proto/user/info => ./proto/proto_src/user/info
+replace proto/user/info => ./proto/user/info
 
-replace proto/order/info => ./proto/proto_src/order/info
+replace proto/order/info => ./proto/order/info
 
-replace proto/user/profile => ./proto/proto_src/user/profile
+replace proto/user/profile => ./proto/user/profile
 
 require (
 	google.golang.org/grpc v1.24.0
