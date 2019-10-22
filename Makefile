@@ -17,3 +17,6 @@ genproto:
 	       --grpc-gateway_out=logtostderr=true:proto \
 	       --plugin=proto-google-common-protos --go_out=plugins=grpc:proto \
 	       "{}"
+test:
+	curl -v http://127.0.0.1:8081/v1/user/profile/get
+	curl -v http://127.0.0.1:8081/v1/user/login -X POST -d '{"name":"x","password":"P"}'
