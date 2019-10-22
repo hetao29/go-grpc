@@ -8,10 +8,10 @@ import "google/api/annotations.proto";
 service Profile{
 	// Sends a greeting
 	rpc Update(UpdateRequest) returns (UpdateResponse) {
-		option (google.api.http) = { post: "/v1/user/profile" };
+		option (google.api.http) = { post: "/v1/user/profile/update" };
 	}
 	rpc Get(GetRequest) returns (GetResponse) {
-		option (google.api.http) = { post: "/v1/user/profile/list" };
+		option (google.api.http) = { get: "/v1/user/profile/get" };
 	}
 }
 message Request{

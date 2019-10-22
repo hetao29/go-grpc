@@ -1,7 +1,7 @@
 package main
 
 import (
-	//"context"
+"context"
 	"google.golang.org/grpc"
 	"log"
 	"net"
@@ -30,6 +30,13 @@ func main() {
 	}
 	s := grpc.NewServer()
 	user.Register(s)
+
+	ctx := context.Background()
+	go func() {
+		defer s.GracefulStop()
+			<-ctx.Done()
+	}()
+
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}

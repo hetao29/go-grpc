@@ -11,6 +11,7 @@ replace proto/order/info => ./proto/order/info
 replace proto/user/profile => ./proto/user/profile
 
 require (
+	github.com/grpc-ecosystem/grpc-gateway v1.11.3 // indirect
 	google.golang.org/grpc v1.24.0
 	models/user v0.0.0-00010101000000-000000000000
 	proto/user/info v0.0.0-00010101000000-000000000000

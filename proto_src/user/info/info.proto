@@ -8,10 +8,16 @@ import "google/api/annotations.proto";
 service Info{
 	// Sends a greeting
 	rpc login(LoginRequest) returns (LoginResponse) {
-		option (google.api.http) = { post: "/v1/user/login" };
+		option (google.api.http) = { 
+			post: "/v1/user/login" 
+			body: "*"
+		};
 	}
 	rpc logout(LogoutRequest) returns (LogoutResponse) {
-		option (google.api.http) = { post: "/v1/user/login" };
+		option (google.api.http) = { 
+			post: "/v1/user/logout" 
+			body: "*"
+		};
 	}
 }
 message Request{
