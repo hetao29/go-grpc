@@ -2,10 +2,10 @@ package main
 
 import (
 	"context"
+	"google.golang.org/grpc"
 	"log"
 	"os"
 	"time"
-	"google.golang.org/grpc"
 
 	"proto/user/info"
 	"proto/user/profile"
