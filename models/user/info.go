@@ -1,18 +1,23 @@
 package user
+import (
+	context "context"
+	"google.golang.org/grpc"
+	"proto/user"
+	status "google.golang.org/grpc/status"
+	codes "google.golang.org/grpc/codes"
+)
 
 func init() {
 }
-func NewUserInfo() *UserInfo {
-	return new(UserInfo)
+type Info struct {
+	user.UnimplementedInfoServer
 }
-
-type UserInfo struct {
-	name string
+func Register(s *grpc.Server, srv user.InfoServer){
+	user.RegisterInfoServer(s, srv)
 }
-
-func (this *UserInfo) Set(v string) {
-	this.name = v
+func (info*Info) Login(ctx context.Context, req *user.LoginRequest) (*user.LoginResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
-func (this *UserInfo) Get() string {
-	return this.name
+func (info*Info) Logout(ctx context.Context, req *user.LogoutRequest) (*user.LogoutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
 }
