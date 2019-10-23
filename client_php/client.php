@@ -11,10 +11,10 @@ spl_autoload_register(function($class){
 });
 
 try{
-	$client = new Info\InfoClient("127.0.0.1:50000",[
+	$client = new User\Info\InfoClient("127.0.0.1:50000",[
 			'credentials' => Grpc\ChannelCredentials::createInsecure()
 	]);
-	$request = new Info\LoginRequest();
+	$request = new User\Info\LoginRequest();
 	$name="hetal";
 	$request->setName($name);
 	//print_r($request);
@@ -22,21 +22,21 @@ try{
 	var_dump($status);
 	print_r($r);
 
-	$request = new Info\LogoutRequest();
+	$request = new User\Info\LogoutRequest();
 	list($status,$r) = $client->logout($request)->wait();
 	var_dump($status);
 	print_r($r);
 
-	$client = new Profile\ProfileClient("127.0.0.1:50000",[
+	$client = new User\Profile\ProfileClient("127.0.0.1:50000",[
 			'credentials' => Grpc\ChannelCredentials::createInsecure()
 	]);
 
-	$request = new Profile\GetRequest();
+	$request = new User\Profile\GetRequest();
 	list($status,$r) = $client->get($request)->wait();
 	var_dump($status);
 	print_r($r);
 
-	$request = new Profile\UpdateRequest();
+	$request = new User\Profile\UpdateRequest();
 	list($status,$r) = $client->update($request)->wait();
 	var_dump($status);
 	print_r($r);

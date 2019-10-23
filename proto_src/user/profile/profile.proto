@@ -1,7 +1,8 @@
 syntax = "proto3";
 
 
-package profile;
+package user.profile;
+option go_package = "profile";
 import "google/api/annotations.proto";
 
 // The greeter service definition.

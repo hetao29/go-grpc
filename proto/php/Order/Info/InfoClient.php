@@ -1,7 +1,7 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Info;
+namespace Order\Info;
 
 /**
  * The greeter service definition.
@@ -19,28 +19,28 @@ class InfoClient extends \Grpc\BaseStub {
 
     /**
      * Sends a greeting
-     * @param \Info\LoginRequest $argument input argument
+     * @param \Order\Info\AddRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      */
-    public function login(\Info\LoginRequest $argument,
+    public function Add(\Order\Info\AddRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/info.Info/login',
+        return $this->_simpleRequest('/order.info.Info/Add',
         $argument,
-        ['\Info\LoginResponse', 'decode'],
+        ['\Order\Info\AddResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
-     * @param \Info\LogoutRequest $argument input argument
+     * @param \Order\Info\ListRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      */
-    public function logout(\Info\LogoutRequest $argument,
+    public function List(\Order\Info\ListRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/info.Info/logout',
+        return $this->_simpleRequest('/order.info.Info/List',
         $argument,
-        ['\Info\LogoutResponse', 'decode'],
+        ['\Order\Info\ListResponse', 'decode'],
         $metadata, $options);
     }
 

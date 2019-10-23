@@ -1,7 +1,7 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Profile;
+namespace User\Profile;
 
 /**
  * The greeter service definition.
@@ -19,28 +19,28 @@ class ProfileClient extends \Grpc\BaseStub {
 
     /**
      * Sends a greeting
-     * @param \Profile\UpdateRequest $argument input argument
+     * @param \User\Profile\UpdateRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      */
-    public function Update(\Profile\UpdateRequest $argument,
+    public function Update(\User\Profile\UpdateRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/profile.Profile/Update',
+        return $this->_simpleRequest('/user.profile.Profile/Update',
         $argument,
-        ['\Profile\UpdateResponse', 'decode'],
+        ['\User\Profile\UpdateResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
-     * @param \Profile\GetRequest $argument input argument
+     * @param \User\Profile\GetRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      */
-    public function Get(\Profile\GetRequest $argument,
+    public function Get(\User\Profile\GetRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/profile.Profile/Get',
+        return $this->_simpleRequest('/user.profile.Profile/Get',
         $argument,
-        ['\Profile\GetResponse', 'decode'],
+        ['\User\Profile\GetResponse', 'decode'],
         $metadata, $options);
     }
 

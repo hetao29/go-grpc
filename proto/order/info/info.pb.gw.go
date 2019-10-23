@@ -2,11 +2,11 @@
 // source: order/info/info.proto
 
 /*
-Package order is a reverse proxy.
+Package info is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package order
+package info
 
 import (
 	"context"

@@ -1,7 +1,8 @@
 syntax = "proto3";
 
 
-package order;
+package order.info;
+option go_package = "info";
 import "google/api/annotations.proto";
 
 // The greeter service definition.
