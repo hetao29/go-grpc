@@ -10,10 +10,19 @@ init:
 	go get -u github.com/golang/protobuf/protoc-gen-go
 genproto:
 	find proto_src -name "*.proto" | xargs -I {} protoc \
-	       --proto_path=/Users/hetal/grpc/third_party/googleapis \
+	       --proto_path=/home/hetao/grpc/third_party/googleapis \
 	       --proto_path=proto_src \
 	       --grpc-gateway_out=logtostderr=true:proto \
 	       --plugin=proto-google-common-protos --go_out=plugins=grpc:proto \
+	       "{}"
+genjavaproto:
+	find proto_src -name "*.proto" | xargs -I {} protoc \
+	       --proto_path=/home/hetao/grpc/third_party/googleapis \
+	       --proto_path=proto_src \
+	       --plugin=proto-google-common-protos \
+		   --java_out=proto/java \
+		   --grpc-java_out=proto/java \
+		   --plugin=protoc-gen-grpc-java=/home/hetao/grpc-java/compiler/build/exe/java_plugin/protoc-gen-grpc-java \
 	       "{}"
 genphpproto:
 	#https://github.com/grpc/grpc/tree/master/src/php
