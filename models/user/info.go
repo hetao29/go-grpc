@@ -23,10 +23,13 @@ func RegisterHttp(ctx context.Context, mux *runtime.ServeMux, endpoint string, o
 	profile.RegisterProfileHandlerFromEndpoint(ctx , mux , endpoint , opts ) ;
 	return nil;
 }
-func (info*Info) Login(ctx context.Context, req *info.LoginRequest) (*info.LoginResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "Logined ")
+func (i*Info) Login(ctx context.Context, req *info.LoginRequest) (*info.LoginResponse, error) {
+	response := &info.LoginResponse{};
+		  response.Code=1;
+		  response.Message=req.GetName() + " Login Success!";
+	return response, nil
 }
-func (info*Info) Logout(ctx context.Context, req *info.LogoutRequest) (*info.LogoutResponse, error) {
+func (i*Info) Logout(ctx context.Context, req *info.LogoutRequest) (*info.LogoutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "Logoutout ")
 }
 type Profile struct {

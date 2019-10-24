@@ -18,28 +18,29 @@ try{
 	$name="hetal";
 	$request->setName($name);
 	//print_r($request);
-	list($status,$r) = $client->login($request)->wait();
-	var_dump($status);
-	print_r($r);
+	list($reply,$error) = $client->login($request)->wait();
+	var_dump($reply);
+	var_dump($reply->getMessage());
+	print_r($error);
 
-	$request = new User\Info\LogoutRequest();
-	list($status,$r) = $client->logout($request)->wait();
-	var_dump($status);
-	print_r($r);
+	//$request = new User\Info\LogoutRequest();
+	//list($status,$r) = $client->logout($request)->wait();
+	//var_dump($status);
+	//print_r($r);
 
-	$client = new User\Profile\ProfileClient("127.0.0.1:50000",[
-			'credentials' => Grpc\ChannelCredentials::createInsecure()
-	]);
+	//$client = new User\Profile\ProfileClient("127.0.0.1:50000",[
+	//		'credentials' => Grpc\ChannelCredentials::createInsecure()
+	//]);
 
-	$request = new User\Profile\GetRequest();
-	list($status,$r) = $client->get($request)->wait();
-	var_dump($status);
-	print_r($r);
+	//$request = new User\Profile\GetRequest();
+	//list($status,$r) = $client->get($request)->wait();
+	//var_dump($status);
+	//print_r($r);
 
-	$request = new User\Profile\UpdateRequest();
-	list($status,$r) = $client->update($request)->wait();
-	var_dump($status);
-	print_r($r);
+	//$request = new User\Profile\UpdateRequest();
+	//list($status,$r) = $client->update($request)->wait();
+	//var_dump($status);
+	//print_r($r);
 
 	$data = get("http://127.0.0.1:50001/v1/user/profile/get");
 	echo $data;
