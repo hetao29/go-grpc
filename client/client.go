@@ -42,13 +42,14 @@ func main() {
 	c := info.NewInfoClient(conn)
 
 	// Contact the server and print out its response.
-	name := defaultName
+	name := "admin"
+	pwd := "123456"
 	if len(os.Args) > 1 {
 		name = os.Args[1]
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.Login(ctx, &info.LoginRequest{Name: name})
+	r, err := c.Login(ctx, &info.LoginRequest{Name: name,Password:pwd})
 	if err != nil {
 		log.Printf("could not greet: %v", err)
 	}

@@ -24,12 +24,19 @@ func RegisterHttp(ctx context.Context, mux *runtime.ServeMux, endpoint string, o
 	profile.RegisterProfileHandlerFromEndpoint(ctx , mux , endpoint , opts ) ;
 	return nil;
 }
-func (info*Info) Login(ctx context.Context, req *info.LoginRequest) (*info.LoginResponse, error) {
-	user := Get();
+func (i*Info) Login(ctx context.Context, req *info.LoginRequest) (*info.LoginResponse, error) {
+	user := GetByNameAndPwd(req.Name, req.Password);
 	fmt.Println(user.ID)
-	return nil, status.Errorf(codes.Unimplemented, "Logined ")
+	if user.ID!=0 {
+	response := &info.LoginResponse{}
+	response.Code = (int32)(user.ID)
+	response.Message = user.Name
+	return response,nil// status.Errorf(codes.Unimplemented, "Logined ")
+	}else{
+		return nil, status.Errorf(codes.Unimplemented, "user not exists or pwd error!")
+	}
 }
-func (info*Info) Logout(ctx context.Context, req *info.LogoutRequest) (*info.LogoutResponse, error) {
+func (i*Info) Logout(ctx context.Context, req *info.LogoutRequest) (*info.LogoutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "Logoutout ")
 }
 type Profile struct {
