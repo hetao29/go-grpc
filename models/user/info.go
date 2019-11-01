@@ -1,6 +1,7 @@
 package user
 import (
 	context "context"
+	"fmt"
 	"google.golang.org/grpc"
 	"proto/user/info"
 	"proto/user/profile"
@@ -24,6 +25,8 @@ func RegisterHttp(ctx context.Context, mux *runtime.ServeMux, endpoint string, o
 	return nil;
 }
 func (info*Info) Login(ctx context.Context, req *info.LoginRequest) (*info.LoginResponse, error) {
+	user := Get();
+	fmt.Println(user.ID)
 	return nil, status.Errorf(codes.Unimplemented, "Logined ")
 }
 func (info*Info) Logout(ctx context.Context, req *info.LogoutRequest) (*info.LogoutResponse, error) {

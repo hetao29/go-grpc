@@ -6,6 +6,7 @@ import (
 	"google.golang.org/grpc"
 	"log"
 	"models/user"
+	"models/utility"
 	//"net"
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/json"
@@ -25,6 +26,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	db := utility.Db{};
+	db.Config()
+	db.Init();
+
 	log.Printf("config data: \n %#v\n", config.Data())
 	listen_rpc := config.String("listen.rpc", "")
 	if listen_rpc == "" {
