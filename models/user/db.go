@@ -2,11 +2,12 @@ package user
 
 import (
 	"fmt"
-	"net/http"
-	"encoding/json"
-	"database/sql"
+	//"net/http"
+	//"encoding/json"
+	//"database/sql"
 	"models/utility"
-	"github.com/gin-gonic/gin"
+	//"github.com/gin-gonic/gin"
+"github.com/jinzhu/gorm"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -28,9 +29,9 @@ type User struct {
 }
 type Result struct {
 	Code int   `json:"code"`
-	Data []Tag `json:"data"`
+	//Data []Tag `json:"data"`
 }
-func Get()(User){
+func Get()(*User){
 	user := &User{};
 	utility.Conn.First(&user)
 	return user;

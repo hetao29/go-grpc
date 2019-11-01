@@ -4,7 +4,7 @@ import (
 	//"database/sql"
 	"github.com/jinzhu/gorm"
 	_ "github.com/go-sql-driver/mysql"
-	"net/http"
+	//"net/http"
 )
 type Context struct{
 	gorm.Model
