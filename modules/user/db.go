@@ -1,14 +1,14 @@
 package user
 
 import (
-	"fmt"
+	//"fmt"
 	//"net/http"
 	//"encoding/json"
 	//"database/sql"
 	"modules/utility"
 	//"github.com/gin-gonic/gin"
 	//"github.com/jinzhu/gorm"
-	_ "github.com/go-sql-driver/mysql"
+	//_ "github.com/go-sql-driver/mysql"
 )
 
 /*
@@ -20,7 +20,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 */
 func init() {
-	fmt.Println("world")
+	//fmt.Println("world")
 	//我们还可以做其他更高阶的事情，比如 platform.RegisterPlugin({"func": Hello}) 之类的，向插件平台自动注册该插件的函数
 }
 type User struct {
