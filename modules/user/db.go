@@ -5,7 +5,7 @@ import (
 	//"net/http"
 	//"encoding/json"
 	//"database/sql"
-	"models/utility"
+	"modules/utility"
 	//"github.com/gin-gonic/gin"
 	//"github.com/jinzhu/gorm"
 	_ "github.com/go-sql-driver/mysql"

@@ -2,9 +2,9 @@ module main
 
 go 1.12
 
-replace models/user => ./models/user
+replace modules/user => ./modules/user
 
-replace models/utility => ./models/utility
+replace modules/utility => ./modules/utility
 
 replace proto/user/info => ./proto/user/info
 
@@ -22,8 +22,8 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway v1.11.3
 	github.com/jinzhu/gorm v1.9.11 // indirect
 	google.golang.org/grpc v1.24.0
-	models/user v0.0.0-00010101000000-000000000000
-	models/utility v0.0.0-00010101000000-000000000000
+	modules/user v0.0.0-00010101000000-000000000000
+	modules/utility v0.0.0-00010101000000-000000000000
 	proto/user/info v0.0.0-00010101000000-000000000000
 	proto/user/profile v0.0.0-00010101000000-000000000000
 )
