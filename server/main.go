@@ -58,10 +58,7 @@ func main() {
 		mux := runtime.NewServeMux()
 		opts := []grpc.DialOption{grpc.WithInsecure()}
 		//register http proxy
-		err := user.RegisterHttp(ctx, mux, proxy_rpc, opts)
-		if err != nil {
-			log.Printf("error:%v", err)
-		}
+		user.RegisterHttp(ctx, mux, proxy_rpc, opts)
 
 		gracehttp.Serve(
 			&http.Server{Addr: listen_http, Handler: mux},

@@ -1,3 +1,4 @@
 bin/*
 *.swp
+.DS_Store
 client_java/target/

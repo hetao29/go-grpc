@@ -4,6 +4,8 @@ go 1.12
 
 replace modules/user => ./modules/user
 
+replace modules/user/info => ./modules/user/info
+
 replace modules/utility => ./modules/utility
 
 replace proto/user/info => ./proto/user/info
