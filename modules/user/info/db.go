@@ -1,7 +1,7 @@
 package info
 
 import (
-	//"fmt"
+	"fmt"
 	//"net/http"
 	//"encoding/json"
 	//"database/sql"
@@ -32,9 +32,11 @@ type Result struct {
 	//Data []Tag `json:"data"`
 }
 func GetByNameAndPwd(name string,pwd string)(*User){
-	conn := utility.Conn.Table("user");
+	conn := utility.Db.Table("user");
 	user := &User{};
 	conn.Where("name = ? AND password = ?",name,pwd).First(&user)
+		length := utility.Redis.Len();
+	fmt.Println("ring length:",length);
 	return user;
 }
 

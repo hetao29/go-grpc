@@ -27,9 +27,11 @@ func main() {
 		panic(err)
 	}
 
-	db := utility.Db{};
-	db.Config()
-	db.Init();
+	utility.InitDb(utility.DbConfig{});//{};
+	utility.InitRedis(utility.RedisConfig{});//{};
+	//db := utility.Db{};
+	//db.Config()
+	//db.Init();
 
 	log.Printf("config data: \n %#v\n", config.Data())
 	listen_rpc := config.String("listen.rpc", "")

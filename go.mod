@@ -20,6 +20,7 @@ require (
 	github.com/facebookgo/httpdown v0.0.0-20180706035922-5979d39b15c2 // indirect
 	github.com/facebookgo/stats v0.0.0-20151006221625-1b76add642e4 // indirect
 	github.com/gin-gonic/gin v1.4.0 // indirect
+	github.com/go-redis/redis/v7 v7.0.0-beta.4 // indirect
 	github.com/gookit/config/v2 v2.0.12
 	github.com/grpc-ecosystem/grpc-gateway v1.11.3
 	github.com/jinzhu/gorm v1.9.11 // indirect
