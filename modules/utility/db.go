@@ -3,6 +3,7 @@ package utility
 import (
 	//"database/sql"
 	"fmt"
+	//import mysql driver
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gookit/config/v2"
 	"github.com/jinzhu/gorm"
