@@ -14,15 +14,19 @@ use Google\Protobuf\Internal\GPBUtil;
 class LoginRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>.common.Error error = 1;</code>
+     */
+    private $error = null;
+    /**
+     * Generated from protobuf field <code>string name = 2;</code>
      */
     private $name = '';
     /**
-     * Generated from protobuf field <code>string password = 2;</code>
+     * Generated from protobuf field <code>string password = 3;</code>
      */
     private $password = '';
     /**
-     * Generated from protobuf field <code>string verify_code = 3;</code>
+     * Generated from protobuf field <code>string verify_code = 4;</code>
      */
     private $verify_code = '';
 
@@ -32,6 +36,7 @@ class LoginRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
+     *     @type \Common\Error $error
      *     @type string $name
      *     @type string $password
      *     @type string $verify_code
@@ -43,7 +48,29 @@ class LoginRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>.common.Error error = 1;</code>
+     * @return \Common\Error
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * Generated from protobuf field <code>.common.Error error = 1;</code>
+     * @param \Common\Error $var
+     * @return $this
+     */
+    public function setError($var)
+    {
+        GPBUtil::checkMessage($var, \Common\Error::class);
+        $this->error = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string name = 2;</code>
      * @return string
      */
     public function getName()
@@ -52,7 +79,7 @@ class LoginRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -65,7 +92,7 @@ class LoginRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string password = 2;</code>
+     * Generated from protobuf field <code>string password = 3;</code>
      * @return string
      */
     public function getPassword()
@@ -74,7 +101,7 @@ class LoginRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string password = 2;</code>
+     * Generated from protobuf field <code>string password = 3;</code>
      * @param string $var
      * @return $this
      */
@@ -87,7 +114,7 @@ class LoginRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string verify_code = 3;</code>
+     * Generated from protobuf field <code>string verify_code = 4;</code>
      * @return string
      */
     public function getVerifyCode()
@@ -96,7 +123,7 @@ class LoginRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string verify_code = 3;</code>
+     * Generated from protobuf field <code>string verify_code = 4;</code>
      * @param string $var
      * @return $this
      */

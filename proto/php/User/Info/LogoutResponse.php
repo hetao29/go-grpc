@@ -14,13 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class LogoutResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>int32 code = 1;</code>
+     * Generated from protobuf field <code>.common.Error error = 1;</code>
      */
-    private $code = 0;
-    /**
-     * Generated from protobuf field <code>string message = 2;</code>
-     */
-    private $message = '';
+    private $error = null;
 
     /**
      * Constructor.
@@ -28,8 +24,7 @@ class LogoutResponse extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type int $code
-     *     @type string $message
+     *     @type \Common\Error $error
      * }
      */
     public function __construct($data = NULL) {
@@ -38,45 +33,23 @@ class LogoutResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int32 code = 1;</code>
-     * @return int
+     * Generated from protobuf field <code>.common.Error error = 1;</code>
+     * @return \Common\Error
      */
-    public function getCode()
+    public function getError()
     {
-        return $this->code;
+        return $this->error;
     }
 
     /**
-     * Generated from protobuf field <code>int32 code = 1;</code>
-     * @param int $var
+     * Generated from protobuf field <code>.common.Error error = 1;</code>
+     * @param \Common\Error $var
      * @return $this
      */
-    public function setCode($var)
+    public function setError($var)
     {
-        GPBUtil::checkInt32($var);
-        $this->code = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string message = 2;</code>
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
-     * Generated from protobuf field <code>string message = 2;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setMessage($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->message = $var;
+        GPBUtil::checkMessage($var, \Common\Error::class);
+        $this->error = $var;
 
         return $this;
     }

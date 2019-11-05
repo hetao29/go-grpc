@@ -38,8 +38,8 @@ func (i *Info) Login(ctx context.Context, req *info.LoginRequest) (*info.LoginRe
 	fmt.Println(user.ID)
 	if user.ID != 0 {
 		response := &info.LoginResponse{}
-		response.Code = (int32)(user.ID)
-		response.Message = user.Name
+		response.Info.Uid= (int64)(user.ID)
+		response.Info.Name= user.Name
 		return response, nil // status.Errorf(codes.Unimplemented, "Logined ")
 	}
 	return nil, status.Errorf(codes.Unimplemented, "user not exists or pwd error!")

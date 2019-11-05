@@ -14,11 +14,15 @@ use Google\Protobuf\Internal\GPBUtil;
 class LogoutRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>.common.Error error = 1;</code>
+     */
+    private $error = null;
+    /**
+     * Generated from protobuf field <code>string name = 2;</code>
      */
     private $name = '';
     /**
-     * Generated from protobuf field <code>string token = 2;</code>
+     * Generated from protobuf field <code>string token = 3;</code>
      */
     private $token = '';
 
@@ -28,6 +32,7 @@ class LogoutRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
+     *     @type \Common\Error $error
      *     @type string $name
      *     @type string $token
      * }
@@ -38,7 +43,29 @@ class LogoutRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>.common.Error error = 1;</code>
+     * @return \Common\Error
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * Generated from protobuf field <code>.common.Error error = 1;</code>
+     * @param \Common\Error $var
+     * @return $this
+     */
+    public function setError($var)
+    {
+        GPBUtil::checkMessage($var, \Common\Error::class);
+        $this->error = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string name = 2;</code>
      * @return string
      */
     public function getName()
@@ -47,7 +74,7 @@ class LogoutRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -60,7 +87,7 @@ class LogoutRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token = 2;</code>
+     * Generated from protobuf field <code>string token = 3;</code>
      * @return string
      */
     public function getToken()
@@ -69,7 +96,7 @@ class LogoutRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token = 2;</code>
+     * Generated from protobuf field <code>string token = 3;</code>
      * @param string $var
      * @return $this
      */

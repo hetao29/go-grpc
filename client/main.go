@@ -53,7 +53,7 @@ func main() {
 	if err != nil {
 		log.Printf("could not greet: %v", err)
 	}
-	log.Printf("Greeting: %s", r.GetMessage())
+	log.Printf("Greeting: %v", r.GetInfo())
 
 	d := profile.NewProfileClient(conn)
 	s, err := d.Update(ctx, &profile.UpdateRequest{Name: name})

@@ -20,7 +20,7 @@ try{
 	//print_r($request);
 	list($reply,$error) = $client->login($request)->wait();
 	var_dump($reply);
-	var_dump($reply->getMessage());
+	var_dump($reply->getInfo());
 	print_r($error);
 
 	//$request = new User\Info\LogoutRequest();
