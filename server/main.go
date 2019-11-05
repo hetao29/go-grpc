@@ -8,6 +8,7 @@ import (
 	"modules/user"
 	"modules/utility"
 	//"net"
+	"fmt"
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/json"
 	"net/http"
@@ -15,35 +16,42 @@ import (
 import "github.com/facebookgo/grace/gracenet"
 import "github.com/facebookgo/grace/gracehttp"
 
+var cfg *config.Config
+
 func main() {
+	cfg = config.New("default")
 	//load config
-	config.WithOptions(config.ParseEnv)
+	cfg.WithOptions(config.ParseEnv)
 
 	// add Decoder and Encoder
-	config.AddDriver(json.Driver)
+	cfg.AddDriver(json.Driver)
 
-	err := config.LoadFiles("etc/config.json")
+	err := cfg.LoadFiles("etc/config.json")
 	if err != nil {
 		panic(err)
 	}
 
-	utility.InitDb(utility.DbConfig{});//{};
-	utility.InitRedis(utility.RedisConfig{});//{};
+	utility.InitDb(cfg)       //{};
+	utility.InitRedis(utility.RedisConfig{}) //{};
 	//db := utility.Db{};
 	//db.Config()
 	//db.Init();
+	val := cfg.Strings("db.default.master")
+	fmt.Printf("\n master:\n %#v", val) // map[string]string{"key":"val2", "key2":"val20"}
+	val2 := cfg.StringMap("db.default.slave.host")
+	fmt.Printf("\n slave:\n %#v", val2) // map[string]string{"key":"val2", "key2":"val20"}
 
-	log.Printf("config data: \n %#v\n", config.Data())
-	listen_rpc := config.String("listen.rpc", "")
+	log.Printf("config data: \n %#v\n", cfg.Data())
+	listen_rpc := cfg.String("listen.rpc", "")
 	if listen_rpc == "" {
 		panic("rpc port is empty")
 	}
-	listen_http := config.String("listen.http", "")
+	listen_http := cfg.String("listen.http", "")
 	if listen_http == "" {
 		panic("http port is empty")
 	}
-	proxy_rpc := config.String("proxy.rpc", "")
-	if proxy_rpc== "" {
+	proxy_rpc := cfg.String("proxy.rpc", "")
+	if proxy_rpc == "" {
 		panic("proxy_rpc is empty")
 	}
 
@@ -60,7 +68,7 @@ func main() {
 		mux := runtime.NewServeMux()
 		opts := []grpc.DialOption{grpc.WithInsecure()}
 		//register http proxy
-		user.RegisterHttp(ctx, mux, proxy_rpc, opts)
+		user.RegisterHTTP(ctx, mux, proxy_rpc, opts)
 
 		gracehttp.Serve(
 			&http.Server{Addr: listen_http, Handler: mux},

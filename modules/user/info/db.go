@@ -1,7 +1,7 @@
 package info
 
 import (
-	"fmt"
+	//"fmt"
 	//"net/http"
 	//"encoding/json"
 	//"database/sql"
@@ -23,20 +23,28 @@ func init() {
 	//fmt.Println("world")
 	//我们还可以做其他更高阶的事情，比如 platform.RegisterPlugin({"func": Hello}) 之类的，向插件平台自动注册该插件的函数
 }
+// User 对象
 type User struct {
 	ID        uint `gorm:"primary_key"`
 	Name string `json:"name"`
 }
+// Result 结果集
 type Result struct {
 	Code int   `json:"code"`
 	//Data []Tag `json:"data"`
 }
+// GetByNameAndPwd 获取用户
 func GetByNameAndPwd(name string,pwd string)(*User){
-	conn := utility.Db.Table("user");
+	db := utility.GetDb("default","master");//.Table("user");
 	user := &User{};
+if db ==nil{
+	return user;
+
+}
+	conn := db.Table("user");
 	conn.Where("name = ? AND password = ?",name,pwd).First(&user)
-		length := utility.Redis.Len();
-	fmt.Println("ring length:",length);
+		//length := utility.Redis.Len();
+	//fmt.Println("ring length:",length);
 	return user;
 }
 

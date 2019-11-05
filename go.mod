@@ -24,6 +24,8 @@ require (
 	github.com/gookit/config/v2 v2.0.12
 	github.com/grpc-ecosystem/grpc-gateway v1.11.3
 	github.com/jinzhu/gorm v1.9.11 // indirect
+	golang.org/x/lint v0.0.0-20190930215403-16217165b5de // indirect
+	golang.org/x/tools v0.0.0-20191101200257-8dbcdeb83d3f // indirect
 	google.golang.org/grpc v1.24.0
 	modules/user v0.0.0-00010101000000-000000000000
 	modules/utility v0.0.0-00010101000000-000000000000

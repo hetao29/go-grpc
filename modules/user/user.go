@@ -13,11 +13,13 @@ import (
 
 func init() {
 }
+// Register ，注册方法
 func Register(s *grpc.Server){
 	info.Register(s)
 	profile.Register(s)
 }
-func RegisterHttp(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption){
+// RegisterHTTP 注册 http
+func RegisterHTTP(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption){
 	info.RegisterHttp(ctx , mux , endpoint , opts ) ;
 	profile.RegisterHttp(ctx , mux , endpoint , opts ) ;
 }

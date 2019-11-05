@@ -5,7 +5,7 @@ import (
 	//"net/http"
 	//"encoding/json"
 	//"database/sql"
-	"modules/utility"
+	//"modules/utility"
 	//"github.com/gin-gonic/gin"
 	//"github.com/jinzhu/gorm"
 	//_ "github.com/go-sql-driver/mysql"
@@ -32,9 +32,9 @@ type Result struct {
 	//Data []Tag `json:"data"`
 }
 func GetByNameAndPwd(name string,pwd string)(*User){
-	conn := utility.Db.Table("user");
 	user := &User{};
-	conn.Where("name = ? AND password = ?",name,pwd).First(&user)
+	//conn := utility.Db.Table("user");
+	//conn.Where("name = ? AND password = ?",name,pwd).First(&user)
 	return user;
 }
 
