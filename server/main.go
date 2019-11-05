@@ -32,7 +32,7 @@ func main() {
 	}
 
 	utility.InitDb(cfg)       //{};
-	utility.InitRedis(utility.RedisConfig{}) //{};
+	utility.InitRedis(cfg) //{};
 	//db := utility.Db{};
 	//db.Config()
 	//db.Init();

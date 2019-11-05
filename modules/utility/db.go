@@ -13,7 +13,7 @@ import (
 
 //Db joj
 var Db map[string]*gorm.DB
-var Config *config.Config
+var DbConfig *config.Config
 
 func init() {
 	Db = make(map[string]*gorm.DB)
@@ -38,7 +38,7 @@ func InitDb(config DbConfig) {
 }
 */
 func InitDb(cfg *config.Config) {
-	Config = cfg
+	DbConfig = cfg
 	//我们还可以做其他更高阶的事情，比如 platform.RegisterPlugin({"func": Hello}) 之类的，向插件平台自动注册该插件的函数
 	//var err error
 	//fmt.Println("db init")
@@ -63,18 +63,18 @@ func Shuffle(array []string, source rand.Source) {
  */
 func GetDb(nodeName string, nodeType string) *gorm.DB {
 	source := rand.NewSource(time.Now().UnixNano())
-	master := Config.Strings("db." + nodeName + "." + nodeType)
+	master := DbConfig.Strings("db." + nodeName + "." + nodeType)
 	fmt.Printf("\n GetDb 1:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
 	if len(master) == 0 {
-		master = Config.Strings("db." + nodeName + ".master")
+		master = DbConfig.Strings("db." + nodeName + ".master")
 		fmt.Printf("\n GetDb 2:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
 	}
 	if len(master) == 0 {
-		master = Config.Strings("db.default." + nodeType)
+		master = DbConfig.Strings("db.default." + nodeType)
 		fmt.Printf("\n GetDb 3:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
 	}
 	if len(master) == 0 {
-		master = Config.Strings("db.default.master")
+		master = DbConfig.Strings("db.default.master")
 		fmt.Printf("\n GetDb 3:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
 		return nil
 	}
