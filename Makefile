@@ -49,6 +49,9 @@ test:
 	curl -v http://127.0.0.1:50001/v1/user/profile/get
 	curl -v http://127.0.0.1:50001/v1/user/login -X POST -d '{"name":"x","password":"P"}'
 lint:
-	golint modules/...
-	golint server/*
-	golint client/*
+	find . -name "*go" | xargs -I {} golint "{}"
+	#golint modules/...
+	#golint server/*
+	#golint client/*
+fmt:
+	find . -name "*go" | xargs -I {} go fmt "{}"

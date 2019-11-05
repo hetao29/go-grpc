@@ -57,7 +57,7 @@ type Result struct {
 // GetByNameAndPwd 获取用户
 func GetByNameAndPwd(name string, pwd string) *User {
 	user := &User{}
-	key := "user_" + name +"_"+pwd;
+	key := "user_" + name + "_" + pwd
 	redis := utility.GetRedis("default", "master")
 	err := redis.Get(key).Scan(user)
 	if err != nil {

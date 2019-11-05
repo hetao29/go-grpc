@@ -11,11 +11,14 @@ import (
 	//_ "github.com/go-sql-driver/mysql"
 )
 
-/**
+// Redis r
+/*
 * Redis Ring
 * https://godoc.org/github.com/go-redis/redis#Ring
  */
 var Redis map[string]*redis.Ring
+
+// RedisConfig r
 var RedisConfig *config.Config
 
 //var err error;
@@ -23,6 +26,7 @@ func init() {
 	Redis = make(map[string]*redis.Ring)
 }
 
+// InitRedis i
 func InitRedis(cfg *config.Config) {
 	//我们还可以做其他更高阶的事情，比如 platform.RegisterPlugin({"func": Hello}) 之类的，向插件平台自动注册该插件的函数
 	RedisConfig = cfg
@@ -39,6 +43,8 @@ func InitRedis(cfg *config.Config) {
 	//	fmt.Println(err.Error())
 	//}
 }
+
+// GetRedis g
 func GetRedis(nodeName string, nodeType string) *redis.Ring {
 	//source := rand.NewSource(time.Now().UnixNano())
 	uri := nodeName + "." + nodeType

@@ -13,6 +13,8 @@ import (
 
 //Db joj
 var Db map[string]*gorm.DB
+
+// DbConfig db
 var DbConfig *config.Config
 
 func init() {
@@ -37,6 +39,7 @@ func InitDb(config DbConfig) {
 	}
 }
 */
+// InitDb it
 func InitDb(cfg *config.Config) {
 	DbConfig = cfg
 	//我们还可以做其他更高阶的事情，比如 platform.RegisterPlugin({"func": Hello}) 之类的，向插件平台自动注册该插件的函数
@@ -48,6 +51,7 @@ func InitDb(cfg *config.Config) {
 	//}
 }
 
+// Shuffle s
 func Shuffle(array []string, source rand.Source) {
 	random := rand.New(source)
 	for i := len(array) - 1; i > 0; i-- {

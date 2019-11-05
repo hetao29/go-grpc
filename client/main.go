@@ -7,10 +7,10 @@ import (
 	"os"
 	"time"
 
-	"proto/user/info"
-	"proto/user/profile"
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/json"
+	"proto/user/info"
+	"proto/user/profile"
 )
 
 const (
@@ -29,12 +29,12 @@ func main() {
 		panic(err)
 	}
 	log.Printf("config data: \n %#v\n", config.Data())
-	proxy_rpc := config.String("proxy.rpc", "")
-	if proxy_rpc== "" {
+	proxyRPC := config.String("proxy.rpc", "")
+	if proxyRPC == "" {
 		panic("proxy_rpc is empty")
 	}
 	// Set up a connection to the server.
-	conn, err := grpc.Dial(proxy_rpc, grpc.WithInsecure())
+	conn, err := grpc.Dial(proxyRPC, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
@@ -49,7 +49,7 @@ func main() {
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.Login(ctx, &info.LoginRequest{Name: name,Password:pwd})
+	r, err := c.Login(ctx, &info.LoginRequest{Name: name, Password: pwd})
 	if err != nil {
 		log.Printf("could not greet: %v", err)
 	}

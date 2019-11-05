@@ -1,14 +1,14 @@
 package profile
 
 import (
-	//"fmt"
-	//"net/http"
-	//"encoding/json"
-	//"database/sql"
-	//"modules/utility"
-	//"github.com/gin-gonic/gin"
-	//"github.com/jinzhu/gorm"
-	//_ "github.com/go-sql-driver/mysql"
+//"fmt"
+//"net/http"
+//"encoding/json"
+//"database/sql"
+//"modules/utility"
+//"github.com/gin-gonic/gin"
+//"github.com/jinzhu/gorm"
+//_ "github.com/go-sql-driver/mysql"
 )
 
 /*
@@ -23,18 +23,23 @@ func init() {
 	//fmt.Println("world")
 	//我们还可以做其他更高阶的事情，比如 platform.RegisterPlugin({"func": Hello}) 之类的，向插件平台自动注册该插件的函数
 }
+
+// User struct
 type User struct {
-	ID        uint `gorm:"primary_key"`
+	ID   uint   `gorm:"primary_key"`
 	Name string `json:"name"`
 }
+
+// Result struct
 type Result struct {
-	Code int   `json:"code"`
+	Code int `json:"code"`
 	//Data []Tag `json:"data"`
 }
-func GetByNameAndPwd(name string,pwd string)(*User){
-	user := &User{};
+
+// GetByNameAndPwd getbyname
+func GetByNameAndPwd(name string, pwd string) *User {
+	user := &User{}
 	//conn := utility.Db.Table("user");
 	//conn.Where("name = ? AND password = ?",name,pwd).First(&user)
-	return user;
+	return user
 }
-

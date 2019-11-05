@@ -31,7 +31,7 @@ func main() {
 		panic(err)
 	}
 
-	utility.InitDb(cfg)       //{};
+	utility.InitDb(cfg)    //{};
 	utility.InitRedis(cfg) //{};
 	//db := utility.Db{};
 	//db.Config()
@@ -42,16 +42,16 @@ func main() {
 	fmt.Printf("\n slave:\n %#v", val2) // map[string]string{"key":"val2", "key2":"val20"}
 
 	log.Printf("config data: \n %#v\n", cfg.Data())
-	listen_rpc := cfg.String("listen.rpc", "")
-	if listen_rpc == "" {
+	listenRPC := cfg.String("listen.rpc", "")
+	if listenRPC == "" {
 		panic("rpc port is empty")
 	}
-	listen_http := cfg.String("listen.http", "")
-	if listen_http == "" {
+	listenHTTP := cfg.String("listen.http", "")
+	if listenHTTP == "" {
 		panic("http port is empty")
 	}
-	proxy_rpc := cfg.String("proxy.rpc", "")
-	if proxy_rpc == "" {
+	proxyRPC := cfg.String("proxy.rpc", "")
+	if proxyRPC == "" {
 		panic("proxy_rpc is empty")
 	}
 
@@ -68,10 +68,10 @@ func main() {
 		mux := runtime.NewServeMux()
 		opts := []grpc.DialOption{grpc.WithInsecure()}
 		//register http proxy
-		user.RegisterHTTP(ctx, mux, proxy_rpc, opts)
+		user.RegisterHTTP(ctx, mux, proxyRPC, opts)
 
 		gracehttp.Serve(
-			&http.Server{Addr: listen_http, Handler: mux},
+			&http.Server{Addr: listenHTTP, Handler: mux},
 		)
 	}()
 
@@ -86,7 +86,7 @@ func main() {
 	//register grpc
 	user.Register(s)
 	net := gracenet.Net{}
-	lis, err := net.Listen("tcp", listen_rpc)
+	lis, err := net.Listen("tcp", listenRPC)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
