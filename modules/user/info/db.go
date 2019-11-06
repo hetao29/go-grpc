@@ -2,7 +2,7 @@ package info
 
 import (
 	"encoding/json"
-	"fmt"
+	"github.com/google/logger"
 	"modules/utility"
 	"time"
 )
@@ -62,9 +62,9 @@ func GetByNameAndPwd(name string, pwd string) *User {
 	redis := utility.GetRedis("default", "master")
 	err := redis.Get(key).Scan(user)
 	if err != nil {
-		fmt.Printf("redis get error: %v", err)
+		logger.Info("redis get error: %v", err)
 	} else {
-		fmt.Printf("redis get ok: %v", user)
+		logger.Info("redis get ok: %v", user)
 		return user
 	}
 
@@ -80,7 +80,7 @@ func GetByNameAndPwd(name string, pwd string) *User {
 	if user.ID > 0 {
 		r := redis.Set(key, user, 100*time.Second)
 		//v:= redis.Get("name").String()
-		fmt.Printf("redis error msg: %v", r.Err())
+		logger.Info("redis error msg: %v", r.Err())
 	}
 	//fmt.Println("get redis:",v);
 	return user

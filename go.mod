@@ -8,6 +8,10 @@ replace common => ./proto/common
 
 replace modules/user/info => ./modules/user/info
 
+replace modules/log => ./modules/log
+
+replace modules/daemon => ./modules/daemon
+
 replace modules/utility => ./modules/utility
 
 replace proto/user/info => ./proto/user/info
@@ -24,11 +28,14 @@ require (
 	github.com/facebookgo/stats v0.0.0-20151006221625-1b76add642e4 // indirect
 	github.com/go-redis/redis/v7 v7.0.0-beta.4 // indirect
 	github.com/golang/protobuf v1.3.2
+	github.com/google/logger v1.0.1
 	github.com/gookit/config/v2 v2.0.12
 	github.com/grpc-ecosystem/grpc-gateway v1.12.0
 	github.com/jinzhu/gorm v1.9.11 // indirect
 	google.golang.org/genproto v0.0.0-20190927181202-20e1ac93f88c
 	google.golang.org/grpc v1.24.0
+	modules/daemon v0.0.0-00010101000000-000000000000
+	modules/log v0.0.0-00010101000000-000000000000
 	modules/user v0.0.0-00010101000000-000000000000
 	modules/utility v0.0.0-00010101000000-000000000000
 	proto/user/info v0.0.0-00010101000000-000000000000

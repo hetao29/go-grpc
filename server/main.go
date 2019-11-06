@@ -4,8 +4,11 @@ import (
 	"context"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
-	"log"
+	"github.com/google/logger"
+	//"log"
+	"modules/log"
 	"modules/user"
+	"modules/daemon"
 	"modules/utility"
 	//"net"
 	"fmt"
@@ -31,17 +34,21 @@ func main() {
 		panic(err)
 	}
 
+	log.Set(cfg.String("log.file"), cfg.Bool("log.verbose",true));
 	utility.InitDb(cfg)    //{};
 	utility.InitRedis(cfg) //{};
 	//db := utility.Db{};
 	//db.Config()
 	//db.Init();
+	if cfg.Bool("daemon",false) {
+		daemon.Daemon(0, 1)
+	}
 	val := cfg.Strings("db.default.master")
 	fmt.Printf("\n master:\n %#v", val) // map[string]string{"key":"val2", "key2":"val20"}
 	val2 := cfg.StringMap("db.default.slave.host")
 	fmt.Printf("\n slave:\n %#v", val2) // map[string]string{"key":"val2", "key2":"val20"}
 
-	log.Printf("config data: \n %#v\n", cfg.Data())
+	logger.Info("config data: \n %#v\n", cfg.Data())
 	listenRPC := cfg.String("listen.rpc", "")
 	if listenRPC == "" {
 		panic("rpc port is empty")
@@ -88,10 +95,10 @@ func main() {
 	net := gracenet.Net{}
 	lis, err := net.Listen("tcp", listenRPC)
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		logger.Fatalf("failed to listen: %v", err)
 	}
 	if err := s.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
+		logger.Fatalf("failed to serve: %v", err)
 	}
 
 }
