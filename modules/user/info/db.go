@@ -39,6 +39,7 @@ func (s *User) UnmarshalBinary(data []byte) error {
 }
 */
 // MarshalBinary use msgpack
+var RedisVersion="1"
 func (s *User) MarshalBinary() ([]byte, error) {
 	return json.Marshal(s)
 }
@@ -57,7 +58,7 @@ type Result struct {
 // GetByNameAndPwd 获取用户
 func GetByNameAndPwd(name string, pwd string) *User {
 	user := &User{}
-	key := "user_" + name + "_" + pwd
+	key := RedisVersion +"_"+"user_" + name + "_" + pwd
 	redis := utility.GetRedis("default", "master")
 	err := redis.Get(key).Scan(user)
 	if err != nil {
@@ -76,9 +77,11 @@ func GetByNameAndPwd(name string, pwd string) *User {
 	conn.Where("name = ? AND password = ?", name, pwd).First(&user)
 
 	//length := redis.Len();
-	r := redis.Set(key, user, 100*time.Second)
-	//v:= redis.Get("name").String()
-	fmt.Printf("redis error msg: %v", r.Err())
+	if user.ID > 0 {
+		r := redis.Set(key, user, 100*time.Second)
+		//v:= redis.Get("name").String()
+		fmt.Printf("redis error msg: %v", r.Err())
+	}
 	//fmt.Println("get redis:",v);
 	return user
 }
