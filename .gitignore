@@ -1,5 +1,6 @@
 bin/*
 *.swp
+go.sum
 .DS_Store
 etc/config.json
 client_java/target/
