@@ -15,34 +15,19 @@ try{
 			'credentials' => Grpc\ChannelCredentials::createInsecure()
 	]);
 	$request = new User\Info\LoginRequest();
-	$name="hetal";
+	$name="admin";
 	$request->setName($name);
+	$request->setPassword("admin");
 	//print_r($request);
 	list($reply,$error) = $client->login($request)->wait();
-	var_dump($reply);
-	var_dump($reply->getInfo());
-	print_r($error);
+	if($error == null){
+		var_dump($reply);
+		var_dump($reply->getInfo());
 
-	//$request = new User\Info\LogoutRequest();
-	//list($status,$r) = $client->logout($request)->wait();
-	//var_dump($status);
-	//print_r($r);
-
-	//$client = new User\Profile\ProfileClient("127.0.0.1:50000",[
-	//		'credentials' => Grpc\ChannelCredentials::createInsecure()
-	//]);
-
-	//$request = new User\Profile\GetRequest();
-	//list($status,$r) = $client->get($request)->wait();
-	//var_dump($status);
-	//print_r($r);
-
-	//$request = new User\Profile\UpdateRequest();
-	//list($status,$r) = $client->update($request)->wait();
-	//var_dump($status);
-	//print_r($r);
-
-	$data = get("http://127.0.0.1:50001/v1/user/profile/get");
+	}else{
+		print_r($error);
+	}
+	$data = post("http://127.0.0.1:50001/v1/user/login",$request);
 	echo $data;
 	echo "\n";
 
@@ -53,6 +38,18 @@ function get($url){
 	$curl_handle=curl_init();
 	curl_setopt($curl_handle, CURLOPT_URL,$url);
 	curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
+	curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+	//curl_setopt($curl_handle, CURLOPT_USERAGENT, 'Your application name');
+	$query = curl_exec($curl_handle);
+	curl_close($curl_handle);
+	return $query;
+}
+function post($url, $data){
+	$curl_handle=curl_init();
+	curl_setopt($curl_handle, CURLOPT_URL,$url);
+	curl_setopt($curl_handle, CURLOPT_POST, 1);
+	curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
+	curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data);
 	curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
 	//curl_setopt($curl_handle, CURLOPT_USERAGENT, 'Your application name');
 	$query = curl_exec($curl_handle);

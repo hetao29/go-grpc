@@ -17,6 +17,10 @@ class LoginResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.common.Error error = 1;</code>
      */
     private $error = null;
+    /**
+     * Generated from protobuf field <code>.user.info.UserInfo info = 2;</code>
+     */
+    private $info = null;
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class LoginResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Common\Error $error
+     *     @type \User\Info\UserInfo $info
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,28 @@ class LoginResponse extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Common\Error::class);
         $this->error = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.user.info.UserInfo info = 2;</code>
+     * @return \User\Info\UserInfo
+     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    /**
+     * Generated from protobuf field <code>.user.info.UserInfo info = 2;</code>
+     * @param \User\Info\UserInfo $var
+     * @return $this
+     */
+    public function setInfo($var)
+    {
+        GPBUtil::checkMessage($var, \User\Info\UserInfo::class);
+        $this->info = $var;
 
         return $this;
     }
