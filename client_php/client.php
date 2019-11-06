@@ -11,23 +11,32 @@ spl_autoload_register(function($class){
 });
 
 try{
+	//call by grpc
 	$client = new User\Info\InfoClient("127.0.0.1:50000",[
 			'credentials' => Grpc\ChannelCredentials::createInsecure()
 	]);
 	$request = new User\Info\LoginRequest();
 	$name="admin";
 	$request->setName($name);
-	$request->setPassword("admin");
+	$request->setPassword("123456");
 	//print_r($request);
 	list($reply,$error) = $client->login($request)->wait();
-	if($error == null){
-		var_dump($reply);
-		var_dump($reply->getInfo());
-
+	if($reply){
+		echo "Ok\n";
+		print_r($reply->getInfo()->getName());
+		print_r($reply->getInfo()->getUid());
 	}else{
+		echo "Error\n";
 		print_r($error);
 	}
-	$data = post("http://127.0.0.1:50001/v1/user/login",$request);
+	echo "\n";
+	//call by restful
+	$request=[
+		"name"=>"admin",
+		"password"=>"123456",
+	];
+	print_r(json_encode($request));
+	$data = post("http://127.0.0.1:50001/v1/user/login",json_encode($request));
 	echo $data;
 	echo "\n";
 
