@@ -1,3 +1,5 @@
+dockerbuild:
+	docker build . -t hetao29/go-grpc:1.0.0
 build:
 	export GOPROXY=https://goproxy.cn && cd server && go build -v -o ../bin/server .
 	export GOPROXY=https://goproxy.cn && cd client && go build -o ../bin/client .
