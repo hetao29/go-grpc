@@ -8,7 +8,6 @@ import (
 	//"log"
 	"modules/log"
 	"modules/user"
-	"modules/daemon"
 	"modules/utility"
 	//"net"
 	"fmt"
@@ -40,9 +39,6 @@ func main() {
 	//db := utility.Db{};
 	//db.Config()
 	//db.Init();
-	if cfg.Bool("daemon",false) {
-		daemon.Daemon(0, 1)
-	}
 	val := cfg.Strings("db.default.master")
 	fmt.Printf("\n master:\n %#v", val) // map[string]string{"key":"val2", "key2":"val20"}
 	val2 := cfg.StringMap("db.default.slave.host")

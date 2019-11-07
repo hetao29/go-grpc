@@ -10,8 +10,6 @@ replace modules/user/info => ./modules/user/info
 
 replace modules/log => ./modules/log
 
-replace modules/daemon => ./modules/daemon
-
 replace modules/utility => ./modules/utility
 
 replace proto/user/info => ./proto/user/info
@@ -34,7 +32,6 @@ require (
 	github.com/jinzhu/gorm v1.9.11 // indirect
 	google.golang.org/genproto v0.0.0-20190927181202-20e1ac93f88c
 	google.golang.org/grpc v1.24.0
-	modules/daemon v0.0.0-00010101000000-000000000000
 	modules/log v0.0.0-00010101000000-000000000000
 	modules/user v0.0.0-00010101000000-000000000000
 	modules/utility v0.0.0-00010101000000-000000000000

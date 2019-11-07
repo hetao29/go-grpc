@@ -7,7 +7,6 @@
 		"file":"/tmp/grpc.log",
 		"verbose":false
 	},
-	"daemon":false,
 	"proxy": {
 		"rpc": "127.0.0.1:50000"
 	},
