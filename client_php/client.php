@@ -37,7 +37,7 @@ try{
 	//	"password"=>"123456",
 	//];
 	//print_r(json_encode($request));
-	$data = post("http://127.0.0.1:50001/v1/user/login",json_encode($json));
+	$data = post("http://127.0.0.1:50001/v1/user/login",$json);
 	echo $data;
 	echo "\n";
 
