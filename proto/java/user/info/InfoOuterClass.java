@@ -14,1765 +14,56 @@ public final class InfoOuterClass {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface RequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:user.info.Request)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string name = 1;</code>
-     * @return The name.
-     */
-    java.lang.String getName();
-    /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <code>string password = 2;</code>
-     * @return The password.
-     */
-    java.lang.String getPassword();
-    /**
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
-     */
-    com.google.protobuf.ByteString
-        getPasswordBytes();
-
-    /**
-     * <code>string verify_code = 3;</code>
-     * @return The verifyCode.
-     */
-    java.lang.String getVerifyCode();
-    /**
-     * <code>string verify_code = 3;</code>
-     * @return The bytes for verifyCode.
-     */
-    com.google.protobuf.ByteString
-        getVerifyCodeBytes();
-  }
-  /**
-   * Protobuf type {@code user.info.Request}
-   */
-  public  static final class Request extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:user.info.Request)
-      RequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Request.newBuilder() to construct.
-    private Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Request() {
-      name_ = "";
-      password_ = "";
-      verifyCode_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Request();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Request(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              password_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              verifyCode_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return user.info.InfoOuterClass.internal_static_user_info_Request_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return user.info.InfoOuterClass.internal_static_user_info_Request_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              user.info.InfoOuterClass.Request.class, user.info.InfoOuterClass.Request.Builder.class);
-    }
-
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
-    /**
-     * <code>string name = 1;</code>
-     * @return The name.
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PASSWORD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object password_;
-    /**
-     * <code>string password = 2;</code>
-     * @return The password.
-     */
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        password_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
-     */
-    public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        password_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int VERIFY_CODE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object verifyCode_;
-    /**
-     * <code>string verify_code = 3;</code>
-     * @return The verifyCode.
-     */
-    public java.lang.String getVerifyCode() {
-      java.lang.Object ref = verifyCode_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        verifyCode_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string verify_code = 3;</code>
-     * @return The bytes for verifyCode.
-     */
-    public com.google.protobuf.ByteString
-        getVerifyCodeBytes() {
-      java.lang.Object ref = verifyCode_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        verifyCode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (!getPasswordBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
-      }
-      if (!getVerifyCodeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, verifyCode_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (!getPasswordBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
-      }
-      if (!getVerifyCodeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, verifyCode_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof user.info.InfoOuterClass.Request)) {
-        return super.equals(obj);
-      }
-      user.info.InfoOuterClass.Request other = (user.info.InfoOuterClass.Request) obj;
-
-      if (!getName()
-          .equals(other.getName())) return false;
-      if (!getPassword()
-          .equals(other.getPassword())) return false;
-      if (!getVerifyCode()
-          .equals(other.getVerifyCode())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
-      hash = (53 * hash) + getPassword().hashCode();
-      hash = (37 * hash) + VERIFY_CODE_FIELD_NUMBER;
-      hash = (53 * hash) + getVerifyCode().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static user.info.InfoOuterClass.Request parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static user.info.InfoOuterClass.Request parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static user.info.InfoOuterClass.Request parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static user.info.InfoOuterClass.Request parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static user.info.InfoOuterClass.Request parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static user.info.InfoOuterClass.Request parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static user.info.InfoOuterClass.Request parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static user.info.InfoOuterClass.Request parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static user.info.InfoOuterClass.Request parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static user.info.InfoOuterClass.Request parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static user.info.InfoOuterClass.Request parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static user.info.InfoOuterClass.Request parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(user.info.InfoOuterClass.Request prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code user.info.Request}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:user.info.Request)
-        user.info.InfoOuterClass.RequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return user.info.InfoOuterClass.internal_static_user_info_Request_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return user.info.InfoOuterClass.internal_static_user_info_Request_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                user.info.InfoOuterClass.Request.class, user.info.InfoOuterClass.Request.Builder.class);
-      }
-
-      // Construct using user.info.InfoOuterClass.Request.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        name_ = "";
-
-        password_ = "";
-
-        verifyCode_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return user.info.InfoOuterClass.internal_static_user_info_Request_descriptor;
-      }
-
-      @java.lang.Override
-      public user.info.InfoOuterClass.Request getDefaultInstanceForType() {
-        return user.info.InfoOuterClass.Request.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public user.info.InfoOuterClass.Request build() {
-        user.info.InfoOuterClass.Request result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public user.info.InfoOuterClass.Request buildPartial() {
-        user.info.InfoOuterClass.Request result = new user.info.InfoOuterClass.Request(this);
-        result.name_ = name_;
-        result.password_ = password_;
-        result.verifyCode_ = verifyCode_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof user.info.InfoOuterClass.Request) {
-          return mergeFrom((user.info.InfoOuterClass.Request)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(user.info.InfoOuterClass.Request other) {
-        if (other == user.info.InfoOuterClass.Request.getDefaultInstance()) return this;
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
-        }
-        if (!other.getPassword().isEmpty()) {
-          password_ = other.password_;
-          onChanged();
-        }
-        if (!other.getVerifyCode().isEmpty()) {
-          verifyCode_ = other.verifyCode_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        user.info.InfoOuterClass.Request parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (user.info.InfoOuterClass.Request) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object name_ = "";
-      /**
-       * <code>string name = 1;</code>
-       * @return The name.
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @return The bytes for name.
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @param value The name to set.
-       * @return This builder for chaining.
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearName() {
-        
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @param value The bytes for name to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object password_ = "";
-      /**
-       * <code>string password = 2;</code>
-       * @return The password.
-       */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          password_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @return The bytes for password.
-       */
-      public com.google.protobuf.ByteString
-          getPasswordBytes() {
-        java.lang.Object ref = password_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          password_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @param value The password to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPassword(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        password_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPassword() {
-        
-        password_ = getDefaultInstance().getPassword();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @param value The bytes for password to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPasswordBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        password_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object verifyCode_ = "";
-      /**
-       * <code>string verify_code = 3;</code>
-       * @return The verifyCode.
-       */
-      public java.lang.String getVerifyCode() {
-        java.lang.Object ref = verifyCode_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          verifyCode_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string verify_code = 3;</code>
-       * @return The bytes for verifyCode.
-       */
-      public com.google.protobuf.ByteString
-          getVerifyCodeBytes() {
-        java.lang.Object ref = verifyCode_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          verifyCode_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string verify_code = 3;</code>
-       * @param value The verifyCode to set.
-       * @return This builder for chaining.
-       */
-      public Builder setVerifyCode(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        verifyCode_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string verify_code = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearVerifyCode() {
-        
-        verifyCode_ = getDefaultInstance().getVerifyCode();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string verify_code = 3;</code>
-       * @param value The bytes for verifyCode to set.
-       * @return This builder for chaining.
-       */
-      public Builder setVerifyCodeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        verifyCode_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:user.info.Request)
-    }
-
-    // @@protoc_insertion_point(class_scope:user.info.Request)
-    private static final user.info.InfoOuterClass.Request DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new user.info.InfoOuterClass.Request();
-    }
-
-    public static user.info.InfoOuterClass.Request getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Request>
-        PARSER = new com.google.protobuf.AbstractParser<Request>() {
-      @java.lang.Override
-      public Request parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Request(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Request> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Request> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public user.info.InfoOuterClass.Request getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface ResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:user.info.Response)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string name = 1;</code>
-     * @return The name.
-     */
-    java.lang.String getName();
-    /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <code>string password = 2;</code>
-     * @return The password.
-     */
-    java.lang.String getPassword();
-    /**
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
-     */
-    com.google.protobuf.ByteString
-        getPasswordBytes();
-
-    /**
-     * <code>string verify_code = 3;</code>
-     * @return The verifyCode.
-     */
-    java.lang.String getVerifyCode();
-    /**
-     * <code>string verify_code = 3;</code>
-     * @return The bytes for verifyCode.
-     */
-    com.google.protobuf.ByteString
-        getVerifyCodeBytes();
-  }
-  /**
-   * Protobuf type {@code user.info.Response}
-   */
-  public  static final class Response extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:user.info.Response)
-      ResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Response.newBuilder() to construct.
-    private Response(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Response() {
-      name_ = "";
-      password_ = "";
-      verifyCode_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Response();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Response(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              password_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              verifyCode_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return user.info.InfoOuterClass.internal_static_user_info_Response_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return user.info.InfoOuterClass.internal_static_user_info_Response_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              user.info.InfoOuterClass.Response.class, user.info.InfoOuterClass.Response.Builder.class);
-    }
-
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
-    /**
-     * <code>string name = 1;</code>
-     * @return The name.
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PASSWORD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object password_;
-    /**
-     * <code>string password = 2;</code>
-     * @return The password.
-     */
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        password_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
-     */
-    public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        password_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int VERIFY_CODE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object verifyCode_;
-    /**
-     * <code>string verify_code = 3;</code>
-     * @return The verifyCode.
-     */
-    public java.lang.String getVerifyCode() {
-      java.lang.Object ref = verifyCode_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        verifyCode_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string verify_code = 3;</code>
-     * @return The bytes for verifyCode.
-     */
-    public com.google.protobuf.ByteString
-        getVerifyCodeBytes() {
-      java.lang.Object ref = verifyCode_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        verifyCode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (!getPasswordBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
-      }
-      if (!getVerifyCodeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, verifyCode_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (!getPasswordBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
-      }
-      if (!getVerifyCodeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, verifyCode_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof user.info.InfoOuterClass.Response)) {
-        return super.equals(obj);
-      }
-      user.info.InfoOuterClass.Response other = (user.info.InfoOuterClass.Response) obj;
-
-      if (!getName()
-          .equals(other.getName())) return false;
-      if (!getPassword()
-          .equals(other.getPassword())) return false;
-      if (!getVerifyCode()
-          .equals(other.getVerifyCode())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
-      hash = (53 * hash) + getPassword().hashCode();
-      hash = (37 * hash) + VERIFY_CODE_FIELD_NUMBER;
-      hash = (53 * hash) + getVerifyCode().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static user.info.InfoOuterClass.Response parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static user.info.InfoOuterClass.Response parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static user.info.InfoOuterClass.Response parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static user.info.InfoOuterClass.Response parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static user.info.InfoOuterClass.Response parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static user.info.InfoOuterClass.Response parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static user.info.InfoOuterClass.Response parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static user.info.InfoOuterClass.Response parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static user.info.InfoOuterClass.Response parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static user.info.InfoOuterClass.Response parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static user.info.InfoOuterClass.Response parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static user.info.InfoOuterClass.Response parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(user.info.InfoOuterClass.Response prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code user.info.Response}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:user.info.Response)
-        user.info.InfoOuterClass.ResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return user.info.InfoOuterClass.internal_static_user_info_Response_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return user.info.InfoOuterClass.internal_static_user_info_Response_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                user.info.InfoOuterClass.Response.class, user.info.InfoOuterClass.Response.Builder.class);
-      }
-
-      // Construct using user.info.InfoOuterClass.Response.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        name_ = "";
-
-        password_ = "";
-
-        verifyCode_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return user.info.InfoOuterClass.internal_static_user_info_Response_descriptor;
-      }
-
-      @java.lang.Override
-      public user.info.InfoOuterClass.Response getDefaultInstanceForType() {
-        return user.info.InfoOuterClass.Response.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public user.info.InfoOuterClass.Response build() {
-        user.info.InfoOuterClass.Response result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public user.info.InfoOuterClass.Response buildPartial() {
-        user.info.InfoOuterClass.Response result = new user.info.InfoOuterClass.Response(this);
-        result.name_ = name_;
-        result.password_ = password_;
-        result.verifyCode_ = verifyCode_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof user.info.InfoOuterClass.Response) {
-          return mergeFrom((user.info.InfoOuterClass.Response)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(user.info.InfoOuterClass.Response other) {
-        if (other == user.info.InfoOuterClass.Response.getDefaultInstance()) return this;
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
-        }
-        if (!other.getPassword().isEmpty()) {
-          password_ = other.password_;
-          onChanged();
-        }
-        if (!other.getVerifyCode().isEmpty()) {
-          verifyCode_ = other.verifyCode_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        user.info.InfoOuterClass.Response parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (user.info.InfoOuterClass.Response) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object name_ = "";
-      /**
-       * <code>string name = 1;</code>
-       * @return The name.
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @return The bytes for name.
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @param value The name to set.
-       * @return This builder for chaining.
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearName() {
-        
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @param value The bytes for name to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object password_ = "";
-      /**
-       * <code>string password = 2;</code>
-       * @return The password.
-       */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          password_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @return The bytes for password.
-       */
-      public com.google.protobuf.ByteString
-          getPasswordBytes() {
-        java.lang.Object ref = password_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          password_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @param value The password to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPassword(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        password_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPassword() {
-        
-        password_ = getDefaultInstance().getPassword();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @param value The bytes for password to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPasswordBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        password_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object verifyCode_ = "";
-      /**
-       * <code>string verify_code = 3;</code>
-       * @return The verifyCode.
-       */
-      public java.lang.String getVerifyCode() {
-        java.lang.Object ref = verifyCode_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          verifyCode_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string verify_code = 3;</code>
-       * @return The bytes for verifyCode.
-       */
-      public com.google.protobuf.ByteString
-          getVerifyCodeBytes() {
-        java.lang.Object ref = verifyCode_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          verifyCode_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string verify_code = 3;</code>
-       * @param value The verifyCode to set.
-       * @return This builder for chaining.
-       */
-      public Builder setVerifyCode(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        verifyCode_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string verify_code = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearVerifyCode() {
-        
-        verifyCode_ = getDefaultInstance().getVerifyCode();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string verify_code = 3;</code>
-       * @param value The bytes for verifyCode to set.
-       * @return This builder for chaining.
-       */
-      public Builder setVerifyCodeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        verifyCode_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:user.info.Response)
-    }
-
-    // @@protoc_insertion_point(class_scope:user.info.Response)
-    private static final user.info.InfoOuterClass.Response DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new user.info.InfoOuterClass.Response();
-    }
-
-    public static user.info.InfoOuterClass.Response getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Response>
-        PARSER = new com.google.protobuf.AbstractParser<Response>() {
-      @java.lang.Override
-      public Response parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Response(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Response> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Response> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public user.info.InfoOuterClass.Response getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface LoginRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:user.info.LoginRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>.common.Error error = 1;</code>
+     * @return Whether the error field is set.
+     */
+    boolean hasError();
+    /**
+     * <code>.common.Error error = 1;</code>
+     * @return The error.
+     */
+    common.Type.Error getError();
+    /**
+     * <code>.common.Error error = 1;</code>
+     */
+    common.Type.ErrorOrBuilder getErrorOrBuilder();
+
+    /**
+     * <code>string name = 2;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
-     * <code>string password = 2;</code>
+     * <code>string password = 3;</code>
      * @return The password.
      */
     java.lang.String getPassword();
     /**
-     * <code>string password = 2;</code>
+     * <code>string password = 3;</code>
      * @return The bytes for password.
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
 
     /**
-     * <code>string verify_code = 3;</code>
+     * <code>string verify_code = 4;</code>
      * @return The verifyCode.
      */
     java.lang.String getVerifyCode();
     /**
-     * <code>string verify_code = 3;</code>
+     * <code>string verify_code = 4;</code>
      * @return The bytes for verifyCode.
      */
     com.google.protobuf.ByteString
@@ -1827,18 +118,31 @@ public final class InfoOuterClass {
               done = true;
               break;
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+              common.Type.Error.Builder subBuilder = null;
+              if (error_ != null) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(common.Type.Error.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
 
-              name_ = s;
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              password_ = s;
+              name_ = s;
               break;
             }
             case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
+              break;
+            }
+            case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
               verifyCode_ = s;
@@ -1876,10 +180,33 @@ public final class InfoOuterClass {
               user.info.InfoOuterClass.LoginRequest.class, user.info.InfoOuterClass.LoginRequest.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
+    public static final int ERROR_FIELD_NUMBER = 1;
+    private common.Type.Error error_;
+    /**
+     * <code>.common.Error error = 1;</code>
+     * @return Whether the error field is set.
+     */
+    public boolean hasError() {
+      return error_ != null;
+    }
+    /**
+     * <code>.common.Error error = 1;</code>
+     * @return The error.
+     */
+    public common.Type.Error getError() {
+      return error_ == null ? common.Type.Error.getDefaultInstance() : error_;
+    }
+    /**
+     * <code>.common.Error error = 1;</code>
+     */
+    public common.Type.ErrorOrBuilder getErrorOrBuilder() {
+      return getError();
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -1895,7 +222,7 @@ public final class InfoOuterClass {
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -1912,10 +239,10 @@ public final class InfoOuterClass {
       }
     }
 
-    public static final int PASSWORD_FIELD_NUMBER = 2;
+    public static final int PASSWORD_FIELD_NUMBER = 3;
     private volatile java.lang.Object password_;
     /**
-     * <code>string password = 2;</code>
+     * <code>string password = 3;</code>
      * @return The password.
      */
     public java.lang.String getPassword() {
@@ -1931,7 +258,7 @@ public final class InfoOuterClass {
       }
     }
     /**
-     * <code>string password = 2;</code>
+     * <code>string password = 3;</code>
      * @return The bytes for password.
      */
     public com.google.protobuf.ByteString
@@ -1948,10 +275,10 @@ public final class InfoOuterClass {
       }
     }
 
-    public static final int VERIFY_CODE_FIELD_NUMBER = 3;
+    public static final int VERIFY_CODE_FIELD_NUMBER = 4;
     private volatile java.lang.Object verifyCode_;
     /**
-     * <code>string verify_code = 3;</code>
+     * <code>string verify_code = 4;</code>
      * @return The verifyCode.
      */
     public java.lang.String getVerifyCode() {
@@ -1967,7 +294,7 @@ public final class InfoOuterClass {
       }
     }
     /**
-     * <code>string verify_code = 3;</code>
+     * <code>string verify_code = 4;</code>
      * @return The bytes for verifyCode.
      */
     public com.google.protobuf.ByteString
@@ -1998,14 +325,17 @@ public final class InfoOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (error_ != null) {
+        output.writeMessage(1, getError());
+      }
       if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       if (!getPasswordBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
       }
       if (!getVerifyCodeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, verifyCode_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, verifyCode_);
       }
       unknownFields.writeTo(output);
     }
@@ -2016,14 +346,18 @@ public final class InfoOuterClass {
       if (size != -1) return size;
 
       size = 0;
+      if (error_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getError());
+      }
       if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       if (!getPasswordBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
       }
       if (!getVerifyCodeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, verifyCode_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, verifyCode_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2040,6 +374,11 @@ public final class InfoOuterClass {
       }
       user.info.InfoOuterClass.LoginRequest other = (user.info.InfoOuterClass.LoginRequest) obj;
 
+      if (hasError() != other.hasError()) return false;
+      if (hasError()) {
+        if (!getError()
+            .equals(other.getError())) return false;
+      }
       if (!getName()
           .equals(other.getName())) return false;
       if (!getPassword()
@@ -2057,6 +396,10 @@ public final class InfoOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
@@ -2196,6 +539,12 @@ public final class InfoOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
         name_ = "";
 
         password_ = "";
@@ -2228,6 +577,11 @@ public final class InfoOuterClass {
       @java.lang.Override
       public user.info.InfoOuterClass.LoginRequest buildPartial() {
         user.info.InfoOuterClass.LoginRequest result = new user.info.InfoOuterClass.LoginRequest(this);
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
         result.name_ = name_;
         result.password_ = password_;
         result.verifyCode_ = verifyCode_;
@@ -2279,6 +633,9 @@ public final class InfoOuterClass {
 
       public Builder mergeFrom(user.info.InfoOuterClass.LoginRequest other) {
         if (other == user.info.InfoOuterClass.LoginRequest.getDefaultInstance()) return this;
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -2320,9 +677,128 @@ public final class InfoOuterClass {
         return this;
       }
 
+      private common.Type.Error error_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder> errorBuilder_;
+      /**
+       * <code>.common.Error error = 1;</code>
+       * @return Whether the error field is set.
+       */
+      public boolean hasError() {
+        return errorBuilder_ != null || error_ != null;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       * @return The error.
+       */
+      public common.Type.Error getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? common.Type.Error.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder setError(common.Type.Error value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder setError(
+          common.Type.Error.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder mergeError(common.Type.Error value) {
+        if (errorBuilder_ == null) {
+          if (error_ != null) {
+            error_ =
+              common.Type.Error.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public common.Type.Error.Builder getErrorBuilder() {
+        
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public common.Type.ErrorOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              common.Type.Error.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
+      }
+
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The name.
        */
       public java.lang.String getName() {
@@ -2338,7 +814,7 @@ public final class InfoOuterClass {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
@@ -2355,7 +831,7 @@ public final class InfoOuterClass {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -2370,7 +846,7 @@ public final class InfoOuterClass {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
@@ -2380,7 +856,7 @@ public final class InfoOuterClass {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -2398,7 +874,7 @@ public final class InfoOuterClass {
 
       private java.lang.Object password_ = "";
       /**
-       * <code>string password = 2;</code>
+       * <code>string password = 3;</code>
        * @return The password.
        */
       public java.lang.String getPassword() {
@@ -2414,7 +890,7 @@ public final class InfoOuterClass {
         }
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string password = 3;</code>
        * @return The bytes for password.
        */
       public com.google.protobuf.ByteString
@@ -2431,7 +907,7 @@ public final class InfoOuterClass {
         }
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string password = 3;</code>
        * @param value The password to set.
        * @return This builder for chaining.
        */
@@ -2446,7 +922,7 @@ public final class InfoOuterClass {
         return this;
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string password = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPassword() {
@@ -2456,7 +932,7 @@ public final class InfoOuterClass {
         return this;
       }
       /**
-       * <code>string password = 2;</code>
+       * <code>string password = 3;</code>
        * @param value The bytes for password to set.
        * @return This builder for chaining.
        */
@@ -2474,7 +950,7 @@ public final class InfoOuterClass {
 
       private java.lang.Object verifyCode_ = "";
       /**
-       * <code>string verify_code = 3;</code>
+       * <code>string verify_code = 4;</code>
        * @return The verifyCode.
        */
       public java.lang.String getVerifyCode() {
@@ -2490,7 +966,7 @@ public final class InfoOuterClass {
         }
       }
       /**
-       * <code>string verify_code = 3;</code>
+       * <code>string verify_code = 4;</code>
        * @return The bytes for verifyCode.
        */
       public com.google.protobuf.ByteString
@@ -2507,7 +983,7 @@ public final class InfoOuterClass {
         }
       }
       /**
-       * <code>string verify_code = 3;</code>
+       * <code>string verify_code = 4;</code>
        * @param value The verifyCode to set.
        * @return This builder for chaining.
        */
@@ -2522,7 +998,7 @@ public final class InfoOuterClass {
         return this;
       }
       /**
-       * <code>string verify_code = 3;</code>
+       * <code>string verify_code = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearVerifyCode() {
@@ -2532,7 +1008,7 @@ public final class InfoOuterClass {
         return this;
       }
       /**
-       * <code>string verify_code = 3;</code>
+       * <code>string verify_code = 4;</code>
        * @param value The bytes for verifyCode to set.
        * @return This builder for chaining.
        */
@@ -2600,39 +1076,674 @@ public final class InfoOuterClass {
 
   }
 
+  public interface UserInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:user.info.UserInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 Uid = 1;</code>
+     * @return The uid.
+     */
+    long getUid();
+
+    /**
+     * <code>string Name = 2;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string Name = 2;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+  }
+  /**
+   * Protobuf type {@code user.info.UserInfo}
+   */
+  public  static final class UserInfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:user.info.UserInfo)
+      UserInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UserInfo.newBuilder() to construct.
+    private UserInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UserInfo() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UserInfo();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UserInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              uid_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return user.info.InfoOuterClass.internal_static_user_info_UserInfo_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return user.info.InfoOuterClass.internal_static_user_info_UserInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              user.info.InfoOuterClass.UserInfo.class, user.info.InfoOuterClass.UserInfo.Builder.class);
+    }
+
+    public static final int UID_FIELD_NUMBER = 1;
+    private long uid_;
+    /**
+     * <code>int64 Uid = 1;</code>
+     * @return The uid.
+     */
+    public long getUid() {
+      return uid_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string Name = 2;</code>
+     * @return The name.
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Name = 2;</code>
+     * @return The bytes for name.
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (uid_ != 0L) {
+        output.writeInt64(1, uid_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (uid_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, uid_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof user.info.InfoOuterClass.UserInfo)) {
+        return super.equals(obj);
+      }
+      user.info.InfoOuterClass.UserInfo other = (user.info.InfoOuterClass.UserInfo) obj;
+
+      if (getUid()
+          != other.getUid()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUid());
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static user.info.InfoOuterClass.UserInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static user.info.InfoOuterClass.UserInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(user.info.InfoOuterClass.UserInfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code user.info.UserInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:user.info.UserInfo)
+        user.info.InfoOuterClass.UserInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return user.info.InfoOuterClass.internal_static_user_info_UserInfo_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return user.info.InfoOuterClass.internal_static_user_info_UserInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                user.info.InfoOuterClass.UserInfo.class, user.info.InfoOuterClass.UserInfo.Builder.class);
+      }
+
+      // Construct using user.info.InfoOuterClass.UserInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uid_ = 0L;
+
+        name_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return user.info.InfoOuterClass.internal_static_user_info_UserInfo_descriptor;
+      }
+
+      @java.lang.Override
+      public user.info.InfoOuterClass.UserInfo getDefaultInstanceForType() {
+        return user.info.InfoOuterClass.UserInfo.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public user.info.InfoOuterClass.UserInfo build() {
+        user.info.InfoOuterClass.UserInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public user.info.InfoOuterClass.UserInfo buildPartial() {
+        user.info.InfoOuterClass.UserInfo result = new user.info.InfoOuterClass.UserInfo(this);
+        result.uid_ = uid_;
+        result.name_ = name_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof user.info.InfoOuterClass.UserInfo) {
+          return mergeFrom((user.info.InfoOuterClass.UserInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(user.info.InfoOuterClass.UserInfo other) {
+        if (other == user.info.InfoOuterClass.UserInfo.getDefaultInstance()) return this;
+        if (other.getUid() != 0L) {
+          setUid(other.getUid());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        user.info.InfoOuterClass.UserInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (user.info.InfoOuterClass.UserInfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long uid_ ;
+      /**
+       * <code>int64 Uid = 1;</code>
+       * @return The uid.
+       */
+      public long getUid() {
+        return uid_;
+      }
+      /**
+       * <code>int64 Uid = 1;</code>
+       * @param value The uid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUid(long value) {
+        
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 Uid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUid() {
+        
+        uid_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string Name = 2;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Name = 2;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:user.info.UserInfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:user.info.UserInfo)
+    private static final user.info.InfoOuterClass.UserInfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new user.info.InfoOuterClass.UserInfo();
+    }
+
+    public static user.info.InfoOuterClass.UserInfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UserInfo>
+        PARSER = new com.google.protobuf.AbstractParser<UserInfo>() {
+      @java.lang.Override
+      public UserInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UserInfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UserInfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UserInfo> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public user.info.InfoOuterClass.UserInfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface LoginResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:user.info.LoginResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 code = 1;</code>
-     * @return The code.
+     * <code>.common.Error error = 1;</code>
+     * @return Whether the error field is set.
      */
-    int getCode();
+    boolean hasError();
+    /**
+     * <code>.common.Error error = 1;</code>
+     * @return The error.
+     */
+    common.Type.Error getError();
+    /**
+     * <code>.common.Error error = 1;</code>
+     */
+    common.Type.ErrorOrBuilder getErrorOrBuilder();
 
     /**
-     * <code>string message = 2;</code>
-     * @return The message.
+     * <code>.user.info.UserInfo info = 2;</code>
+     * @return Whether the info field is set.
      */
-    java.lang.String getMessage();
+    boolean hasInfo();
     /**
-     * <code>string message = 2;</code>
-     * @return The bytes for message.
+     * <code>.user.info.UserInfo info = 2;</code>
+     * @return The info.
      */
-    com.google.protobuf.ByteString
-        getMessageBytes();
-
+    user.info.InfoOuterClass.UserInfo getInfo();
     /**
-     * <code>string token = 3;</code>
-     * @return The token.
+     * <code>.user.info.UserInfo info = 2;</code>
      */
-    java.lang.String getToken();
-    /**
-     * <code>string token = 3;</code>
-     * @return The bytes for token.
-     */
-    com.google.protobuf.ByteString
-        getTokenBytes();
+    user.info.InfoOuterClass.UserInfoOrBuilder getInfoOrBuilder();
   }
   /**
    * Protobuf type {@code user.info.LoginResponse}
@@ -2647,8 +1758,6 @@ public final class InfoOuterClass {
       super(builder);
     }
     private LoginResponse() {
-      message_ = "";
-      token_ = "";
     }
 
     @java.lang.Override
@@ -2681,21 +1790,30 @@ public final class InfoOuterClass {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              common.Type.Error.Builder subBuilder = null;
+              if (error_ != null) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(common.Type.Error.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
 
-              code_ = input.readInt32();
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+              user.info.InfoOuterClass.UserInfo.Builder subBuilder = null;
+              if (info_ != null) {
+                subBuilder = info_.toBuilder();
+              }
+              info_ = input.readMessage(user.info.InfoOuterClass.UserInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(info_);
+                info_ = subBuilder.buildPartial();
+              }
 
-              message_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              token_ = s;
               break;
             }
             default: {
@@ -2730,86 +1848,50 @@ public final class InfoOuterClass {
               user.info.InfoOuterClass.LoginResponse.class, user.info.InfoOuterClass.LoginResponse.Builder.class);
     }
 
-    public static final int CODE_FIELD_NUMBER = 1;
-    private int code_;
+    public static final int ERROR_FIELD_NUMBER = 1;
+    private common.Type.Error error_;
     /**
-     * <code>int32 code = 1;</code>
-     * @return The code.
+     * <code>.common.Error error = 1;</code>
+     * @return Whether the error field is set.
      */
-    public int getCode() {
-      return code_;
+    public boolean hasError() {
+      return error_ != null;
+    }
+    /**
+     * <code>.common.Error error = 1;</code>
+     * @return The error.
+     */
+    public common.Type.Error getError() {
+      return error_ == null ? common.Type.Error.getDefaultInstance() : error_;
+    }
+    /**
+     * <code>.common.Error error = 1;</code>
+     */
+    public common.Type.ErrorOrBuilder getErrorOrBuilder() {
+      return getError();
     }
 
-    public static final int MESSAGE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object message_;
+    public static final int INFO_FIELD_NUMBER = 2;
+    private user.info.InfoOuterClass.UserInfo info_;
     /**
-     * <code>string message = 2;</code>
-     * @return The message.
+     * <code>.user.info.UserInfo info = 2;</code>
+     * @return Whether the info field is set.
      */
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        message_ = s;
-        return s;
-      }
+    public boolean hasInfo() {
+      return info_ != null;
     }
     /**
-     * <code>string message = 2;</code>
-     * @return The bytes for message.
+     * <code>.user.info.UserInfo info = 2;</code>
+     * @return The info.
      */
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TOKEN_FIELD_NUMBER = 3;
-    private volatile java.lang.Object token_;
-    /**
-     * <code>string token = 3;</code>
-     * @return The token.
-     */
-    public java.lang.String getToken() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        token_ = s;
-        return s;
-      }
+    public user.info.InfoOuterClass.UserInfo getInfo() {
+      return info_ == null ? user.info.InfoOuterClass.UserInfo.getDefaultInstance() : info_;
     }
     /**
-     * <code>string token = 3;</code>
-     * @return The bytes for token.
+     * <code>.user.info.UserInfo info = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getTokenBytes() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        token_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public user.info.InfoOuterClass.UserInfoOrBuilder getInfoOrBuilder() {
+      return getInfo();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2826,14 +1908,11 @@ public final class InfoOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (code_ != 0) {
-        output.writeInt32(1, code_);
+      if (error_ != null) {
+        output.writeMessage(1, getError());
       }
-      if (!getMessageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
-      }
-      if (!getTokenBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, token_);
+      if (info_ != null) {
+        output.writeMessage(2, getInfo());
       }
       unknownFields.writeTo(output);
     }
@@ -2844,15 +1923,13 @@ public final class InfoOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (code_ != 0) {
+      if (error_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, code_);
+          .computeMessageSize(1, getError());
       }
-      if (!getMessageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
-      }
-      if (!getTokenBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, token_);
+      if (info_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getInfo());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2869,12 +1946,16 @@ public final class InfoOuterClass {
       }
       user.info.InfoOuterClass.LoginResponse other = (user.info.InfoOuterClass.LoginResponse) obj;
 
-      if (getCode()
-          != other.getCode()) return false;
-      if (!getMessage()
-          .equals(other.getMessage())) return false;
-      if (!getToken()
-          .equals(other.getToken())) return false;
+      if (hasError() != other.hasError()) return false;
+      if (hasError()) {
+        if (!getError()
+            .equals(other.getError())) return false;
+      }
+      if (hasInfo() != other.hasInfo()) return false;
+      if (hasInfo()) {
+        if (!getInfo()
+            .equals(other.getInfo())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2886,12 +1967,14 @@ public final class InfoOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CODE_FIELD_NUMBER;
-      hash = (53 * hash) + getCode();
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-      hash = (53 * hash) + getToken().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
+      if (hasInfo()) {
+        hash = (37 * hash) + INFO_FIELD_NUMBER;
+        hash = (53 * hash) + getInfo().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3025,12 +2108,18 @@ public final class InfoOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        code_ = 0;
-
-        message_ = "";
-
-        token_ = "";
-
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+        if (infoBuilder_ == null) {
+          info_ = null;
+        } else {
+          info_ = null;
+          infoBuilder_ = null;
+        }
         return this;
       }
 
@@ -3057,9 +2146,16 @@ public final class InfoOuterClass {
       @java.lang.Override
       public user.info.InfoOuterClass.LoginResponse buildPartial() {
         user.info.InfoOuterClass.LoginResponse result = new user.info.InfoOuterClass.LoginResponse(this);
-        result.code_ = code_;
-        result.message_ = message_;
-        result.token_ = token_;
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
+        if (infoBuilder_ == null) {
+          result.info_ = info_;
+        } else {
+          result.info_ = infoBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -3108,16 +2204,11 @@ public final class InfoOuterClass {
 
       public Builder mergeFrom(user.info.InfoOuterClass.LoginResponse other) {
         if (other == user.info.InfoOuterClass.LoginResponse.getDefaultInstance()) return this;
-        if (other.getCode() != 0) {
-          setCode(other.getCode());
+        if (other.hasError()) {
+          mergeError(other.getError());
         }
-        if (!other.getMessage().isEmpty()) {
-          message_ = other.message_;
-          onChanged();
-        }
-        if (!other.getToken().isEmpty()) {
-          token_ = other.token_;
-          onChanged();
+        if (other.hasInfo()) {
+          mergeInfo(other.getInfo());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3148,186 +2239,242 @@ public final class InfoOuterClass {
         return this;
       }
 
-      private int code_ ;
+      private common.Type.Error error_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder> errorBuilder_;
       /**
-       * <code>int32 code = 1;</code>
-       * @return The code.
+       * <code>.common.Error error = 1;</code>
+       * @return Whether the error field is set.
        */
-      public int getCode() {
-        return code_;
+      public boolean hasError() {
+        return errorBuilder_ != null || error_ != null;
       }
       /**
-       * <code>int32 code = 1;</code>
-       * @param value The code to set.
-       * @return This builder for chaining.
+       * <code>.common.Error error = 1;</code>
+       * @return The error.
        */
-      public Builder setCode(int value) {
-        
-        code_ = value;
-        onChanged();
+      public common.Type.Error getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? common.Type.Error.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder setError(common.Type.Error value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>int32 code = 1;</code>
-       * @return This builder for chaining.
+       * <code>.common.Error error = 1;</code>
        */
-      public Builder clearCode() {
-        
-        code_ = 0;
-        onChanged();
+      public Builder setError(
+          common.Type.Error.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder mergeError(common.Type.Error value) {
+        if (errorBuilder_ == null) {
+          if (error_ != null) {
+            error_ =
+              common.Type.Error.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public common.Type.Error.Builder getErrorBuilder() {
+        
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public common.Type.ErrorOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              common.Type.Error.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
       }
 
-      private java.lang.Object message_ = "";
+      private user.info.InfoOuterClass.UserInfo info_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          user.info.InfoOuterClass.UserInfo, user.info.InfoOuterClass.UserInfo.Builder, user.info.InfoOuterClass.UserInfoOrBuilder> infoBuilder_;
       /**
-       * <code>string message = 2;</code>
-       * @return The message.
+       * <code>.user.info.UserInfo info = 2;</code>
+       * @return Whether the info field is set.
        */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          message_ = s;
-          return s;
+      public boolean hasInfo() {
+        return infoBuilder_ != null || info_ != null;
+      }
+      /**
+       * <code>.user.info.UserInfo info = 2;</code>
+       * @return The info.
+       */
+      public user.info.InfoOuterClass.UserInfo getInfo() {
+        if (infoBuilder_ == null) {
+          return info_ == null ? user.info.InfoOuterClass.UserInfo.getDefaultInstance() : info_;
         } else {
-          return (java.lang.String) ref;
+          return infoBuilder_.getMessage();
         }
       }
       /**
-       * <code>string message = 2;</code>
-       * @return The bytes for message.
+       * <code>.user.info.UserInfo info = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          message_ = b;
-          return b;
+      public Builder setInfo(user.info.InfoOuterClass.UserInfo value) {
+        if (infoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          info_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          infoBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @param value The message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        message_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMessage() {
-        
-        message_ = getDefaultInstance().getMessage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @param value The bytes for message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        message_ = value;
-        onChanged();
-        return this;
-      }
 
-      private java.lang.Object token_ = "";
+        return this;
+      }
       /**
-       * <code>string token = 3;</code>
-       * @return The token.
+       * <code>.user.info.UserInfo info = 2;</code>
        */
-      public java.lang.String getToken() {
-        java.lang.Object ref = token_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          token_ = s;
-          return s;
+      public Builder setInfo(
+          user.info.InfoOuterClass.UserInfo.Builder builderForValue) {
+        if (infoBuilder_ == null) {
+          info_ = builderForValue.build();
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          infoBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.user.info.UserInfo info = 2;</code>
+       */
+      public Builder mergeInfo(user.info.InfoOuterClass.UserInfo value) {
+        if (infoBuilder_ == null) {
+          if (info_ != null) {
+            info_ =
+              user.info.InfoOuterClass.UserInfo.newBuilder(info_).mergeFrom(value).buildPartial();
+          } else {
+            info_ = value;
+          }
+          onChanged();
+        } else {
+          infoBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.user.info.UserInfo info = 2;</code>
+       */
+      public Builder clearInfo() {
+        if (infoBuilder_ == null) {
+          info_ = null;
+          onChanged();
+        } else {
+          info_ = null;
+          infoBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.user.info.UserInfo info = 2;</code>
+       */
+      public user.info.InfoOuterClass.UserInfo.Builder getInfoBuilder() {
+        
+        onChanged();
+        return getInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.user.info.UserInfo info = 2;</code>
+       */
+      public user.info.InfoOuterClass.UserInfoOrBuilder getInfoOrBuilder() {
+        if (infoBuilder_ != null) {
+          return infoBuilder_.getMessageOrBuilder();
+        } else {
+          return info_ == null ?
+              user.info.InfoOuterClass.UserInfo.getDefaultInstance() : info_;
         }
       }
       /**
-       * <code>string token = 3;</code>
-       * @return The bytes for token.
+       * <code>.user.info.UserInfo info = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getTokenBytes() {
-        java.lang.Object ref = token_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          token_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          user.info.InfoOuterClass.UserInfo, user.info.InfoOuterClass.UserInfo.Builder, user.info.InfoOuterClass.UserInfoOrBuilder> 
+          getInfoFieldBuilder() {
+        if (infoBuilder_ == null) {
+          infoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              user.info.InfoOuterClass.UserInfo, user.info.InfoOuterClass.UserInfo.Builder, user.info.InfoOuterClass.UserInfoOrBuilder>(
+                  getInfo(),
+                  getParentForChildren(),
+                  isClean());
+          info_ = null;
         }
-      }
-      /**
-       * <code>string token = 3;</code>
-       * @param value The token to set.
-       * @return This builder for chaining.
-       */
-      public Builder setToken(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        token_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string token = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearToken() {
-        
-        token_ = getDefaultInstance().getToken();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string token = 3;</code>
-       * @param value The bytes for token to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTokenBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        token_ = value;
-        onChanged();
-        return this;
+        return infoBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3387,24 +2534,39 @@ public final class InfoOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>.common.Error error = 1;</code>
+     * @return Whether the error field is set.
+     */
+    boolean hasError();
+    /**
+     * <code>.common.Error error = 1;</code>
+     * @return The error.
+     */
+    common.Type.Error getError();
+    /**
+     * <code>.common.Error error = 1;</code>
+     */
+    common.Type.ErrorOrBuilder getErrorOrBuilder();
+
+    /**
+     * <code>string name = 2;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
-     * <code>string token = 2;</code>
+     * <code>string token = 3;</code>
      * @return The token.
      */
     java.lang.String getToken();
     /**
-     * <code>string token = 2;</code>
+     * <code>string token = 3;</code>
      * @return The bytes for token.
      */
     com.google.protobuf.ByteString
@@ -3458,12 +2620,25 @@ public final class InfoOuterClass {
               done = true;
               break;
             case 10: {
+              common.Type.Error.Builder subBuilder = null;
+              if (error_ != null) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(common.Type.Error.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
               name_ = s;
               break;
             }
-            case 18: {
+            case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
               token_ = s;
@@ -3501,10 +2676,33 @@ public final class InfoOuterClass {
               user.info.InfoOuterClass.LogoutRequest.class, user.info.InfoOuterClass.LogoutRequest.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
+    public static final int ERROR_FIELD_NUMBER = 1;
+    private common.Type.Error error_;
+    /**
+     * <code>.common.Error error = 1;</code>
+     * @return Whether the error field is set.
+     */
+    public boolean hasError() {
+      return error_ != null;
+    }
+    /**
+     * <code>.common.Error error = 1;</code>
+     * @return The error.
+     */
+    public common.Type.Error getError() {
+      return error_ == null ? common.Type.Error.getDefaultInstance() : error_;
+    }
+    /**
+     * <code>.common.Error error = 1;</code>
+     */
+    public common.Type.ErrorOrBuilder getErrorOrBuilder() {
+      return getError();
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -3520,7 +2718,7 @@ public final class InfoOuterClass {
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -3537,10 +2735,10 @@ public final class InfoOuterClass {
       }
     }
 
-    public static final int TOKEN_FIELD_NUMBER = 2;
+    public static final int TOKEN_FIELD_NUMBER = 3;
     private volatile java.lang.Object token_;
     /**
-     * <code>string token = 2;</code>
+     * <code>string token = 3;</code>
      * @return The token.
      */
     public java.lang.String getToken() {
@@ -3556,7 +2754,7 @@ public final class InfoOuterClass {
       }
     }
     /**
-     * <code>string token = 2;</code>
+     * <code>string token = 3;</code>
      * @return The bytes for token.
      */
     public com.google.protobuf.ByteString
@@ -3587,11 +2785,14 @@ public final class InfoOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (error_ != null) {
+        output.writeMessage(1, getError());
+      }
       if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       if (!getTokenBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, token_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, token_);
       }
       unknownFields.writeTo(output);
     }
@@ -3602,11 +2803,15 @@ public final class InfoOuterClass {
       if (size != -1) return size;
 
       size = 0;
+      if (error_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getError());
+      }
       if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       if (!getTokenBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, token_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, token_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3623,6 +2828,11 @@ public final class InfoOuterClass {
       }
       user.info.InfoOuterClass.LogoutRequest other = (user.info.InfoOuterClass.LogoutRequest) obj;
 
+      if (hasError() != other.hasError()) return false;
+      if (hasError()) {
+        if (!getError()
+            .equals(other.getError())) return false;
+      }
       if (!getName()
           .equals(other.getName())) return false;
       if (!getToken()
@@ -3638,6 +2848,10 @@ public final class InfoOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + TOKEN_FIELD_NUMBER;
@@ -3775,6 +2989,12 @@ public final class InfoOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
         name_ = "";
 
         token_ = "";
@@ -3805,6 +3025,11 @@ public final class InfoOuterClass {
       @java.lang.Override
       public user.info.InfoOuterClass.LogoutRequest buildPartial() {
         user.info.InfoOuterClass.LogoutRequest result = new user.info.InfoOuterClass.LogoutRequest(this);
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
         result.name_ = name_;
         result.token_ = token_;
         onBuilt();
@@ -3855,6 +3080,9 @@ public final class InfoOuterClass {
 
       public Builder mergeFrom(user.info.InfoOuterClass.LogoutRequest other) {
         if (other == user.info.InfoOuterClass.LogoutRequest.getDefaultInstance()) return this;
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -3892,9 +3120,128 @@ public final class InfoOuterClass {
         return this;
       }
 
+      private common.Type.Error error_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder> errorBuilder_;
+      /**
+       * <code>.common.Error error = 1;</code>
+       * @return Whether the error field is set.
+       */
+      public boolean hasError() {
+        return errorBuilder_ != null || error_ != null;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       * @return The error.
+       */
+      public common.Type.Error getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? common.Type.Error.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder setError(common.Type.Error value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder setError(
+          common.Type.Error.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder mergeError(common.Type.Error value) {
+        if (errorBuilder_ == null) {
+          if (error_ != null) {
+            error_ =
+              common.Type.Error.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public common.Type.Error.Builder getErrorBuilder() {
+        
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public common.Type.ErrorOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              common.Type.Error.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
+      }
+
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The name.
        */
       public java.lang.String getName() {
@@ -3910,7 +3257,7 @@ public final class InfoOuterClass {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
@@ -3927,7 +3274,7 @@ public final class InfoOuterClass {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -3942,7 +3289,7 @@ public final class InfoOuterClass {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
@@ -3952,7 +3299,7 @@ public final class InfoOuterClass {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -3970,7 +3317,7 @@ public final class InfoOuterClass {
 
       private java.lang.Object token_ = "";
       /**
-       * <code>string token = 2;</code>
+       * <code>string token = 3;</code>
        * @return The token.
        */
       public java.lang.String getToken() {
@@ -3986,7 +3333,7 @@ public final class InfoOuterClass {
         }
       }
       /**
-       * <code>string token = 2;</code>
+       * <code>string token = 3;</code>
        * @return The bytes for token.
        */
       public com.google.protobuf.ByteString
@@ -4003,7 +3350,7 @@ public final class InfoOuterClass {
         }
       }
       /**
-       * <code>string token = 2;</code>
+       * <code>string token = 3;</code>
        * @param value The token to set.
        * @return This builder for chaining.
        */
@@ -4018,7 +3365,7 @@ public final class InfoOuterClass {
         return this;
       }
       /**
-       * <code>string token = 2;</code>
+       * <code>string token = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearToken() {
@@ -4028,7 +3375,7 @@ public final class InfoOuterClass {
         return this;
       }
       /**
-       * <code>string token = 2;</code>
+       * <code>string token = 3;</code>
        * @param value The bytes for token to set.
        * @return This builder for chaining.
        */
@@ -4101,22 +3448,19 @@ public final class InfoOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 code = 1;</code>
-     * @return The code.
+     * <code>.common.Error error = 1;</code>
+     * @return Whether the error field is set.
      */
-    int getCode();
-
+    boolean hasError();
     /**
-     * <code>string message = 2;</code>
-     * @return The message.
+     * <code>.common.Error error = 1;</code>
+     * @return The error.
      */
-    java.lang.String getMessage();
+    common.Type.Error getError();
     /**
-     * <code>string message = 2;</code>
-     * @return The bytes for message.
+     * <code>.common.Error error = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getMessageBytes();
+    common.Type.ErrorOrBuilder getErrorOrBuilder();
   }
   /**
    * Protobuf type {@code user.info.LogoutResponse}
@@ -4131,7 +3475,6 @@ public final class InfoOuterClass {
       super(builder);
     }
     private LogoutResponse() {
-      message_ = "";
     }
 
     @java.lang.Override
@@ -4164,15 +3507,17 @@ public final class InfoOuterClass {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              common.Type.Error.Builder subBuilder = null;
+              if (error_ != null) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(common.Type.Error.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
 
-              code_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              message_ = s;
               break;
             }
             default: {
@@ -4207,50 +3552,27 @@ public final class InfoOuterClass {
               user.info.InfoOuterClass.LogoutResponse.class, user.info.InfoOuterClass.LogoutResponse.Builder.class);
     }
 
-    public static final int CODE_FIELD_NUMBER = 1;
-    private int code_;
+    public static final int ERROR_FIELD_NUMBER = 1;
+    private common.Type.Error error_;
     /**
-     * <code>int32 code = 1;</code>
-     * @return The code.
+     * <code>.common.Error error = 1;</code>
+     * @return Whether the error field is set.
      */
-    public int getCode() {
-      return code_;
-    }
-
-    public static final int MESSAGE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object message_;
-    /**
-     * <code>string message = 2;</code>
-     * @return The message.
-     */
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        message_ = s;
-        return s;
-      }
+    public boolean hasError() {
+      return error_ != null;
     }
     /**
-     * <code>string message = 2;</code>
-     * @return The bytes for message.
+     * <code>.common.Error error = 1;</code>
+     * @return The error.
      */
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public common.Type.Error getError() {
+      return error_ == null ? common.Type.Error.getDefaultInstance() : error_;
+    }
+    /**
+     * <code>.common.Error error = 1;</code>
+     */
+    public common.Type.ErrorOrBuilder getErrorOrBuilder() {
+      return getError();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4267,11 +3589,8 @@ public final class InfoOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (code_ != 0) {
-        output.writeInt32(1, code_);
-      }
-      if (!getMessageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+      if (error_ != null) {
+        output.writeMessage(1, getError());
       }
       unknownFields.writeTo(output);
     }
@@ -4282,12 +3601,9 @@ public final class InfoOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (code_ != 0) {
+      if (error_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, code_);
-      }
-      if (!getMessageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
+          .computeMessageSize(1, getError());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4304,10 +3620,11 @@ public final class InfoOuterClass {
       }
       user.info.InfoOuterClass.LogoutResponse other = (user.info.InfoOuterClass.LogoutResponse) obj;
 
-      if (getCode()
-          != other.getCode()) return false;
-      if (!getMessage()
-          .equals(other.getMessage())) return false;
+      if (hasError() != other.hasError()) return false;
+      if (hasError()) {
+        if (!getError()
+            .equals(other.getError())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4319,10 +3636,10 @@ public final class InfoOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CODE_FIELD_NUMBER;
-      hash = (53 * hash) + getCode();
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4456,10 +3773,12 @@ public final class InfoOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        code_ = 0;
-
-        message_ = "";
-
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
         return this;
       }
 
@@ -4486,8 +3805,11 @@ public final class InfoOuterClass {
       @java.lang.Override
       public user.info.InfoOuterClass.LogoutResponse buildPartial() {
         user.info.InfoOuterClass.LogoutResponse result = new user.info.InfoOuterClass.LogoutResponse(this);
-        result.code_ = code_;
-        result.message_ = message_;
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -4536,12 +3858,8 @@ public final class InfoOuterClass {
 
       public Builder mergeFrom(user.info.InfoOuterClass.LogoutResponse other) {
         if (other == user.info.InfoOuterClass.LogoutResponse.getDefaultInstance()) return this;
-        if (other.getCode() != 0) {
-          setCode(other.getCode());
-        }
-        if (!other.getMessage().isEmpty()) {
-          message_ = other.message_;
-          onChanged();
+        if (other.hasError()) {
+          mergeError(other.getError());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4572,110 +3890,123 @@ public final class InfoOuterClass {
         return this;
       }
 
-      private int code_ ;
+      private common.Type.Error error_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder> errorBuilder_;
       /**
-       * <code>int32 code = 1;</code>
-       * @return The code.
+       * <code>.common.Error error = 1;</code>
+       * @return Whether the error field is set.
        */
-      public int getCode() {
-        return code_;
+      public boolean hasError() {
+        return errorBuilder_ != null || error_ != null;
       }
       /**
-       * <code>int32 code = 1;</code>
-       * @param value The code to set.
-       * @return This builder for chaining.
+       * <code>.common.Error error = 1;</code>
+       * @return The error.
        */
-      public Builder setCode(int value) {
-        
-        code_ = value;
-        onChanged();
-        return this;
+      public common.Type.Error getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? common.Type.Error.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
       }
       /**
-       * <code>int32 code = 1;</code>
-       * @return This builder for chaining.
+       * <code>.common.Error error = 1;</code>
        */
-      public Builder clearCode() {
-        
-        code_ = 0;
-        onChanged();
-        return this;
-      }
+      public Builder setError(common.Type.Error value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
 
-      private java.lang.Object message_ = "";
+        return this;
+      }
       /**
-       * <code>string message = 2;</code>
-       * @return The message.
+       * <code>.common.Error error = 1;</code>
        */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          message_ = s;
-          return s;
+      public Builder setError(
+          common.Type.Error.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder mergeError(common.Type.Error value) {
+        if (errorBuilder_ == null) {
+          if (error_ != null) {
+            error_ =
+              common.Type.Error.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          error_ = null;
+          errorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public common.Type.Error.Builder getErrorBuilder() {
+        
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.common.Error error = 1;</code>
+       */
+      public common.Type.ErrorOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              common.Type.Error.getDefaultInstance() : error_;
         }
       }
       /**
-       * <code>string message = 2;</code>
-       * @return The bytes for message.
+       * <code>.common.Error error = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              common.Type.Error, common.Type.Error.Builder, common.Type.ErrorOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
         }
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @param value The message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        message_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMessage() {
-        
-        message_ = getDefaultInstance().getMessage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string message = 2;</code>
-       * @param value The bytes for message to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        message_ = value;
-        onChanged();
-        return this;
+        return errorBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4731,20 +4062,15 @@ public final class InfoOuterClass {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_user_info_Request_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_user_info_Request_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_user_info_Response_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_user_info_Response_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_user_info_LoginRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_user_info_LoginRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_user_info_UserInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_user_info_UserInfo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_user_info_LoginResponse_descriptor;
   private static final 
@@ -4769,69 +4095,65 @@ public final class InfoOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024user/info/info.proto\022\tuser.info\032\034googl" +
-      "e/api/annotations.proto\">\n\007Request\022\014\n\004na" +
-      "me\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\023\n\013verify_cod" +
-      "e\030\003 \001(\t\"?\n\010Response\022\014\n\004name\030\001 \001(\t\022\020\n\010pas" +
-      "sword\030\002 \001(\t\022\023\n\013verify_code\030\003 \001(\t\"C\n\014Logi" +
-      "nRequest\022\014\n\004name\030\001 \001(\t\022\020\n\010password\030\002 \001(\t" +
-      "\022\023\n\013verify_code\030\003 \001(\t\"=\n\rLoginResponse\022\014" +
-      "\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\r\n\005token\030\003" +
-      " \001(\t\",\n\rLogoutRequest\022\014\n\004name\030\001 \001(\t\022\r\n\005t" +
-      "oken\030\002 \001(\t\"/\n\016LogoutResponse\022\014\n\004code\030\001 \001" +
-      "(\005\022\017\n\007message\030\002 \001(\t2\270\001\n\004Info\022U\n\005login\022\027." +
-      "user.info.LoginRequest\032\030.user.info.Login" +
-      "Response\"\031\202\323\344\223\002\023\"\016/v1/user/login:\001*\022Y\n\006l" +
-      "ogout\022\030.user.info.LogoutRequest\032\031.user.i" +
-      "nfo.LogoutResponse\"\032\202\323\344\223\002\024\"\017/v1/user/log" +
-      "out:\001*B\006Z\004infob\006proto3"
+      "\n\024user/info/info.proto\022\tuser.info\032\021commo" +
+      "n/type.proto\032\034google/api/annotations.pro" +
+      "to\"a\n\014LoginRequest\022\034\n\005error\030\001 \001(\0132\r.comm" +
+      "on.Error\022\014\n\004name\030\002 \001(\t\022\020\n\010password\030\003 \001(\t" +
+      "\022\023\n\013verify_code\030\004 \001(\t\"%\n\010UserInfo\022\013\n\003Uid" +
+      "\030\001 \001(\003\022\014\n\004Name\030\002 \001(\t\"P\n\rLoginResponse\022\034\n" +
+      "\005error\030\001 \001(\0132\r.common.Error\022!\n\004info\030\002 \001(" +
+      "\0132\023.user.info.UserInfo\"J\n\rLogoutRequest\022" +
+      "\034\n\005error\030\001 \001(\0132\r.common.Error\022\014\n\004name\030\002 " +
+      "\001(\t\022\r\n\005token\030\003 \001(\t\".\n\016LogoutResponse\022\034\n\005" +
+      "error\030\001 \001(\0132\r.common.Error2\270\001\n\004Info\022U\n\005l" +
+      "ogin\022\027.user.info.LoginRequest\032\030.user.inf" +
+      "o.LoginResponse\"\031\202\323\344\223\002\023\"\016/v1/user/login:" +
+      "\001*\022Y\n\006logout\022\030.user.info.LogoutRequest\032\031" +
+      ".user.info.LogoutResponse\"\032\202\323\344\223\002\024\"\017/v1/u" +
+      "ser/logout:\001*B\006Z\004infob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          common.Type.getDescriptor(),
           com.google.api.AnnotationsProto.getDescriptor(),
         });
-    internal_static_user_info_Request_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_user_info_Request_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_user_info_Request_descriptor,
-        new java.lang.String[] { "Name", "Password", "VerifyCode", });
-    internal_static_user_info_Response_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_user_info_Response_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_user_info_Response_descriptor,
-        new java.lang.String[] { "Name", "Password", "VerifyCode", });
     internal_static_user_info_LoginRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_user_info_LoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_user_info_LoginRequest_descriptor,
-        new java.lang.String[] { "Name", "Password", "VerifyCode", });
+        new java.lang.String[] { "Error", "Name", "Password", "VerifyCode", });
+    internal_static_user_info_UserInfo_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_user_info_UserInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_user_info_UserInfo_descriptor,
+        new java.lang.String[] { "Uid", "Name", });
     internal_static_user_info_LoginResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_user_info_LoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_user_info_LoginResponse_descriptor,
-        new java.lang.String[] { "Code", "Message", "Token", });
+        new java.lang.String[] { "Error", "Info", });
     internal_static_user_info_LogoutRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_user_info_LogoutRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_user_info_LogoutRequest_descriptor,
-        new java.lang.String[] { "Name", "Token", });
+        new java.lang.String[] { "Error", "Name", "Token", });
     internal_static_user_info_LogoutResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_user_info_LogoutResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_user_info_LogoutResponse_descriptor,
-        new java.lang.String[] { "Code", "Message", });
+        new java.lang.String[] { "Error", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
+    common.Type.getDescriptor();
     com.google.api.AnnotationsProto.getDescriptor();
   }
 
