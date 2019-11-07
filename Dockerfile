@@ -1,4 +1,4 @@
-FROM golang:1.12-alpine as builder
+FROM golang:1.13-alpine as builder
 LABEL maintainer="hetao<hetao@hetao.name>"
 LABEL version="1.0"
 
@@ -11,7 +11,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 	&& tree -L 4 && export GOPROXY=https://goproxy.cn && cd server && go build -v -o ../bin/server . \
 	&& rm -rf /var/lib/apk/*
 
-FROM alpine:3.9 as prod
+FROM alpine:3.10 as prod
 
 RUN apk --no-cache add ca-certificates
 
