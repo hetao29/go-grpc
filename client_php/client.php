@@ -30,13 +30,14 @@ try{
 		print_r($error);
 	}
 	echo "\n";
+	print_r($json = $request->serializeToJsonString());
 	//call by restful
-	$request=[
-		"name"=>"admin",
-		"password"=>"123456",
-	];
-	print_r(json_encode($request));
-	$data = post("http://127.0.0.1:50001/v1/user/login",json_encode($request));
+	//$request=[
+	//	"name"=>"admin",
+	//	"password"=>"123456",
+	//];
+	//print_r(json_encode($request));
+	$data = post("http://127.0.0.1:50001/v1/user/login",json_encode($json));
 	echo $data;
 	echo "\n";
 
