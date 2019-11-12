@@ -195,11 +195,7 @@
                 </li>
               
                 <li>
-                  <a href="#user.info.Request"><span class="badge">M</span>Request</a>
-                </li>
-              
-                <li>
-                  <a href="#user.info.Response"><span class="badge">M</span>Response</a>
+                  <a href="#user.info.UserInfo"><span class="badge">M</span>UserInfo</a>
                 </li>
               
               
@@ -233,6 +229,13 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
+              
+                <tr>
+                  <td>error</td>
+                  <td><a href="#common.Error">common.Error</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
               
                 <tr>
                   <td>name</td>
@@ -273,22 +276,15 @@
             <tbody>
               
                 <tr>
-                  <td>code</td>
-                  <td><a href="#int32">int32</a></td>
+                  <td>error</td>
+                  <td><a href="#common.Error">common.Error</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>message</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>token</td>
-                  <td><a href="#string">string</a></td>
+                  <td>info</td>
+                  <td><a href="#user.info.UserInfo">UserInfo</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -309,6 +305,13 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
+              
+                <tr>
+                  <td>error</td>
+                  <td><a href="#common.Error">common.Error</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
               
                 <tr>
                   <td>name</td>
@@ -342,15 +345,8 @@
             <tbody>
               
                 <tr>
-                  <td>code</td>
-                  <td><a href="#int32">int32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>message</td>
-                  <td><a href="#string">string</a></td>
+                  <td>error</td>
+                  <td><a href="#common.Error">common.Error</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -362,7 +358,7 @@
 
         
       
-        <h3 id="user.info.Request">Request</h3>
+        <h3 id="user.info.UserInfo">UserInfo</h3>
         <p></p>
 
         
@@ -373,59 +369,14 @@
             <tbody>
               
                 <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
+                  <td>Uid</td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>password</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>verify_code</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="user.info.Response">Response</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>password</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>verify_code</td>
+                  <td>Name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
