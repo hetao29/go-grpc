@@ -14,6 +14,8 @@ initjava:
 	#java 语言需要安装的依赖，如果要用 java 语言开发，可能需要考虑
 	git submodule init
 	git submodule update grpc/grpc-java
+	#https://github.com/grpc/grpc-java/tree/master/compiler
+	cd grpc/grpc-java/compiler && ../gradlew java_pluginExecutable
 
 dockerbuild:
 	#生成 docker image
