@@ -1,32 +1,44 @@
 all:
 	@echo "Please specify the cmd!";
+build:
+	#正常编译
+	export GOPROXY=https://goproxy.cn && cd server && go build -v -o ../bin/server .
+	export GOPROXY=https://goproxy.cn && cd client && go build -o ../bin/client .
+start:	
+	./bin/server
+test:
+	./bin/client
+test_rest:
+	curl -v http://127.0.0.1:50001/v1/user/profile/get
+	curl -v http://127.0.0.1:50001/v1/user/login -X POST -d '{"name":"x","password":"P"}'
+
+
+###下面是和 protobuf 协议相关的操作，除非更新 proto，一般情况不需要安装
 initprotoc:
-	#初始化，安装各种依赖
+	#可选!!!
+	#安装protobuf 相关工具，用来生成 proto 目录里的代码，只有需要更新协议的才需要安装
 	#protoc 的相关初始工作
 	#https://github.com/grpc-ecosystem/grpc-gateway
+	apt-get install autoconf automake libtool curl make g++ unzip
 	export GOPROXY=https://goproxy.cn && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 	export GOPROXY=https://goproxy.cn && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 	export GOPROXY=https://goproxy.cn && go get -u github.com/golang/protobuf/protoc-gen-go
 	git submodule init
 	git submodule update grpc/grpc
 	cd grpc/grpc && git submodule init && git submodule update && make
+	git submodule update grpc/protobuf
+	REALPREFIX=$(realpath .) && cd grpc/protobuf && git submodule init && git submodule update && ./autogen.sh && ./configure --prefix=$$REALPREFIX/grpc/tmp && make && make check && sudo make install && sudo ldconfig
 initjava:
-	#java 语言需要安装的依赖，如果要用 java 语言开发，可能需要考虑
+	#可选!!!
+	# 要生成 protobuf 的java 语言才需要安装，执行前，需要先 make initprotoc，不然编译不通过
 	git submodule init
 	git submodule update grpc/grpc-java
 	#https://github.com/grpc/grpc-java/tree/master/compiler
-	cd grpc/grpc-java/compiler && ../gradlew java_pluginExecutable
+	REALPREFIX=$(realpath .) && cd grpc/grpc-java/compiler && export CXXFLAGS="-I$$REALPREFIX/grpc/tmp/include/" LDFLAGS="-L$$REALPREFIX/grpc/tmp/lib/" && echo $$REALPREFIX && ../gradlew java_pluginExecutable
+	#cd grpc/grpc-java/compiler && export CXXFLAGS="-I/root/go-grpc/grpc/tmp/include/" LDFLAGS="-L/root/go-grpc/grpc/tmp/lib" && ../gradlew java_pluginExecutable
 
-dockerbuild:
-	#生成 docker image
-	docker build . -t hetao29/go-grpc:1.0.0
-build:
-	#正常编译
-	export GOPROXY=https://goproxy.cn && cd server && go build -v -o ../bin/server .
-	export GOPROXY=https://goproxy.cn && cd client && go build -o ../bin/client .
-start:	
-	./bin/test
 genprotodoc:
+	#可选!!!
 	#https://github.com/pseudomuto/protoc-gen-doc
 	find proto_src -name "*.proto" | xargs -I {} protoc \
 	       --proto_path=grpc/grpc/third_party/googleapis \
@@ -38,6 +50,7 @@ genprotodoc:
 	       --plugin=proto-google-common-protos --go_out=plugins=grpc:proto \
 	       "{}"
 genproto:
+	#可选!!!
 	find proto_src -name "*.proto" | xargs -I {} protoc \
 	       --proto_path=grpc/grpc/third_party/googleapis \
 	       --proto_path=proto_src \
@@ -54,6 +67,7 @@ genjavaproto:
 		   --plugin=protoc-gen-grpc-java=grpc/grpc-java/compiler/build/exe/java_plugin/protoc-gen-grpc-java \
 	       "{}"
 genphpproto:
+	#可选!!!
 	#https://github.com/grpc/grpc/tree/master/src/php
 	find proto_src -name "*.proto" | xargs -I {} protoc \
 		--php_out=proto/php \
@@ -63,13 +77,17 @@ genphpproto:
 		--plugin=protoc-gen-grpc=grpc/grpc/bins/opt/grpc_php_plugin \
 		"{}"
 
-test:
-	curl -v http://127.0.0.1:50001/v1/user/profile/get
-	curl -v http://127.0.0.1:50001/v1/user/login -X POST -d '{"name":"x","password":"P"}'
+##docker 和 k8s 相关
+dockerbuild:
+	#可选!!!
+	#生成 docker image
+	docker build . -t hetao29/go-grpc:1.0.0
 lint:
+	#可选!!!
 	find . -name "*go" | xargs -I {} golint "{}"
 	#golint modules/...
 	#golint server/*
 	#golint client/*
 fmt:
+	#可选!!!
 	find . -name "*go" | xargs -I {} go fmt "{}"
