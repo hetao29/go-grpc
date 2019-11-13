@@ -18,13 +18,14 @@ const (
 )
 
 func main() {
+	dir, _ := os.Getwd()
 	//load config
 	config.WithOptions(config.ParseEnv)
 
 	// add Decoder and Encoder
 	config.AddDriver(json.Driver)
 
-	err := config.LoadFiles("etc/config.json")
+	err := cfg.LoadFiles(dir+"/../etc/config.json")
 	if err != nil {
 		panic(err)
 	}
