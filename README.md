@@ -18,12 +18,41 @@
 
 ## Makefile 说明
 
+### 编译
 ```bash
 make build
 ```
 
-
-## 运行
+### 运行
 ```bash
 make start
+```
+
+### 生成 grpc和protoc的依赖，（可选，如果在生成 protobuf 对应的go/php 文件）
+这个命令，会在 tmp 目录下生成protocbuf 相关工具，
+```bash
+make initprotoc
+```
+
+### 生成 java依赖，（可选，根据 protobuf 生成对应的 java 文件）
+```bash
+make initjava
+```
+
+### 根据 protobuf生成 go 文件
+```bash
+make genproto
+```
+
+### 根据 protobuf生成 java 文件
+
+```bash
+make genjavaproto
+```
+
+
+### 根据 protobuf生成 php 文件
+
+```bash
+make genphpproto
 ```
