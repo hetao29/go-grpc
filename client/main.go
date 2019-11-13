@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 	"time"
-
+	"path/filepath"
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/json"
 	"proto/user/info"
@@ -19,7 +19,11 @@ const (
 
 var cfg *config.Config
 func main() {
-	dir, _ := os.Getwd()
+	ex, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	dir:= filepath.Dir(ex)
 	//load config
 	cfg = config.New("default")
 	cfg.WithOptions(config.ParseEnv)
@@ -27,7 +31,7 @@ func main() {
 	// add Decoder and Encoder
 	cfg.AddDriver(json.Driver)
 
-	err := cfg.LoadFiles(dir+"/../etc/config.json")
+	err = cfg.LoadFiles(dir+"/../etc/config.json")
 	if err != nil {
 		panic(err)
 	}

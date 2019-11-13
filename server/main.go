@@ -7,6 +7,7 @@ import (
 	"github.com/google/logger"
 	//"log"
 	"modules/log"
+	"path/filepath"
 	"modules/user"
 	"modules/utility"
 	//"net"
@@ -22,7 +23,11 @@ import "github.com/facebookgo/grace/gracehttp"
 var cfg *config.Config
 
 func main() {
-	dir, _ := os.Getwd()
+	ex, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	dir:= filepath.Dir(ex)
 	cfg = config.New("default")
 	//load config
 	cfg.WithOptions(config.ParseEnv)
@@ -30,7 +35,7 @@ func main() {
 	// add Decoder and Encoder
 	cfg.AddDriver(json.Driver)
 
-	err := cfg.LoadFiles(dir+"/../etc/config.json")
+	err = cfg.LoadFiles(dir+"/../etc/config.json")
 	if err != nil {
 		panic(err)
 	}
