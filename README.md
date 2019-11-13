@@ -1,10 +1,11 @@
 # 说明
 
 包含 grpc 的示例
-1. grpc 生成 php,golang,java 相关代码
-2. 支持 grpc 的 restful 的 gateway 的示例
-3. 包括 mysql(grom),redis 的操作
-4. 规划好了各模块，可以按对应目录结构进行进一步开发
+1. 有自动的命令，除了 go get相关的工具外，grpc/protobuf 相关的都安装在 grpc/tmp 目录下，不影响系统
+2. grpc 生成 php,golang,java 相关代码
+3. 支持 grpc 的 restful 的 gateway 的示例
+4. 包括 mysql(grom),redis 的操作
+5. 规划好了各模块，可以按对应目录结构进行进一步开发
 
 ## 目录说明
 
@@ -15,6 +16,7 @@
 5. proto目录，是自动生成的 proto 的目录，不需要手动修改
 6. server/client目录，golang 版本的 server 和 client
 7. modules目录，是用户自定义目录，用于实现各种功能
+8. db目录，是测试的sql文件，可以导入本地 mysql 库
 
 ## Makefile 说明
 
