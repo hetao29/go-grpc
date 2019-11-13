@@ -17,20 +17,22 @@ const (
 	defaultName = "world"
 )
 
+var cfg *config.Config
 func main() {
 	dir, _ := os.Getwd()
 	//load config
-	config.WithOptions(config.ParseEnv)
+	cfg = config.New("default")
+	cfg.WithOptions(config.ParseEnv)
 
 	// add Decoder and Encoder
-	config.AddDriver(json.Driver)
+	cfg.AddDriver(json.Driver)
 
 	err := cfg.LoadFiles(dir+"/../etc/config.json")
 	if err != nil {
 		panic(err)
 	}
 	log.Printf("config data: \n %#v\n", config.Data())
-	proxyRPC := config.String("proxy.rpc", "")
+	proxyRPC := cfg.String("proxy.rpc", "")
 	if proxyRPC == "" {
 		panic("proxy_rpc is empty")
 	}
