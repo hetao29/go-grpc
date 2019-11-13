@@ -19,7 +19,7 @@ initprotoc:
 	#安装protobuf 相关工具，用来生成 proto 目录里的代码，只有需要更新协议的才需要安装
 	#protoc 的相关初始工作
 	#https://github.com/grpc-ecosystem/grpc-gateway
-	apt-get install autoconf automake libtool curl make g++ unzip
+	apt-get install autoconf automake libtool curl
 	export GOPROXY=https://goproxy.cn && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 	export GOPROXY=https://goproxy.cn && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 	export GOPROXY=https://goproxy.cn && go get -u github.com/golang/protobuf/protoc-gen-go
@@ -40,7 +40,8 @@ initjava:
 genprotodoc:
 	#可选!!!
 	#https://github.com/pseudomuto/protoc-gen-doc
-	find proto_src -name "*.proto" | xargs -I {} protoc \
+	export GOPROXY=https://goproxy.cn && go get -u github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc
+	find proto_src -name "*.proto" | xargs -I {} ./grpc/tmp/bin/protoc \
 	       --proto_path=grpc/grpc/third_party/googleapis \
 	       --proto_path=proto_src \
 	       --plugin=protoc-gen-doc=`which protoc-gen-doc`\
@@ -51,14 +52,14 @@ genprotodoc:
 	       "{}"
 genproto:
 	#可选!!!
-	find proto_src -name "*.proto" | xargs -I {} protoc \
+	find proto_src -name "*.proto" | xargs -I {} ./grpc/tmp/bin/protoc \
 	       --proto_path=grpc/grpc/third_party/googleapis \
 	       --proto_path=proto_src \
 	       --grpc-gateway_out=logtostderr=true:proto \
 	       --plugin=proto-google-common-protos --go_out=plugins=grpc:proto \
 	       "{}"
 genjavaproto:
-	find proto_src -name "*.proto" | xargs -I {} protoc \
+	find proto_src -name "*.proto" | xargs -I {} ./grpc/tmp/bin/protoc \
 	       --proto_path=grpc/grpc/third_party/googleapis \
 	       --proto_path=proto_src \
 	       --plugin=proto-google-common-protos \
@@ -69,7 +70,7 @@ genjavaproto:
 genphpproto:
 	#可选!!!
 	#https://github.com/grpc/grpc/tree/master/src/php
-	find proto_src -name "*.proto" | xargs -I {} protoc \
+	find proto_src -name "*.proto" | xargs -I {} ./grpc/tmp/bin/protoc \
 		--php_out=proto/php \
 		--grpc_out=proto/php \
 		--proto_path=grpc/grpc/third_party/googleapis \
