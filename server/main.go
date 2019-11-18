@@ -18,7 +18,6 @@ import (
 	"net/http"
 )
 import "github.com/facebookgo/grace/gracenet"
-import "github.com/facebookgo/grace/gracehttp"
 
 var cfg *config.Config
 
@@ -79,10 +78,7 @@ func main() {
 		opts := []grpc.DialOption{grpc.WithInsecure()}
 		//register http proxy
 		user.RegisterHTTP(ctx, mux, proxyRPC, opts)
-
-		gracehttp.Serve(
-			&http.Server{Addr: listenHTTP, Handler: mux},
-		)
+		http.ListenAndServe(listenHTTP, mux)
 	}()
 
 	//grpc server
