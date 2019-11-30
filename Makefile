@@ -19,7 +19,7 @@ initprotoc:
 	#安装protobuf 相关工具，用来生成 proto 目录里的代码，只有需要更新协议的才需要安装
 	#protoc 的相关初始工作
 	#https://github.com/grpc-ecosystem/grpc-gateway
-	apt-get install autoconf automake libtool curl
+	sudo apt-get install autoconf automake libtool curl
 	export GOPROXY=https://goproxy.cn && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 	export GOPROXY=https://goproxy.cn && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 	export GOPROXY=https://goproxy.cn && go get -u github.com/golang/protobuf/protoc-gen-go
