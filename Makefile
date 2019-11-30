@@ -2,8 +2,8 @@ all:
 	@echo "Please specify the cmd!";
 build:
 	#正常编译
-	export GOPROXY=https://goproxy.cn && cd server && go build -v -o ../bin/server .
-	export GOPROXY=https://goproxy.cn && cd client && go build -o ../bin/client .
+	export GOPROXY=https://goproxy.cn && cd server && go build -v -ldflags "-X main.version=1.0.0 -X main.build=`date -u +%Y-%m-%d%H:%M:%S`" -o ../bin/server .
+	export GOPROXY=https://goproxy.cn && cd client && go build -v -ldflags "-X main.version=1.0.0 -X main.build=`date -u +%Y-%m-%d%H:%M:%S`" -o ../bin/client .
 start:	
 	./bin/server
 test:

@@ -21,12 +21,18 @@ import "github.com/facebookgo/grace/gracenet"
 import "github.com/facebookgo/grace/gracehttp"
 
 var cfg *config.Config
+var (
+    version string
+    build   string
+)
 
 func main() {
 	ex, err := os.Executable()
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("version=", version)
+	fmt.Println("build=", build)
 	dir:= filepath.Dir(ex)
 	cfg = config.New("default")
 	//load config

@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"time"
+	"fmt"
 	"path/filepath"
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/json"
@@ -18,11 +19,17 @@ const (
 )
 
 var cfg *config.Config
+var (
+    version string
+    build   string
+)
 func main() {
 	ex, err := os.Executable()
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("version=", version)
+	fmt.Println("build=", build)
 	dir:= filepath.Dir(ex)
 	//load config
 	cfg = config.New("default")
