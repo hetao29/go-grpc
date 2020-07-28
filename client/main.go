@@ -11,7 +11,7 @@ import (
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/json"
 	"proto/user/info"
-	"proto/user/profile"
+	//"proto/user/profile"
 )
 
 const (
@@ -68,17 +68,4 @@ func main() {
 		log.Printf("could not greet: %v", err)
 	}
 	log.Printf("Greeting: %v", r.GetInfo())
-
-	d := profile.NewProfileClient(conn)
-	s, err := d.Update(ctx, &profile.UpdateRequest{Name: name})
-	if err != nil {
-		log.Printf("could not greet: %v", err)
-	}
-	log.Printf("Greeting: %s", s.GetMessage())
-
-	t, err := d.Get(ctx, &profile.GetRequest{Name: name})
-	if err != nil {
-		log.Printf("could not greet: %v", err)
-	}
-	log.Printf("Greeting: %s", t.GetMessage())
 }

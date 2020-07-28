@@ -1,12 +1,10 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Order\Info;
+namespace Order\Info {
 
-/**
- * The greeter service definition.
- */
-class InfoClient extends \Grpc\BaseStub {
+  // The greeter service definition.
+  class InfoClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -14,7 +12,7 @@ class InfoClient extends \Grpc\BaseStub {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-        parent::__construct($hostname, $opts, $channel);
+      parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -25,10 +23,10 @@ class InfoClient extends \Grpc\BaseStub {
      */
     public function Add(\Order\Info\AddRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/order.info.Info/Add',
-        $argument,
-        ['\Order\Info\AddResponse', 'decode'],
-        $metadata, $options);
+      return $this->_simpleRequest('/order.info.Info/Add',
+      $argument,
+      ['\Order\Info\AddResponse', 'decode'],
+      $metadata, $options);
     }
 
     /**
@@ -38,10 +36,12 @@ class InfoClient extends \Grpc\BaseStub {
      */
     public function List(\Order\Info\ListRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/order.info.Info/List',
-        $argument,
-        ['\Order\Info\ListResponse', 'decode'],
-        $metadata, $options);
+      return $this->_simpleRequest('/order.info.Info/List',
+      $argument,
+      ['\Order\Info\ListResponse', 'decode'],
+      $metadata, $options);
     }
+
+  }
 
 }
