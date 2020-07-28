@@ -37,7 +37,7 @@ initjava:
 	git submodule init
 	git submodule update grpc/grpc-java
 	#https://github.com/grpc/grpc-java/tree/master/compiler
-	pEALPREFIX=$(realpath .) && cd grpc/grpc-java/compiler && export CXXFLAGS="-I$$REALPREFIX/grpc/tmp/include/" LDFLAGS="-L$$REALPREFIX/grpc/tmp/lib/" && echo $$REALPREFIX && ../gradlew java_pluginExecutable
+	REALPREFIX=$(realpath .) && cd grpc/grpc-java/compiler && export CXXFLAGS="-I$$REALPREFIX/grpc/tmp/include/" LDFLAGS="-L$$REALPREFIX/grpc/tmp/lib/" && echo $$REALPREFIX && ../gradlew java_pluginExecutable
 	#cd grpc/grpc-java/compiler && export CXXFLAGS="-I/root/go-grpc/grpc/tmp/include/" LDFLAGS="-L/root/go-grpc/grpc/tmp/lib" && ../gradlew java_pluginExecutable
 
 genprotodoc:
