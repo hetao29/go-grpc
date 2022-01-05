@@ -4,7 +4,8 @@ import (
 	"context"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
-	"github.com/google/logger"
+	//"flag"
+	//"os"
 	//"log"
 	"modules/log"
 	"modules/user"
@@ -17,6 +18,8 @@ import (
 )
 import "github.com/facebookgo/grace/gracenet"
 import "github.com/facebookgo/grace/gracehttp"
+import _ "google.golang.org/grpc/encoding/gzip"
+
 
 var cfg *config.Config
 
@@ -33,6 +36,7 @@ func main() {
 		panic(err)
 	}
 
+
 	log.Set(cfg.String("log.file"), cfg.Bool("log.verbose",true));
 	utility.InitDb(cfg)    //{};
 	utility.InitRedis(cfg) //{};
@@ -44,7 +48,7 @@ func main() {
 	val2 := cfg.StringMap("db.default.slave.host")
 	fmt.Printf("\n slave:\n %#v", val2) // map[string]string{"key":"val2", "key2":"val20"}
 
-	logger.Info("config data: \n %#v\n", cfg.Data())
+	print("config data: \n %#v\n", cfg.Data())
 	listenRPC := cfg.String("listen.rpc", "")
 	if listenRPC == "" {
 		panic("rpc port is empty")
@@ -91,10 +95,10 @@ func main() {
 	net := gracenet.Net{}
 	lis, err := net.Listen("tcp", listenRPC)
 	if err != nil {
-		logger.Fatalf("failed to listen: %v", err)
+		print("failed to listen: %v", err)
 	}
 	if err := s.Serve(lis); err != nil {
-		logger.Fatalf("failed to serve: %v", err)
+		print("failed to serve: %v", err)
 	}
 
 }
