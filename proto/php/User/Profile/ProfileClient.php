@@ -1,12 +1,10 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace User\Profile;
+namespace User\Profile {
 
-/**
- * The greeter service definition.
- */
-class ProfileClient extends \Grpc\BaseStub {
+  // The greeter service definition.
+  class ProfileClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -14,7 +12,7 @@ class ProfileClient extends \Grpc\BaseStub {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-        parent::__construct($hostname, $opts, $channel);
+      parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -25,10 +23,10 @@ class ProfileClient extends \Grpc\BaseStub {
      */
     public function Update(\User\Profile\UpdateRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/user.profile.Profile/Update',
-        $argument,
-        ['\User\Profile\UpdateResponse', 'decode'],
-        $metadata, $options);
+      return $this->_simpleRequest('/user.profile.Profile/Update',
+      $argument,
+      ['\User\Profile\UpdateResponse', 'decode'],
+      $metadata, $options);
     }
 
     /**
@@ -38,10 +36,12 @@ class ProfileClient extends \Grpc\BaseStub {
      */
     public function Get(\User\Profile\GetRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/user.profile.Profile/Get',
-        $argument,
-        ['\User\Profile\GetResponse', 'decode'],
-        $metadata, $options);
+      return $this->_simpleRequest('/user.profile.Profile/Get',
+      $argument,
+      ['\User\Profile\GetResponse', 'decode'],
+      $metadata, $options);
     }
+
+  }
 
 }

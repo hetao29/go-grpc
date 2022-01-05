@@ -16,7 +16,7 @@ func init() {
 
 // Info info
 type Info struct {
-	info.UnimplementedInfoServer
+	info.InfoServer
 }
 
 // Register r

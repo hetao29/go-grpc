@@ -18,7 +18,7 @@ public class HelloWorld{
 	    System.out.println((new HelloWorld()).sayHello());
 	    client.init();
 	    System.out.println((new HelloWorld()).sayHello());
-	    System.out.println(client.Get("name","pwd"));
+	    System.out.println(client.Get("admin","123456"));
 	    System.out.println((new HelloWorld()).sayHello());
     }
 }

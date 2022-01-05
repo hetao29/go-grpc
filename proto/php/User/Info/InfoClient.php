@@ -1,12 +1,10 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace User\Info;
+namespace User\Info {
 
-/**
- * The greeter service definition.
- */
-class InfoClient extends \Grpc\BaseStub {
+  // The greeter service definition.
+  class InfoClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -14,7 +12,7 @@ class InfoClient extends \Grpc\BaseStub {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-        parent::__construct($hostname, $opts, $channel);
+      parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -25,10 +23,10 @@ class InfoClient extends \Grpc\BaseStub {
      */
     public function login(\User\Info\LoginRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/user.info.Info/login',
-        $argument,
-        ['\User\Info\LoginResponse', 'decode'],
-        $metadata, $options);
+      return $this->_simpleRequest('/user.info.Info/login',
+      $argument,
+      ['\User\Info\LoginResponse', 'decode'],
+      $metadata, $options);
     }
 
     /**
@@ -38,10 +36,12 @@ class InfoClient extends \Grpc\BaseStub {
      */
     public function logout(\User\Info\LogoutRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/user.info.Info/logout',
-        $argument,
-        ['\User\Info\LogoutResponse', 'decode'],
-        $metadata, $options);
+      return $this->_simpleRequest('/user.info.Info/logout',
+      $argument,
+      ['\User\Info\LogoutResponse', 'decode'],
+      $metadata, $options);
     }
+
+  }
 
 }

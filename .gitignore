@@ -2,5 +2,7 @@ bin/*
 *.swp
 go.sum
 .DS_Store
+proto_doc/
 etc/config.json
 client_java/target/
+grpc/tmp

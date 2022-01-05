@@ -6,30 +6,44 @@ import (
 	"log"
 	"os"
 	"time"
-
+	"fmt"
+	"path/filepath"
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/json"
 	"proto/user/info"
-	"proto/user/profile"
+	//"proto/user/profile"
 )
 
 const (
 	defaultName = "world"
 )
 
+var cfg *config.Config
+var (
+    version string
+    build   string
+)
 func main() {
+	ex, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("version=", version)
+	fmt.Println("build=", build)
+	dir:= filepath.Dir(ex)
 	//load config
-	config.WithOptions(config.ParseEnv)
+	cfg = config.New("default")
+	cfg.WithOptions(config.ParseEnv)
 
 	// add Decoder and Encoder
-	config.AddDriver(json.Driver)
+	cfg.AddDriver(json.Driver)
 
-	err := config.LoadFiles("etc/config.json")
+	err = cfg.LoadFiles(dir+"/../etc/config.json")
 	if err != nil {
 		panic(err)
 	}
 	log.Printf("config data: \n %#v\n", config.Data())
-	proxyRPC := config.String("proxy.rpc", "")
+	proxyRPC := cfg.String("proxy.rpc", "")
 	if proxyRPC == "" {
 		panic("proxy_rpc is empty")
 	}
@@ -54,17 +68,4 @@ func main() {
 		log.Printf("could not greet: %v", err)
 	}
 	log.Printf("Greeting: %v", r.GetInfo())
-
-	d := profile.NewProfileClient(conn)
-	s, err := d.Update(ctx, &profile.UpdateRequest{Name: name})
-	if err != nil {
-		log.Printf("could not greet: %v", err)
-	}
-	log.Printf("Greeting: %s", s.GetMessage())
-
-	t, err := d.Get(ctx, &profile.GetRequest{Name: name})
-	if err != nil {
-		log.Printf("could not greet: %v", err)
-	}
-	log.Printf("Greeting: %s", t.GetMessage())
 }

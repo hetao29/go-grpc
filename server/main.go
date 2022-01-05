@@ -8,22 +8,33 @@ import (
 	//"os"
 	//"log"
 	"modules/log"
+	"path/filepath"
 	"modules/user"
 	"modules/utility"
 	//"net"
 	"fmt"
+	"os"
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/json"
 	"net/http"
 )
 import "github.com/facebookgo/grace/gracenet"
-import "github.com/facebookgo/grace/gracehttp"
 import _ "google.golang.org/grpc/encoding/gzip"
 
-
 var cfg *config.Config
+var (
+    version string
+    build   string
+)
 
 func main() {
+	ex, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("version=", version)
+	fmt.Println("build=", build)
+	dir:= filepath.Dir(ex)
 	cfg = config.New("default")
 	//load config
 	cfg.WithOptions(config.ParseEnv)
@@ -31,7 +42,7 @@ func main() {
 	// add Decoder and Encoder
 	cfg.AddDriver(json.Driver)
 
-	err := cfg.LoadFiles("etc/config.json")
+	err = cfg.LoadFiles(dir+"/../etc/config.json")
 	if err != nil {
 		panic(err)
 	}
@@ -76,10 +87,7 @@ func main() {
 		opts := []grpc.DialOption{grpc.WithInsecure()}
 		//register http proxy
 		user.RegisterHTTP(ctx, mux, proxyRPC, opts)
-
-		gracehttp.Serve(
-			&http.Server{Addr: listenHTTP, Handler: mux},
-		)
+		http.ListenAndServe(listenHTTP, mux)
 	}()
 
 	//grpc server
