@@ -4,27 +4,36 @@ import (
 	"context"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
+	"syscall"
 	//"flag"
 	//"os"
-	//"log"
-	"modules/log"
-	"path/filepath"
+	"log"
+	//"modules/log"
 	"modules/user"
 	"modules/utility"
+	"path/filepath"
 	//"net"
+	"flag"
 	"fmt"
-	"os"
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/json"
+	"net"
 	"net/http"
+	"os"
+	"os/signal"
+	"time"
 )
-import "github.com/facebookgo/grace/gracenet"
+
+//import "github.com/facebookgo/grace/gracenet"
 import _ "google.golang.org/grpc/encoding/gzip"
 
 var cfg *config.Config
 var (
-    version string
-    build   string
+	version         string
+	build           string
+	service         = "test"
+	shutdownTimeout = flag.Duration("shutdown-timeout", 10*time.Second,
+		"shutdown timeout (5s,5m,5h) before connections are cancelled")
 )
 
 func main() {
@@ -34,79 +43,99 @@ func main() {
 	}
 	fmt.Println("version=", version)
 	fmt.Println("build=", build)
-	dir:= filepath.Dir(ex)
+	dir := filepath.Dir(ex)
 	cfg = config.New("default")
+
 	//load config
 	cfg.WithOptions(config.ParseEnv)
 
 	// add Decoder and Encoder
 	cfg.AddDriver(json.Driver)
 
-	err = cfg.LoadFiles(dir+"/../etc/config.json")
+	err = cfg.LoadFiles(dir + "/../etc/config.json")
 	if err != nil {
 		panic(err)
 	}
 
+	//init db
+	utility.InitDb(cfg) //{};
 
-	log.Set(cfg.String("log.file"), cfg.Bool("log.verbose",true));
-	utility.InitDb(cfg)    //{};
+	//init redis
 	utility.InitRedis(cfg) //{};
-	//db := utility.Db{};
-	//db.Config()
-	//db.Init();
 	val := cfg.Strings("db.default.master")
 	fmt.Printf("\n master:\n %#v", val) // map[string]string{"key":"val2", "key2":"val20"}
 	val2 := cfg.StringMap("db.default.slave.host")
 	fmt.Printf("\n slave:\n %#v", val2) // map[string]string{"key":"val2", "key2":"val20"}
 
-	print("config data: \n %#v\n", cfg.Data())
+	log.Printf("config data: \n %#v\n", cfg.Data())
 	listenRPC := cfg.String("listen.rpc", "")
 	if listenRPC == "" {
 		panic("rpc port is empty")
 	}
+	log.Printf("listenRPC: %s\n", listenRPC)
 	listenHTTP := cfg.String("listen.http", "")
 	if listenHTTP == "" {
 		panic("http port is empty")
 	}
+	log.Printf("listenHTTP: %s\n", listenHTTP)
 	proxyRPC := cfg.String("proxy.rpc", "")
 	if proxyRPC == "" {
 		panic("proxy_rpc is empty")
 	}
 
-	//init db
-
-	//init redis
-
-	ctx := context.Background()
-	ctx, cancel := context.WithCancel(ctx)
+	//ctx, cancel := context.WithTimeout(context.Background(), *shutdownTimeout)
+	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
+	stop := make(chan os.Signal)
+	signal.Notify(stop, os.Interrupt, syscall.SIGTERM)
+
 	//http proxy
+	mux := runtime.NewServeMux()
+	opts := []grpc.DialOption{grpc.WithInsecure()}
+	//register http proxy
+	user.RegisterHTTP(ctx, mux, proxyRPC, opts)
+	//server.ListenAndServe(listenHTTP, mux)
+	httpServer := &http.Server{Addr: listenHTTP, Handler: mux}
 	go func() {
-		mux := runtime.NewServeMux()
-		opts := []grpc.DialOption{grpc.WithInsecure()}
-		//register http proxy
-		user.RegisterHTTP(ctx, mux, proxyRPC, opts)
-		http.ListenAndServe(listenHTTP, mux)
+
+		if err := httpServer.ListenAndServe(); err != nil {
+			// handle err
+			print("failed to listen: %v", err)
+		}
 	}()
 
 	//grpc server
 	s := grpc.NewServer()
-
-	//graceful stop
 	go func() {
-		defer s.GracefulStop()
-		<-ctx.Done()
+
+		//register grpc
+		user.Register(s)
+		lis, err := net.Listen("tcp", listenRPC)
+		if err != nil {
+			print("failed to listen: %v", err)
+		} else {
+			print("ok to listen: %v", err)
+		}
+		if err := s.Serve(lis); err != nil {
+			print("failed to serve: %v", err)
+		} else {
+			print("ok to serve: %v", err)
+		}
 	}()
-	//register grpc
-	user.Register(s)
-	net := gracenet.Net{}
-	lis, err := net.Listen("tcp", listenRPC)
-	if err != nil {
-		print("failed to listen: %v", err)
+
+	<-stop
+	log.Printf("got stop signal and ready to shutting down ...\n")
+	log.Printf("grpc server shutting down ...\n")
+
+	s.GracefulStop()
+	log.Printf("grpc server shutting down ok\n")
+
+	log.Printf("http server shutting down ...\n")
+	if err := httpServer.Shutdown(ctx); err != nil {
+		log.Fatal(err)
 	}
-	if err := s.Serve(lis); err != nil {
-		print("failed to serve: %v", err)
-	}
+	log.Printf("http server shutting down ok\n")
+	log.Printf("exit ok\n")
 
 }

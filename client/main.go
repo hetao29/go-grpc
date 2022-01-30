@@ -42,13 +42,13 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	log.Printf("config data: \n %#v\n", config.Data())
-	proxyRPC := cfg.String("proxy.rpc", "")
-	if proxyRPC == "" {
+	log.Printf("config data: \n %#v\n", cfg.Data())
+	listRpc:= cfg.String("listen.rpc", "")
+	if  listRpc== "" {
 		panic("proxy_rpc is empty")
 	}
 	// Set up a connection to the server.
-	conn, err := grpc.Dial(proxyRPC, grpc.WithInsecure())
+	conn, err := grpc.Dial(listRpc, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
@@ -56,7 +56,7 @@ func main() {
 	c := info.NewInfoClient(conn)
 
 	// Contact the server and print out its response.
-	name := "admin"
+	name := "a"
 	pwd := "123456"
 	if len(os.Args) > 1 {
 		name = os.Args[1]

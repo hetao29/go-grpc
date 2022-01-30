@@ -2,9 +2,9 @@ package info
 
 import (
 	"encoding/json"
-	"github.com/google/logger"
 	"modules/utility"
 	"time"
+	"log"
 )
 
 //import "github.com/vmihailenco/msgpack/v4"
@@ -62,9 +62,9 @@ func GetByNameAndPwd(name string, pwd string) *User {
 	redis := utility.GetRedis("default", "master")
 	err := redis.Get(key).Scan(user)
 	if err != nil {
-		logger.Info("redis get error: %v", err)
+		log.Printf("redis get error: %v", err)
 	} else {
-		logger.Info("redis get ok: %v", user)
+		log.Printf("redis get ok: %v", user)
 		return user
 	}
 
@@ -80,7 +80,7 @@ func GetByNameAndPwd(name string, pwd string) *User {
 	if user.ID > 0 {
 		r := redis.Set(key, user, 100*time.Second)
 		//v:= redis.Get("name").String()
-		logger.Info("redis error msg: %v", r.Err())
+		log.Printf("redis error msg: %v", r.Err())
 	}
 	//fmt.Println("get redis:",v);
 	return user
