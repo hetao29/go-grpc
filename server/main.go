@@ -5,26 +5,19 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
 	"syscall"
-	//"flag"
-	//"os"
+	//https://pkg.go.dev/log#pkg-constants
 	"log"
-	//"modules/log"
 	"modules/user"
 	"modules/utility"
 	"path/filepath"
-	//"net"
-	"flag"
-	"fmt"
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/json"
 	"net"
 	"net/http"
 	"os"
 	"os/signal"
-	"time"
 )
 
-//import "github.com/facebookgo/grace/gracenet"
 import _ "google.golang.org/grpc/encoding/gzip"
 
 var cfg *config.Config
@@ -32,8 +25,6 @@ var (
 	version         string
 	build           string
 	service         = "test"
-	shutdownTimeout = flag.Duration("shutdown-timeout", 10*time.Second,
-		"shutdown timeout (5s,5m,5h) before connections are cancelled")
 )
 
 func main() {
@@ -41,8 +32,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("version=", version)
-	fmt.Println("build=", build)
+	log.Println("version=", version)
+	log.Println("build=", build)
 	dir := filepath.Dir(ex)
 	cfg = config.New("default")
 
@@ -57,33 +48,35 @@ func main() {
 		panic(err)
 	}
 
+	//
+	log.SetFlags(log.LstdFlags | log.Llongfile)
+
 	//init db
 	utility.InitDb(cfg) //{};
 
 	//init redis
 	utility.InitRedis(cfg) //{};
 	val := cfg.Strings("db.default.master")
-	fmt.Printf("\n master:\n %#v", val) // map[string]string{"key":"val2", "key2":"val20"}
+	log.Printf("master: %#v", val) // map[string]string{"key":"val2", "key2":"val20"}
 	val2 := cfg.StringMap("db.default.slave.host")
-	fmt.Printf("\n slave:\n %#v", val2) // map[string]string{"key":"val2", "key2":"val20"}
+	log.Printf("slave: %#v", val2) // map[string]string{"key":"val2", "key2":"val20"}
 
-	log.Printf("config data: \n %#v\n", cfg.Data())
+	log.Printf("config data: %#v", cfg.Data())
 	listenRPC := cfg.String("listen.rpc", "")
 	if listenRPC == "" {
 		panic("rpc port is empty")
 	}
-	log.Printf("listenRPC: %s\n", listenRPC)
+	log.Printf("listenRPC: %s", listenRPC)
 	listenHTTP := cfg.String("listen.http", "")
 	if listenHTTP == "" {
 		panic("http port is empty")
 	}
-	log.Printf("listenHTTP: %s\n", listenHTTP)
+	log.Printf("listenHTTP: %s", listenHTTP)
 	proxyRPC := cfg.String("proxy.rpc", "")
 	if proxyRPC == "" {
 		panic("proxy_rpc is empty")
 	}
 
-	//ctx, cancel := context.WithTimeout(context.Background(), *shutdownTimeout)
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
@@ -101,7 +94,7 @@ func main() {
 
 		if err := httpServer.ListenAndServe(); err != nil {
 			// handle err
-			print("failed to listen: %v", err)
+			log.Printf("failed to listen: %v", err)
 		}
 	}()
 
@@ -113,14 +106,14 @@ func main() {
 		user.Register(s)
 		lis, err := net.Listen("tcp", listenRPC)
 		if err != nil {
-			print("failed to listen: %v", err)
+			log.Printf("failed to listen: %v", err)
 		} else {
-			print("ok to listen: %v", err)
+			log.Printf("ok to listen: %v", err)
 		}
 		if err := s.Serve(lis); err != nil {
-			print("failed to serve: %v", err)
+			log.Printf("failed to serve: %v", err)
 		} else {
-			print("ok to serve: %v", err)
+			log.Printf("ok to serve: %v")
 		}
 	}()
 
@@ -133,7 +126,7 @@ func main() {
 
 	log.Printf("http server shutting down ...\n")
 	if err := httpServer.Shutdown(ctx); err != nil {
-		log.Fatal(err)
+		log.Printf(err)
 	}
 	log.Printf("http server shutting down ok\n")
 	log.Printf("exit ok\n")
