@@ -8,8 +8,11 @@ COPY . ./
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \ 
 	&& apk update && apk add git tree \
-	&& tree -L 4 && export GOPROXY=https://goproxy.cn && cd server && go build -v -o ../bin/server . \
-	&& rm -rf /var/lib/apk/*
+	&& tree -L 4
+RUN	export GOPROXY=https://goproxy.cn && cd server && go build -v -ldflags "-X main.version=1.0.0 -X main.build=`date -u +%Y-%m-%d%H:%M:%S`" -o ../bin/server .
+
+RUN rm -rf /var/lib/apk/*
+
 RUN tree /data/go-grpc -L 2
 
 FROM alpine:3.15 as prod
