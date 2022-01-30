@@ -2,7 +2,7 @@ package info
 
 import (
 	context "context"
-	"fmt"
+	//"log"
 	"google.golang.org/grpc"
 	"proto/user/info"
 	//"proto/user/profile"
@@ -16,29 +16,28 @@ func init() {
 
 // Info info
 type Info struct {
-	info.InfoServer
+	User_Info.InfoServer
 }
 
 // Register r
 func Register(s *grpc.Server) {
-	info.RegisterInfoServer(s, &Info{})
+	User_Info.RegisterInfoServer(s, &Info{})
 	//profile.RegisterProfileServer(s, &Profile{})
 }
 
 // RegisterHTTP r
 func RegisterHTTP(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
-	info.RegisterInfoHandlerFromEndpoint(ctx, mux, endpoint, opts)
+	User_Info.RegisterInfoHandlerFromEndpoint(ctx, mux, endpoint, opts)
 	//profile.RegisterProfileHandlerFromEndpoint(ctx , mux , endpoint , opts ) ;
 	return nil
 }
 
 // Login login
-func (i *Info) Login(ctx context.Context, req *info.LoginRequest) (*info.LoginResponse, error) {
+func (i *Info) Login(ctx context.Context, req *User_Info.LoginRequest) (*User_Info.LoginResponse, error) {
 	user := GetByNameAndPwd(req.Name, req.Password)
-	fmt.Println(user.ID)
 	if user.ID != 0 {
-		response := &info.LoginResponse{}
-		info := &info.UserInfo{}
+		response := &User_Info.LoginResponse{}
+		info := &User_Info.UserInfo{}
 		info.Uid= (int64)(user.ID)
 		info.Name= user.Name
 		response.Info=info 
@@ -48,7 +47,7 @@ func (i *Info) Login(ctx context.Context, req *info.LoginRequest) (*info.LoginRe
 }
 
 // Logout logout
-func (i *Info) Logout(ctx context.Context, req *info.LogoutRequest) (*info.LogoutResponse, error) {
+func (i *Info) Logout(ctx context.Context, req *User_Info.LogoutRequest) (*User_Info.LogoutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "Logoutout ")
 }
 

@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>user.info.LoginResponse</code>
+ * Generated from protobuf message <code>User.Info.LoginResponse</code>
  */
 class LoginResponse extends \Google\Protobuf\Internal\Message
 {
@@ -18,7 +18,7 @@ class LoginResponse extends \Google\Protobuf\Internal\Message
      */
     private $error = null;
     /**
-     * Generated from protobuf field <code>.user.info.UserInfo info = 2;</code>
+     * Generated from protobuf field <code>.User.Info.UserInfo info = 2;</code>
      */
     private $info = null;
 
@@ -60,7 +60,7 @@ class LoginResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.user.info.UserInfo info = 2;</code>
+     * Generated from protobuf field <code>.User.Info.UserInfo info = 2;</code>
      * @return \User\Info\UserInfo
      */
     public function getInfo()
@@ -69,7 +69,7 @@ class LoginResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.user.info.UserInfo info = 2;</code>
+     * Generated from protobuf field <code>.User.Info.UserInfo info = 2;</code>
      * @param \User\Info\UserInfo $var
      * @return $this
      */

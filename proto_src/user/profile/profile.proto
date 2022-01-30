@@ -1,18 +1,17 @@
 syntax = "proto3";
 
 
-package user.profile;
-option go_package = "profile";
+package User.Profile;
 import "google/api/annotations.proto";
 
 // The greeter service definition.
 service Profile{
 	// Sends a greeting
 	rpc Update(UpdateRequest) returns (UpdateResponse) {
-		option (google.api.http) = { post: "/v1/user/profile/update" };
+		option (google.api.http) = { post: "/User/Profile/Update" };
 	}
 	rpc Get(GetRequest) returns (GetResponse) {
-		option (google.api.http) = { get: "/v1/user/profile/get" };
+		option (google.api.http) = { get: "/User/Profile/Get" };
 	}
 }
 message Request{

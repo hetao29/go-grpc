@@ -1,8 +1,7 @@
 syntax = "proto3";
 
 
-package user.info;
-option go_package = "info";
+package User.Info;
 import "common/type.proto";
 import "google/api/annotations.proto";
 
@@ -11,13 +10,13 @@ service Info{
 	// Sends a greeting
 	rpc login(LoginRequest) returns (LoginResponse) {
 		option (google.api.http) = { 
-			post: "/v1/user/login" 
+			post: "/User/Info/Login" 
 			body: "*"
 		};
 	}
 	rpc logout(LogoutRequest) returns (LogoutResponse) {
 		option (google.api.http) = { 
-			post: "/v1/user/logout" 
+			post: "/User/Info/Logout" 
 			body: "*"
 		};
 	}

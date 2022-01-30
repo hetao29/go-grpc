@@ -1,18 +1,17 @@
 syntax = "proto3";
 
 
-package order.info;
-option go_package = "info";
+package Order.Info;
 import "google/api/annotations.proto";
 
 // The greeter service definition.
 service Info{
 	// Sends a greeting
 	rpc Add(AddRequest) returns (AddResponse) {
-		option (google.api.http) = { post: "/v1/order/add" };
+		option (google.api.http) = { post: "/Order/Info/Add" };
 	}
 	rpc List(ListRequest) returns (ListResponse) {
-		option (google.api.http) = { post: "/v1/order/list" };
+		option (google.api.http) = { post: "/Order/Info/List" };
 	}
 }
 

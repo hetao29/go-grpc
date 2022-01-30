@@ -2,11 +2,11 @@
 // source: order/info/info.proto
 
 /*
-Package info is a reverse proxy.
+Package Order_Info is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package info
+package Order_Info
 
 import (
 	"io"
@@ -162,9 +162,9 @@ func RegisterInfoHandlerClient(ctx context.Context, mux *runtime.ServeMux, clien
 }
 
 var (
-	pattern_Info_Add_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "order", "add"}, ""))
+	pattern_Info_Add_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Order", "Info", "Add"}, ""))
 
-	pattern_Info_List_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "order", "list"}, ""))
+	pattern_Info_List_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Order", "Info", "List"}, ""))
 )
 
 var (

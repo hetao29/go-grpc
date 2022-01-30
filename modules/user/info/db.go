@@ -18,8 +18,6 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 */
 func init() {
-	//fmt.Println("world")
-	//我们还可以做其他更高阶的事情，比如 platform.RegisterPlugin({"func": Hello}) 之类的，向插件平台自动注册该插件的函数
 }
 
 // User 对象
@@ -28,18 +26,9 @@ type User struct {
 	Name string `json:"name"`
 }
 
-// MarshalBinary use msgpack
-/*
-func (s *User) MarshalBinary() ([]byte, error) {
-	return msgpack.Marshal(s)
-}
-// UnmarshalBinary use msgpack
-func (s *User) UnmarshalBinary(data []byte) error {
-	return msgpack.Unmarshal(data, s)
-}
-*/
-// MarshalBinary use msgpack
+// RedisVersion 1
 var RedisVersion="1"
+// MarshalBinary s
 func (s *User) MarshalBinary() ([]byte, error) {
 	return json.Marshal(s)
 }
@@ -76,12 +65,9 @@ func GetByNameAndPwd(name string, pwd string) *User {
 	conn := db.Table("user")
 	conn.Where("name = ? AND password = ?", name, pwd).First(&user)
 
-	//length := redis.Len();
 	if user.ID > 0 {
 		r := redis.Set(key, user, 100*time.Second)
-		//v:= redis.Get("name").String()
 		log.Printf("redis error msg: %v", r.Err())
 	}
-	//fmt.Println("get redis:",v);
 	return user
 }

@@ -23,7 +23,7 @@ namespace User\Profile {
      */
     public function Update(\User\Profile\UpdateRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/user.profile.Profile/Update',
+      return $this->_simpleRequest('/User.Profile.Profile/Update',
       $argument,
       ['\User\Profile\UpdateResponse', 'decode'],
       $metadata, $options);
@@ -36,7 +36,7 @@ namespace User\Profile {
      */
     public function Get(\User\Profile\GetRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/user.profile.Profile/Get',
+      return $this->_simpleRequest('/User.Profile.Profile/Get',
       $argument,
       ['\User\Profile\GetResponse', 'decode'],
       $metadata, $options);

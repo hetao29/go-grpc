@@ -2,11 +2,11 @@
 // source: user/profile/profile.proto
 
 /*
-Package profile is a reverse proxy.
+Package User_Profile is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package profile
+package User_Profile
 
 import (
 	"io"
@@ -162,9 +162,9 @@ func RegisterProfileHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 }
 
 var (
-	pattern_Profile_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v1", "user", "profile", "update"}, ""))
+	pattern_Profile_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"User", "Profile", "Update"}, ""))
 
-	pattern_Profile_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v1", "user", "profile", "get"}, ""))
+	pattern_Profile_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"User", "Profile", "Get"}, ""))
 )
 
 var (

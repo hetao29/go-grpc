@@ -23,7 +23,7 @@ namespace Order\Info {
      */
     public function Add(\Order\Info\AddRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/order.info.Info/Add',
+      return $this->_simpleRequest('/Order.Info.Info/Add',
       $argument,
       ['\Order\Info\AddResponse', 'decode'],
       $metadata, $options);
@@ -36,7 +36,7 @@ namespace Order\Info {
      */
     public function List(\Order\Info\ListRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/order.info.Info/List',
+      return $this->_simpleRequest('/Order.Info.Info/List',
       $argument,
       ['\Order\Info\ListResponse', 'decode'],
       $metadata, $options);

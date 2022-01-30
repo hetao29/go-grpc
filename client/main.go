@@ -43,17 +43,17 @@ func main() {
 		panic(err)
 	}
 	log.Printf("config data: \n %#v\n", cfg.Data())
-	listRpc:= cfg.String("listen.rpc", "")
-	if  listRpc== "" {
+	listRPC:= cfg.String("listen.rpc", "")
+	if  listRPC== "" {
 		panic("proxy_rpc is empty")
 	}
 	// Set up a connection to the server.
-	conn, err := grpc.Dial(listRpc, grpc.WithInsecure())
+	conn, err := grpc.Dial(listRPC, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	c := info.NewInfoClient(conn)
+	c := User_Info.NewInfoClient(conn)
 
 	// Contact the server and print out its response.
 	name := "a"
@@ -63,7 +63,7 @@ func main() {
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.Login(ctx, &info.LoginRequest{Name: name, Password: pwd})
+	r, err := c.Login(ctx, &User_Info.LoginRequest{Name: name, Password: pwd})
 	if err != nil {
 		log.Printf("could not greet: %v", err)
 	}

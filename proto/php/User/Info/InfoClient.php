@@ -23,7 +23,7 @@ namespace User\Info {
      */
     public function login(\User\Info\LoginRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/user.info.Info/login',
+      return $this->_simpleRequest('/User.Info.Info/login',
       $argument,
       ['\User\Info\LoginResponse', 'decode'],
       $metadata, $options);
@@ -36,7 +36,7 @@ namespace User\Info {
      */
     public function logout(\User\Info\LogoutRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/user.info.Info/logout',
+      return $this->_simpleRequest('/User.Info.Info/logout',
       $argument,
       ['\User\Info\LogoutResponse', 'decode'],
       $metadata, $options);

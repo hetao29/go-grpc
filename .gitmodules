@@ -7,3 +7,6 @@
 [submodule "grpc/protobuf"]
 	path = grpc/protobuf
 	url = https://github.com/protocolbuffers/protobuf.git
+[submodule "googleapis"]
+	path = googleapis
+	url = git@github.com:googleapis/googleapis.git

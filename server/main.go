@@ -126,7 +126,7 @@ func main() {
 
 	log.Printf("http server shutting down ...\n")
 	if err := httpServer.Shutdown(ctx); err != nil {
-		log.Printf(err)
+		log.Print(err)
 	}
 	log.Printf("http server shutting down ok\n")
 	log.Printf("exit ok\n")

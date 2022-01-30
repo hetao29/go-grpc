@@ -53,7 +53,7 @@ try{
 	//	"password"=>"123456",
 	//];
 	//print_r(json_encode($request));
-	$data = post("http://127.0.0.1:8880/v1/user/login",$json);
+	$data = post("http://127.0.0.1:8880/User/Info/Login",$json);
 	echo $data;
 	echo "\n";
 

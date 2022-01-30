@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>user.info.LogoutResponse</code>
+ * Generated from protobuf message <code>User.Info.LogoutResponse</code>
  */
 class LogoutResponse extends \Google\Protobuf\Internal\Message
 {

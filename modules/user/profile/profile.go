@@ -15,20 +15,21 @@ func init() {
 
 // Profile p
 type Profile struct {
-	profile.ProfileServer
+	User_Profile.ProfileServer
 }
 
 // Register r
 func Register(s *grpc.Server) {
-	profile.RegisterProfileServer(s, &Profile{})
+	User_Profile.RegisterProfileServer(s, &Profile{})
 }
 
 // RegisterHTTP r
 func RegisterHTTP(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) {
-	profile.RegisterProfileHandlerFromEndpoint(ctx, mux, endpoint, opts)
+	User_Profile.RegisterProfileHandlerFromEndpoint(ctx, mux, endpoint, opts)
 }
-func (i *Profile) Update(ctx context.Context, req *profile.UpdateRequest) (*profile.UpdateResponse, error) {
-	response := &profile.UpdateResponse{}
+// Update u
+func (i *Profile) Update(ctx context.Context, req *User_Profile.UpdateRequest) (*User_Profile.UpdateResponse, error) {
+	response := &User_Profile.UpdateResponse{}
 	return response, nil // status.Errorf(codes.Unimplemented, "Logined ")
 	//return nil, status.Errorf(codes.Unimplemented, "user not exists or pwd error!")
 }
