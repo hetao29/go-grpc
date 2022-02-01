@@ -1,18 +1,17 @@
 all:
 	@echo "Please specify the cmd!";
-build:
+start:
+	docker stack deploy --with-registry-auth -c docker-compose.yml com_mxiqi_microservice_main
+stop:
+	docker stack rm com_mxiqi_microservice_main
+test_build:
 	#正常编译
 	export GOPROXY=https://goproxy.cn && cd server && go build -v -ldflags "-X main.version=1.0.0 -X main.build=`date -u +%Y-%m-%d%H:%M:%S`" -o ../bin/server .
 	export GOPROXY=https://goproxy.cn && cd client && go build -v -ldflags "-X main.version=1.0.0 -X main.build=`date -u +%Y-%m-%d%H:%M:%S`" -o ../bin/client .
-start:	
+test_server:	
 	./bin/server
-test:
+test_client:
 	./bin/client
-test_rest:
-	curl -v http://127.0.0.1:50001/v1/user/profile/update -X POST
-	curl -v http://127.0.0.1:50001/v1/user/login -X POST -d '{"name":"x","password":"P"}'
-	curl -v http://127.0.0.1:50001/v1/user/login -X POST -d '{"name":"admin","password":"123456"}'
-
 
 ###下面是和 protobuf 协议相关的操作，除非更新 proto，一般情况不需要安装
 initprotoc:
@@ -56,7 +55,7 @@ genprotodoc:
 genproto:
 	#可选!!!
 	find proto_src -name "*.proto" | xargs -I {} protoc \
-	       --proto_path=googleapis-master/ \
+			--proto_path=googleapis/ \
 	       --proto_path=proto_src \
 	       --grpc-gateway_out=logtostderr=true:proto \
 	       --plugin=proto-google-common-protos --go_out=plugins=grpc:proto \
@@ -74,7 +73,7 @@ genphpproto:
 	find proto_src -name "*.proto" | xargs -I {} protoc \
 		--php_out=proto/php \
 		--grpc_out=proto/php \
-		--proto_path=googleapis-master/ \
+		--proto_path=googleapis/ \
 		--proto_path=proto_src \
 		--plugin=protoc-gen-grpc=/usr/bin/grpc_php_plugin \
 		"{}"
@@ -83,13 +82,9 @@ genphpproto:
 dockerbuild:
 	#可选!!!
 	#生成 docker image
-	docker build . -t hetao29/go-grpc:1.0.0
+	DOCKER_BUILDKIT=1 docker build --progress=plain . -t hetao29/go-grpc:1.0.1
 lint:
 	#可选!!!
-	find . -name "*go" | xargs -I {} golint "{}"
-	#golint modules/...
-	#golint server/*
-	#golint client/*
+	find . -name "*.go" | xargs -I {} golint "{}"
 fmt:
-	#可选!!!
-	find . -name "*go" | xargs -I {} go fmt "{}"
+	find modules -name "*.go" | xargs -I {} go fmt "{}"
