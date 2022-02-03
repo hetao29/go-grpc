@@ -44,14 +44,15 @@ genproto:
 		--plugin=proto-google-common-protos --go_out=plugins=grpc:proto/out/go \
 		"{}"
 genjavaproto:
-	find proto_src -name "*.proto" | xargs -I {} protoc \
-		   --proto_path=googleapis-master/ \
-	       --proto_path=proto_src \
-	       --plugin=proto-google-common-protos \
-		   --java_out=proto/java \
-		   --grpc-java_out=proto/java \
-		   --plugin=protoc-gen-grpc-java=grpc/grpc-java/compiler/build/exe/java_plugin/protoc-gen-grpc-java \
-	       "{}"
+	sudo rm -rf proto/out/java/*
+	find proto/src -name "*.proto" | xargs -I {} sudo docker run --rm -v ${ROOT_DIR}:${ROOT_DIR} -w ${ROOT_DIR} hetao29/docker-protoc:latest protoc \
+		--proto_path=proto/src \
+		--proto_path=proto/lib \
+		--plugin=proto-google-common-protos \
+		--java_out=proto/out/java \
+		--grpc-java_out=proto/out/java \
+		--plugin=protoc-gen-grpc-java=/usr/bin/protoc-gen-grpc-java \
+		"{}"
 genphpproto:
 	sudo rm -rf proto/out/php/*
 	find proto/src -name "*.proto" | xargs -I {} sudo docker run --rm -v ${ROOT_DIR}:${ROOT_DIR} -w ${ROOT_DIR} hetao29/docker-protoc:latest protoc \
