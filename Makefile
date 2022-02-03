@@ -1,10 +1,7 @@
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 all:
 	@echo "Please specify the cmd!";
-start:
-	docker stack deploy --with-registry-auth -c docker-compose.yml com_mxiqi_microservice_main
-stop:
-	docker stack rm com_mxiqi_microservice_main
+
 test_build:
 	#正常编译
 	export GOPROXY=https://goproxy.cn && cd server && go build -v -ldflags "-X main.version=1.0.0 -X main.build=`date -u +%Y-%m-%d%H:%M:%S`" -o ../bin/server .
@@ -24,16 +21,19 @@ initjava:
 	#cd grpc/grpc-java/compiler && export CXXFLAGS="-I/root/go-grpc/grpc/tmp/include/" LDFLAGS="-L/root/go-grpc/grpc/tmp/lib" && ../gradlew java_pluginExecutable
 
 genprotodoc:
-	#可选!!!
-	#https://github.com/pseudomuto/protoc-gen-doc
-	export GOPROXY=https://goproxy.cn && go get -u github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc
-	find proto/src -name "*.proto" | xargs -I {} protoc \
+	sudo rm -rf ./proto/docs/md/*
+	sudo rm -rf ./proto/docs/html/*
+	find proto/src -name "*.proto" | xargs -I {} sudo docker run --rm -v ${ROOT_DIR}:${ROOT_DIR} -w ${ROOT_DIR} hetao29/docker-protoc:latest protoc \
 	       --proto_path=proto/src \
-	       --plugin=protoc-gen-doc=`which protoc-gen-doc`\
-	       --doc_out=./proto_doc \
+	       --proto_path=proto/lib \
+	       --doc_out=./proto/doc \
 	       --doc_opt=html,"{}".html \
-	       --grpc-gateway_out=logtostderr=true:proto \
-	       --plugin=proto-google-common-protos --go_out=plugins=grpc:proto \
+	       "{}"
+	find proto/src -name "*.proto" | xargs -I {} sudo docker run --rm -v ${ROOT_DIR}:${ROOT_DIR} -w ${ROOT_DIR} hetao29/docker-protoc:latest protoc \
+	       --proto_path=proto/src \
+	       --proto_path=proto/lib \
+	       --doc_out=./proto/doc \
+	       --doc_opt=markdown,"{}".md \
 	       "{}"
 genproto:
 	find proto/out/go/ -name "*.go*" | xargs sudo rm -rf
