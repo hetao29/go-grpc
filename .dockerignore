@@ -1,0 +1,10 @@
+bin/
+client*
+db/
+Dockerfile
+Makefile
+proto/docs
+proto/out/php
+proto/out/dart
+proto/test/
+proto/pubspec.*

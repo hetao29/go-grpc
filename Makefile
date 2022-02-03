@@ -1,3 +1,4 @@
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 all:
 	@echo "Please specify the cmd!";
 start:
@@ -13,23 +14,6 @@ test_server:
 test_client:
 	./bin/client
 
-###下面是和 protobuf 协议相关的操作，除非更新 proto，一般情况不需要安装
-initprotoc:
-	#安装protobuf 相关工具，用来生成 proto 目录里的代码，只有需要更新协议的才需要安装
-	#https://github.com/grpc-ecosystem/grpc-gateway
-	#ubuntu18+
-	sudo apt-get install autoconf automake libtool curl protobuf-compiler-grpc golang-grpc-gateway golang-google-genproto-dev golang-google-grpc-dev
-	wget https://github.com/googleapis/googleapis/archive/master.zip -O googleapis-master.zip && unzip googleapis-master.zip
-	#ubnutn14
-	#sudo apt-get install autoconf automake libtool curl
-	#export GOPROXY=https://goproxy.cn && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
-	#export GOPROXY=https://goproxy.cn && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
-	#export GOPROXY=https://goproxy.cn && go get -u github.com/golang/protobuf/protoc-gen-go
-	#git submodule init
-	#git submodule update grpc/grpc
-	#cd grpc/grpc && git submodule init && git submodule update && make
-	#git submodule update grpc/protobuf
-	#REALPREFIX=$(realpath .) && cd grpc/protobuf && git submodule init && git submodule update && ./autogen.sh && ./configure --prefix=$$REALPREFIX/grpc/tmp && make && make check && sudo make install && sudo ldconfig
 initjava:
 	#可选!!!
 	# 要生成 protobuf 的java 语言才需要安装，执行前，需要先 make initprotoc，不然编译不通过
@@ -43,9 +27,8 @@ genprotodoc:
 	#可选!!!
 	#https://github.com/pseudomuto/protoc-gen-doc
 	export GOPROXY=https://goproxy.cn && go get -u github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc
-	find proto_src -name "*.proto" | xargs -I {} protoc \
-		   --proto_path=googleapis-master/ \
-	       --proto_path=proto_src \
+	find proto/src -name "*.proto" | xargs -I {} protoc \
+	       --proto_path=proto/src \
 	       --plugin=protoc-gen-doc=`which protoc-gen-doc`\
 	       --doc_out=./proto_doc \
 	       --doc_opt=html,"{}".html \
@@ -53,13 +36,13 @@ genprotodoc:
 	       --plugin=proto-google-common-protos --go_out=plugins=grpc:proto \
 	       "{}"
 genproto:
-	#可选!!!
-	find proto_src -name "*.proto" | xargs -I {} protoc \
-			--proto_path=googleapis/ \
-	       --proto_path=proto_src \
-	       --grpc-gateway_out=logtostderr=true:proto \
-	       --plugin=proto-google-common-protos --go_out=plugins=grpc:proto \
-	       "{}"
+	find proto/out/go/ -name "*.go*" | xargs sudo rm -rf
+	find proto/src -name "*.proto" | xargs -I {} sudo docker run --rm -v ${ROOT_DIR}:${ROOT_DIR} -w ${ROOT_DIR} hetao29/docker-protoc:latest protoc \
+		--proto_path=proto/src \
+		--proto_path=proto/lib  \
+		--grpc-gateway_out=logtostderr=true:proto/out/go \
+		--plugin=proto-google-common-protos --go_out=plugins=grpc:proto/out/go \
+		"{}"
 genjavaproto:
 	find proto_src -name "*.proto" | xargs -I {} protoc \
 		   --proto_path=googleapis-master/ \
@@ -70,11 +53,12 @@ genjavaproto:
 		   --plugin=protoc-gen-grpc-java=grpc/grpc-java/compiler/build/exe/java_plugin/protoc-gen-grpc-java \
 	       "{}"
 genphpproto:
-	find proto_src -name "*.proto" | xargs -I {} protoc \
-		--php_out=proto/php \
-		--grpc_out=proto/php \
-		--proto_path=googleapis/ \
-		--proto_path=proto_src \
+	sudo rm -rf proto/out/php/*
+	find proto/src -name "*.proto" | xargs -I {} sudo docker run --rm -v ${ROOT_DIR}:${ROOT_DIR} -w ${ROOT_DIR} hetao29/docker-protoc:latest protoc \
+		--php_out=proto/out/php \
+		--grpc_out=proto/out/php \
+		--proto_path=proto/lib \
+		--proto_path=proto/src \
 		--plugin=protoc-gen-grpc=/usr/bin/grpc_php_plugin \
 		"{}"
 
@@ -82,7 +66,7 @@ genphpproto:
 dockerbuild:
 	#可选!!!
 	#生成 docker image
-	DOCKER_BUILDKIT=1 docker build --progress=plain . -t hetao29/go-grpc:1.0.1
+	sudo DOCKER_BUILDKIT=1 docker build --progress=plain . -t hetao29/go-grpc:1.0.1
 lint:
 	#可选!!!
 	find . -name "*.go" | xargs -I {} golint "{}"
