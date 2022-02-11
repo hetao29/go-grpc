@@ -4,21 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36042b7927b69193a5cb7639f0efb405",
+    "content-hash": "64338f83991c47b1fca70cc0a696da21",
     "packages": [
         {
             "name": "google/common-protos",
-            "version": "1.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/common-protos-php.git",
-                "reference": "89dd797f0620b3399121b027794b18de91e1269f"
+                "reference": "a1bcb7b37f1fa1c92d65c3c6339fc701a65916ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/common-protos-php/zipball/89dd797f0620b3399121b027794b18de91e1269f",
-                "reference": "89dd797f0620b3399121b027794b18de91e1269f",
-                "shasum": ""
+                "url": "https://api.github.com/repos/googleapis/common-protos-php/zipball/a1bcb7b37f1fa1c92d65c3c6339fc701a65916ee",
+                "reference": "a1bcb7b37f1fa1c92d65c3c6339fc701a65916ee",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "google/protobuf": "^3.6.1"
@@ -43,21 +49,31 @@
             "keywords": [
                 "google"
             ],
-            "time": "2019-07-24T01:25:25+00:00"
+            "support": {
+                "issues": "https://github.com/googleapis/common-protos-php/issues",
+                "source": "https://github.com/googleapis/common-protos-php/tree/2.0.0"
+            },
+            "time": "2022-01-13T20:17:53+00:00"
         },
         {
             "name": "google/protobuf",
-            "version": "v3.10.0",
+            "version": "v3.19.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "5dffdd2c84112e6c91fd84f92e3df96649426881"
+                "reference": "6f0a54186f133aff98f49d0f36a32d4a4f7d4cbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/5dffdd2c84112e6c91fd84f92e3df96649426881",
-                "reference": "5dffdd2c84112e6c91fd84f92e3df96649426881",
-                "shasum": ""
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/6f0a54186f133aff98f49d0f36a32d4a4f7d4cbd",
+                "reference": "6f0a54186f133aff98f49d0f36a32d4a4f7d4cbd",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.5.0"
@@ -84,27 +100,37 @@
             "keywords": [
                 "proto"
             ],
-            "time": "2019-10-03T20:08:37+00:00"
+            "support": {
+                "issues": "https://github.com/protocolbuffers/protobuf-php/issues",
+                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v3.19.4"
+            },
+            "time": "2022-01-28T17:23:32+00:00"
         },
         {
             "name": "grpc/grpc",
-            "version": "1.12.0",
+            "version": "1.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/grpc/grpc-php.git",
-                "reference": "ad3f6a2bb47475a32a7cdf23da3f67957e0e5aab"
+                "reference": "9fa44f104cb92e924d4da547323a97f3d8aca6d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/ad3f6a2bb47475a32a7cdf23da3f67957e0e5aab",
-                "reference": "ad3f6a2bb47475a32a7cdf23da3f67957e0e5aab",
-                "shasum": ""
+                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/9fa44f104cb92e924d4da547323a97f3d8aca6d4",
+                "reference": "9fa44f104cb92e924d4da547323a97f3d8aca6d4",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
-                "php": ">=5.5.0"
+                "php": ">=7.0.0"
             },
             "require-dev": {
-                "google/auth": "v0.9"
+                "google/auth": "^v1.3.0"
             },
             "suggest": {
                 "ext-protobuf": "For better performance, install the protobuf C extension.",
@@ -125,7 +151,10 @@
             "keywords": [
                 "rpc"
             ],
-            "time": "2018-05-15T22:09:16+00:00"
+            "support": {
+                "source": "https://github.com/grpc/grpc-php/tree/v1.42.0"
+            },
+            "time": "2021-11-19T08:13:51+00:00"
         }
     ],
     "packages-dev": [],
@@ -135,5 +164,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }

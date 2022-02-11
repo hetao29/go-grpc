@@ -1,13 +1,15 @@
 <?php
 define("ROOT",dirname(__FILE__)."/");
-define("ROOT_PROTO_LIB",ROOT."../proto/php/");
+define("ROOT_PROTO_LIB",ROOT."../proto/out/php/");
 
 require_once(ROOT."vendor/autoload.php");
 
 //注册自己的类
 spl_autoload_register(function($class){
-	$root = ROOT_PROTO_LIB.str_replace("\\","/",$class).".php";
-	require_once($root);
+	$file = ROOT_PROTO_LIB.str_replace("\\","/",$class).".php";
+	if(is_file($file)){
+		include_once($file);
+	}
 });
 
 try{
