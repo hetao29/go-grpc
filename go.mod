@@ -40,8 +40,8 @@ require (
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
+	golang.org/x/text v0.3.8 // indirect
 	golang.org/x/sys v0.1.0 // indirect
-	golang.org/x/text v0.3.6 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
 
