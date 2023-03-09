@@ -21,7 +21,7 @@ require (
 	github.com/golang/protobuf v1.5.2
 	github.com/gookit/config/v2 v2.0.27
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
-	golang.org/x/net v0.0.0-20211216030914-fe4d6282115f
+	golang.org/x/net v0.7.0
 	google.golang.org/api v0.66.0
 	google.golang.org/genproto v0.0.0-20220114231437-d2e6a121cae0
 	google.golang.org/grpc v1.43.0
@@ -38,8 +38,8 @@ require (
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
-	golang.org/x/sys v0.1.0 // indirect
-	golang.org/x/text v0.4.0 // indirect
+	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
 
