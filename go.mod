@@ -17,14 +17,15 @@ replace proto/order/info => ./proto/out/go/order/info
 replace proto/user/profile => ./proto/out/go/user/profile
 
 require (
-	github.com/envoyproxy/go-control-plane v0.9.10-0.20210907150352-cf90f659a021
+	github.com/envoyproxy/go-control-plane v0.10.3
 	github.com/golang/protobuf v1.5.2
 	github.com/gookit/config/v2 v2.0.27
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
+	github.com/lyft/protoc-gen-star v0.6.1
 	golang.org/x/net v0.7.0
-	google.golang.org/api v0.66.0
-	google.golang.org/genproto v0.0.0-20220114231437-d2e6a121cae0
-	google.golang.org/grpc v1.43.0
+	google.golang.org/api v0.103.0
+	google.golang.org/genproto v0.0.0-20230110181048-76db0878b65f
+	google.golang.org/grpc v1.53.0
 	modules/user v0.0.0-00010101000000-000000000000
 	modules/utility v0.0.0-00010101000000-000000000000
 	proto/user/info v0.0.0-00010101000000-000000000000
@@ -40,27 +41,31 @@ require (
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	golang.org/x/sys v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
-	google.golang.org/protobuf v1.27.1 // indirect
+	google.golang.org/protobuf v1.28.1 // indirect
 )
 
 require (
-	cloud.google.com/go/compute v0.1.0 // indirect
+	cloud.google.com/go/compute v1.15.1 // indirect
+	cloud.google.com/go/compute/metadata v0.2.3 // indirect
 	common v0.0.0-00010101000000-000000000000 // indirect
-	github.com/census-instrumentation/opencensus-proto v0.2.1 // indirect
-	github.com/cncf/xds/go v0.0.0-20211011173535-cb28da3451f1 // indirect
-	github.com/envoyproxy/protoc-gen-validate v0.1.0 // indirect
+	github.com/census-instrumentation/opencensus-proto v0.4.1 // indirect
+	github.com/cncf/xds/go v0.0.0-20230105202645-06c439db220b // indirect
+	github.com/envoyproxy/protoc-gen-validate v0.9.1 // indirect
 	github.com/go-redis/redis/v7 v7.4.1 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
-	github.com/googleapis/gax-go/v2 v2.1.1 // indirect
+	github.com/google/uuid v1.3.0 // indirect
+	github.com/googleapis/enterprise-certificate-proxy v0.2.0 // indirect
+	github.com/googleapis/gax-go/v2 v2.7.0 // indirect
 	github.com/gookit/color v1.5.2 // indirect
 	github.com/jinzhu/gorm v1.9.16 // indirect
-	github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4 // indirect
+	github.com/prometheus/client_model v0.2.0 // indirect
+	github.com/spf13/afero v1.9.2 // indirect
 	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
-	go.opencensus.io v0.23.0 // indirect
-	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect
+	go.opencensus.io v0.24.0 // indirect
+	golang.org/x/oauth2 v0.4.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/term v0.0.0-20220722155259-a9ba230a4035 // indirect
+	golang.org/x/term v0.5.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	proto/user/profile v0.0.0-00010101000000-000000000000 // indirect
 )
