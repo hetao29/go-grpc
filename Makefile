@@ -34,15 +34,6 @@ test_server:
 test_client:
 	./bin/client
 
-initjava:
-	#可选!!!
-	# 要生成 protobuf 的java 语言才需要安装，执行前，需要先 make initprotoc，不然编译不通过
-	git submodule init
-	git submodule update grpc/grpc-java
-	#https://github.com/grpc/grpc-java/tree/master/compiler
-	REALPREFIX=$(realpath .) && cd grpc/grpc-java/compiler && export CXXFLAGS="-I$$REALPREFIX/grpc/tmp/include/" LDFLAGS="-L$$REALPREFIX/grpc/tmp/lib/" && echo $$REALPREFIX && ../gradlew java_pluginExecutable
-	#cd grpc/grpc-java/compiler && export CXXFLAGS="-I/root/go-grpc/grpc/tmp/include/" LDFLAGS="-L/root/go-grpc/grpc/tmp/lib" && ../gradlew java_pluginExecutable
-
 genprotodoc:
 	sudo rm -rf ./proto/docs/md/*
 	sudo rm -rf ./proto/docs/html/*
