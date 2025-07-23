@@ -15,7 +15,7 @@ var Redis map[string]*redis.Ring
 // RedisConfig r
 var RedisConfig *config.Config
 
-//var err error;
+// var err error;
 func init() {
 	Redis = make(map[string]*redis.Ring)
 }
@@ -32,15 +32,15 @@ func GetRedis(nodeName string, nodeType string) *redis.Ring {
 	//log.Printf("\n GetDb 1:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
 	if len(master) == 0 {
 		master = RedisConfig.Strings("redis." + nodeName + ".master")
-	//	log.Printf("\n GetDb 2:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
+		//	log.Printf("\n GetDb 2:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
 	}
 	if len(master) == 0 {
 		master = RedisConfig.Strings("redis.default." + nodeType)
-	//	log.Printf("\n GetDb 3:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
+		//	log.Printf("\n GetDb 3:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
 	}
 	if len(master) == 0 {
 		master = RedisConfig.Strings("redis.default.master")
-	//	log.Printf("\n GetDb 3:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
+		//	log.Printf("\n GetDb 3:\n %#v,%d", master, len(master)) // map[string]string{"key":"val2", "key2":"val20"}
 		return nil
 	}
 	addrs := make(map[string]string)

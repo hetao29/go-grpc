@@ -12,7 +12,7 @@ import (
 	//"github.com/gookit/config/v2/json"
 )
 
-//Db joj
+// Db joj
 var Db map[string]*gorm.DB
 
 // DbConfig db

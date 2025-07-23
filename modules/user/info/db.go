@@ -2,19 +2,21 @@ package info
 
 import (
 	"encoding/json"
-	"modules/utility"
-	"time"
+	"github.com/hetao29/go-grpc/modules/utility"
 	"log"
+	"time"
 )
 
 //import "github.com/vmihailenco/msgpack/v4"
 
 /*
 CREATE TABLE `user` (
+
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`name` varchar(60) DEFAULT NULL,
 	`password` varchar(200) DEFAULT NULL,
 	PRIMARY KEY (`id`)
+
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 */
 func init() {
@@ -27,7 +29,8 @@ type User struct {
 }
 
 // RedisVersion 1
-var RedisVersion="1"
+var RedisVersion = "1"
+
 // MarshalBinary s
 func (s *User) MarshalBinary() ([]byte, error) {
 	return json.Marshal(s)
@@ -47,7 +50,7 @@ type Result struct {
 // GetByNameAndPwd 获取用户
 func GetByNameAndPwd(name string, pwd string) *User {
 	user := &User{}
-	key := RedisVersion +"_"+"user_" + name + "_" + pwd
+	key := RedisVersion + "_" + "user_" + name + "_" + pwd
 	redis := utility.GetRedis("default", "master")
 	err := redis.Get(key).Scan(user)
 	if err != nil {

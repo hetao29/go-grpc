@@ -1,22 +1,24 @@
 package profile
 
 import (
-//"fmt"
-//"net/http"
-//"encoding/json"
-//"database/sql"
-//"modules/utility"
-//"github.com/gin-gonic/gin"
-//"github.com/jinzhu/gorm"
-//_ "github.com/go-sql-driver/mysql"
+// "fmt"
+// "net/http"
+// "encoding/json"
+// "database/sql"
+// "modules/utility"
+// "github.com/gin-gonic/gin"
+// "github.com/jinzhu/gorm"
+// _ "github.com/go-sql-driver/mysql"
 )
 
 /*
 CREATE TABLE `user` (
+
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`name` varchar(60) DEFAULT NULL,
 	`password` varchar(200) DEFAULT NULL,
 	PRIMARY KEY (`id`)
+
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 */
 func init() {
