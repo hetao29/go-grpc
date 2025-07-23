@@ -1,20 +1,6 @@
-module main
+module github.com/hetao29/go-grpc
 
-go 1.23.0
-
-replace modules/user => ./modules/user
-
-replace common => ./proto/out/go/common
-
-replace modules/user/info => ./modules/user/info
-
-replace modules/utility => ./modules/utility
-
-replace proto/user/info => ./proto/out/go/user/info
-
-replace proto/order/info => ./proto/out/go/order/info
-
-replace proto/user/profile => ./proto/out/go/user/profile
+go 1.24.5
 
 require (
 	github.com/envoyproxy/go-control-plane v0.11.1-0.20230524094728-9239064ad72f
@@ -25,9 +11,6 @@ require (
 	google.golang.org/api v0.114.0
 	google.golang.org/genproto v0.0.0-20230410155749-daa745c078e1
 	google.golang.org/grpc v1.56.3
-	modules/user v0.0.0-00010101000000-000000000000
-	modules/utility v0.0.0-00010101000000-000000000000
-	proto/user/info v0.0.0-00010101000000-000000000000
 )
 
 require (
@@ -45,7 +28,6 @@ require (
 
 require (
 	cloud.google.com/go/compute/metadata v0.3.0 // indirect
-	common v0.0.0-00010101000000-000000000000 // indirect
 	github.com/census-instrumentation/opencensus-proto v0.4.1 // indirect
 	github.com/cncf/xds/go v0.0.0-20230607035331-e9ce68804cb4 // indirect
 	github.com/envoyproxy/protoc-gen-validate v0.10.1 // indirect
@@ -64,5 +46,4 @@ require (
 	golang.org/x/sync v0.11.0 // indirect
 	golang.org/x/term v0.29.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	proto/user/profile v0.0.0-00010101000000-000000000000 // indirect
 )

@@ -1,5 +1,5 @@
 #first build
-FROM golang:1.17-alpine as builder
+FROM golang:1.24-alpine3.21 as builder
 LABEL maintainer="hetao<hetao@hetao.name>"
 LABEL version="1.0"
 
@@ -12,15 +12,18 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 COPY . ./
 
+ARG VERSION
+ENV APP_VERSION=$VERSION
+RUN echo "Building image with version: $VERSION"
 RUN	--mount=type=cache,target=/root/.cache/go-build \
 	--mount=type=cache,target=/go/pkg/mod \
-	cd server && go build -v -ldflags "-X main.version=1.0.0 -X main.build=`date -u +%Y-%m-%d%H:%M:%S`" -o ../bin/server .
+	go build -v -ldflags "-X main.version=$VERSION -X main.build=`date -u +%Y-%m-%d%H:%M:%S`" -o bin/server ./server
 
 RUN rm -rf /var/lib/apk/*
 
 RUN tree /data/go-grpc -L 2
 
-FROM alpine:3.15 as prod
+FROM alpine:3.21 as prod
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \ 
 	&& apk update && apk add ca-certificates

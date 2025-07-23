@@ -1,0 +1,13 @@
+{
+	"require":{
+		"google/protobuf": "^v3.19.0",
+		"grpc/grpc": "^1.42.0",
+		"google/common-protos": "^2.0.0"
+	},
+	"repositories": {
+		"packagist": {
+			"type": "composer",
+			"url": "https://mirrors.aliyun.com/composer/"
+		}
+	}
+}

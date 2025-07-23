@@ -2,20 +2,19 @@ package main
 
 import (
 	"context"
-	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"google.golang.org/grpc"
 	"syscall"
-	//https://pkg.go.dev/log#pkg-constants
 	"log"
-	"modules/user"
-	"modules/utility"
 	"path/filepath"
-	"github.com/gookit/config/v2"
-	"github.com/gookit/config/v2/json"
 	"net"
 	"net/http"
 	"os"
 	"os/signal"
+	"google.golang.org/grpc"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/gookit/config/v2"
+	"github.com/gookit/config/v2/json"
+	"github.com/hetao29/go-grpc/modules/user"
+	"github.com/hetao29/go-grpc/modules/utility"
 )
 
 import _ "google.golang.org/grpc/encoding/gzip"

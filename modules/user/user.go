@@ -5,9 +5,9 @@ import (
 	//"fmt"
 	"google.golang.org/grpc"
 	//"proto/user/info"
-	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"modules/user/info"
-	"modules/user/profile"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/hetao29/go-grpc/modules/user/info"
+	"github.com/hetao29/go-grpc/modules/user/profile"
 	//status "google.golang.org/grpc/status"
 	//codes "google.golang.org/grpc/codes"
 )
