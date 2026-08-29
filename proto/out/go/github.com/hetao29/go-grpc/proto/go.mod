@@ -1,6 +1,6 @@
 module github.com/hetao29/go-grpc/proto
 
-go 1.24.5
+go 1.25.0
 
 require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.1
@@ -10,8 +10,8 @@ require (
 )
 
 require (
-	golang.org/x/net v0.40.0 // indirect
-	golang.org/x/sys v0.33.0 // indirect
-	golang.org/x/text v0.26.0 // indirect
+	golang.org/x/net v0.55.0 // indirect
+	golang.org/x/sys v0.45.0 // indirect
+	golang.org/x/text v0.37.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250715232539-7130f93afb79 // indirect
 )
